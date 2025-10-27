@@ -75,7 +75,7 @@ def train(
         train_dataset,
         batch_size=main_batch_size,
         shuffle=True,
-        num_workers=16,
+        num_workers=0,
         pin_memory=True,
     )
 
@@ -83,7 +83,7 @@ def train(
         valid_dataset,
         batch_size=256,
         shuffle=False,
-        num_workers=16,
+        num_workers=0,
         pin_memory=True,
     )
     
@@ -251,20 +251,24 @@ def train(
             aligned_mask = (label == bias_attr)
             skewed_mask = (label != bias_attr)
             
+            # Move masks to CPU for indexing CPU tensors
+            aligned_mask_cpu = aligned_mask.cpu()
+            skewed_mask_cpu = skewed_mask.cpu()
+            
             writer.add_scalar('loss_variance/b_ema', sample_loss_ema_b.parameter.var(), step)
             writer.add_scalar('loss_std/b_ema', sample_loss_ema_b.parameter.std(), step)
             writer.add_scalar('loss_variance/d_ema', sample_loss_ema_d.parameter.var(), step)
             writer.add_scalar('loss_std/d_ema', sample_loss_ema_d.parameter.std(), step)
 
             if aligned_mask.any().item():
-                writer.add_scalar("loss/b_train_aligned", loss_per_sample_b[aligned_mask].mean(), step)
-                writer.add_scalar("loss/d_train_aligned", loss_per_sample_d[aligned_mask].mean(), step)
-                writer.add_scalar('loss_weight/aligned', loss_weight[aligned_mask].mean(), step)
+                writer.add_scalar("loss/b_train_aligned", loss_per_sample_b[aligned_mask_cpu].mean(), step)
+                writer.add_scalar("loss/d_train_aligned", loss_per_sample_d[aligned_mask_cpu].mean(), step)
+                writer.add_scalar('loss_weight/aligned', loss_weight[aligned_mask_cpu].mean(), step)
 
             if skewed_mask.any().item():
-                writer.add_scalar("loss/b_train_skewed", loss_per_sample_b[skewed_mask].mean(), step)
-                writer.add_scalar("loss/d_train_skewed", loss_per_sample_d[skewed_mask].mean(), step)
-                writer.add_scalar('loss_weight/skewed', loss_weight[skewed_mask].mean(), step)
+                writer.add_scalar("loss/b_train_skewed", loss_per_sample_b[skewed_mask_cpu].mean(), step)
+                writer.add_scalar("loss/d_train_skewed", loss_per_sample_d[skewed_mask_cpu].mean(), step)
+                writer.add_scalar('loss_weight/skewed', loss_weight[skewed_mask_cpu].mean(), step)
 
         if step % main_valid_freq == 0:
             valid_attrwise_accs_b = evaluate(model_b, valid_loader)

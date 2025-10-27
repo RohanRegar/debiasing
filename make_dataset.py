@@ -56,7 +56,7 @@ def make_corrupted_cifar10(
     ):
     cifar10_dir = os.path.join(data_dir, "CIFAR10")
     corrupted_cifar10_dir = os.path.join(
-        data_dir, f"CorruptedCIFAR10-Type{postfix}-Skewed{skewed_ratio}-Severity{severity}"
+        data_dir, f"CorruptedCIFAR10-Skewed{skewed_ratio}-Severity{severity}-Type{postfix}"
     )
     os.makedirs(corrupted_cifar10_dir, exist_ok=True)
     print(corrupted_cifar10_dir)

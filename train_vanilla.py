@@ -75,7 +75,7 @@ def train(
         train_dataset,
         batch_size=main_batch_size,
         shuffle=True,
-        num_workers=16,
+        num_workers=0,
         pin_memory=True,
     )
 
@@ -83,7 +83,7 @@ def train(
         valid_dataset,
         batch_size=256,
         shuffle=False,
-        num_workers=16,
+        num_workers=0,
         pin_memory=True,
     )
 

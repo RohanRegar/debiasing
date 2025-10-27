@@ -1,0 +1,16 @@
+numpy==2.3.3
+opencv_python==4.12.0.88
+pandas==2.3.2
+Pillow==11.3.0
+sacred==0.8.7
+scipy==1.16.2
+skimage==0.0
+torch==2.6.0+cu126
+torch==2.5.1+cu121
+torchvision==0.21.0+cu126
+torchvision==0.20.1+cu121
+tqdm==4.66.4
+tqdm==4.67.1
+Wand==0.6.13
+~orch==2.2.2
+~orch==2.6.0

@@ -1,0 +1,378 @@
+{
+    "airplane": {
+        "is_living": false,
+        "typical_scale": "medium to large, often spans most of frame",
+        "typical_shape_and_parts": "Long fuselage with two wings and a tail section; smooth, aerodynamic body.",
+        "typical_colors_and_texture": "white, silver, gray, smooth metal surface",
+        "typical_contexts_and_backgrounds": [
+            "sky",
+            "runway",
+            "clouds",
+            "airport ground"
+        ],
+        "common_viewpoints": "side view or angled front view",
+        "motion_or_pose_cues": "flying with wings extended or on runway",
+        "distinctive_features_to_disambiguate": [
+            "two large wings",
+            "metallic smooth body",
+            "tail fin and engines",
+            "appears in sky or on tarmac",
+            "no visible legs or fur"
+        ],
+        "confusable_with": [
+            { "ship": "similar elongated body but appears on water" },
+            {
+                "automobile": "elongated body, confusion when viewed from side on ground"
+            }
+        ],
+        "one_line_caption": "A flying aircraft with wings and a smooth metallic body.",
+        "keywords": [
+            "fuselage",
+            "wings",
+            "engines",
+            "tail fin",
+            "sky",
+            "runway",
+            "metal",
+            "airborne",
+            "smooth",
+            "flight"
+        ]
+    },
+    "automobile": {
+        "is_living": false,
+        "typical_scale": "medium, fills much of frame",
+        "typical_shape_and_parts": "Rectangular body with four wheels, windows, and headlights.",
+        "typical_colors_and_texture": "varied solid colors, smooth metal and glass surfaces",
+        "typical_contexts_and_backgrounds": [
+            "road",
+            "pavement",
+            "parking lot",
+            "urban scenes"
+        ],
+        "common_viewpoints": "side or angled front view",
+        "motion_or_pose_cues": "stationary or driving on road",
+        "distinctive_features_to_disambiguate": [
+            "four visible wheels",
+            "compact body",
+            "windows and headlights",
+            "road background",
+            "no animal parts or wings"
+        ],
+        "confusable_with": [
+            { "truck": "both have wheels, differ in size and cargo area" },
+            { "ship": "elongated shape may confuse low-resolution images" }
+        ],
+        "one_line_caption": "A four-wheeled vehicle on a road or parking area.",
+        "keywords": [
+            "car body",
+            "wheels",
+            "headlights",
+            "windows",
+            "road",
+            "metal",
+            "vehicle",
+            "tires",
+            "glass",
+            "urban"
+        ]
+    },
+    "bird": {
+        "is_living": true,
+        "typical_scale": "small in frame",
+        "typical_shape_and_parts": "Compact body with wings, beak, and tail; two small legs.",
+        "typical_colors_and_texture": "feathers, brown, gray, or bright colors",
+        "typical_contexts_and_backgrounds": [
+            "sky",
+            "branches",
+            "trees",
+            "ground"
+        ],
+        "common_viewpoints": "side or angled view, sometimes top-down",
+        "motion_or_pose_cues": "flying with wings open or perched on branch",
+        "distinctive_features_to_disambiguate": [
+            "visible wings and beak",
+            "feathery texture",
+            "often airborne",
+            "small size relative to background",
+            "no fur or limbs like mammals"
+        ],
+        "confusable_with": [
+            { "airplane": "both seen in sky with spread wings" },
+            { "cat": "small body confusion at low resolution" }
+        ],
+        "one_line_caption": "A small feathered animal with wings and a pointed beak.",
+        "keywords": [
+            "beak",
+            "wings",
+            "tail",
+            "feathers",
+            "flight",
+            "sky",
+            "perched",
+            "small animal",
+            "avian",
+            "bird"
+        ]
+    },
+    "cat": {
+        "is_living": true,
+        "typical_scale": "medium, often fills much of frame",
+        "typical_shape_and_parts": "Rounded head, pointed ears, four legs, long tail.",
+        "typical_colors_and_texture": "fur in gray, brown, black, or white, soft texture",
+        "typical_contexts_and_backgrounds": [
+            "indoors",
+            "grass",
+            "carpet",
+            "home setting"
+        ],
+        "common_viewpoints": "side or front view, often crouched or sitting",
+        "motion_or_pose_cues": "sitting, walking, or lying down",
+        "distinctive_features_to_disambiguate": [
+            "pointed ears",
+            "slim body and short snout",
+            "smooth short fur",
+            "long tail",
+            "smaller than dog or horse"
+        ],
+        "confusable_with": [
+            { "dog": "similar body size and fur, different face shape" },
+            { "deer": "similar color but smaller and domestic" }
+        ],
+        "one_line_caption": "A small furry animal with pointed ears and a long tail.",
+        "keywords": [
+            "fur",
+            "ears",
+            "tail",
+            "whiskers",
+            "paws",
+            "mammal",
+            "pet",
+            "feline",
+            "soft coat",
+            "animal"
+        ]
+    },
+    "deer": {
+        "is_living": true,
+        "typical_scale": "large, often fills most of frame",
+        "typical_shape_and_parts": "Slender body with long legs, short tail, and sometimes antlers.",
+        "typical_colors_and_texture": "brown, tan, smooth short fur",
+        "typical_contexts_and_backgrounds": [
+            "grassland",
+            "forest",
+            "trees",
+            "natural terrain"
+        ],
+        "common_viewpoints": "side view, standing or grazing",
+        "motion_or_pose_cues": "standing alert or walking",
+        "distinctive_features_to_disambiguate": [
+            "long legs",
+            "antlers (for males)",
+            "slender body",
+            "forest background",
+            "larger than cat or dog"
+        ],
+        "confusable_with": [
+            { "horse": "similar body shape, smaller and thinner" },
+            { "dog": "four-legged and brown, but longer legs" }
+        ],
+        "one_line_caption": "A large brown animal with long legs and a slender body.",
+        "keywords": [
+            "antlers",
+            "legs",
+            "fur",
+            "forest",
+            "grass",
+            "animal",
+            "mammal",
+            "wildlife",
+            "brown coat",
+            "herbivore"
+        ]
+    },
+    "dog": {
+        "is_living": true,
+        "typical_scale": "medium, fills much of frame",
+        "typical_shape_and_parts": "Four-legged body with rounded head, short snout, and tail.",
+        "typical_colors_and_texture": "fur in brown, black, white, mixed patterns",
+        "typical_contexts_and_backgrounds": [
+            "grass",
+            "yard",
+            "home",
+            "outdoor path"
+        ],
+        "common_viewpoints": "side or front view, standing or sitting",
+        "motion_or_pose_cues": "sitting, running, or standing alert",
+        "distinctive_features_to_disambiguate": [
+            "rounded face and floppy ears",
+            "short fur or patches",
+            "domestic setting",
+            "medium size",
+            "visible paws"
+        ],
+        "confusable_with": [
+            { "cat": "both furry pets, cat has pointed ears" },
+            { "deer": "similar color but different size and shape" }
+        ],
+        "one_line_caption": "A four-legged furry pet animal with a rounded face.",
+        "keywords": [
+            "fur",
+            "tail",
+            "ears",
+            "paws",
+            "muzzle",
+            "mammal",
+            "pet",
+            "canine",
+            "animal",
+            "domestic"
+        ]
+    },
+    "frog": {
+        "is_living": true,
+        "typical_scale": "small in frame",
+        "typical_shape_and_parts": "Compact body with wide mouth, bulging eyes, and long hind legs.",
+        "typical_colors_and_texture": "green or brown, moist smooth skin",
+        "typical_contexts_and_backgrounds": [
+            "water",
+            "grass",
+            "leaves",
+            "pond area"
+        ],
+        "common_viewpoints": "top-down or side view",
+        "motion_or_pose_cues": "crouched or mid-jump",
+        "distinctive_features_to_disambiguate": [
+            "green skin",
+            "bulging eyes",
+            "no fur",
+            "sits on leaves or near water",
+            "short body, long legs"
+        ],
+        "confusable_with": [
+            { "bird": "small animal, similar colors in greenish tone" },
+            { "cat": "small body confusion at low resolution" }
+        ],
+        "one_line_caption": "A small green amphibian with smooth skin and bulging eyes.",
+        "keywords": [
+            "green skin",
+            "legs",
+            "eyes",
+            "pond",
+            "amphibian",
+            "jumping",
+            "moist",
+            "small animal",
+            "nature",
+            "reptile-like"
+        ]
+    },
+    "horse": {
+        "is_living": true,
+        "typical_scale": "large, often fills entire frame",
+        "typical_shape_and_parts": "Strong body with four long legs, mane, and long tail.",
+        "typical_colors_and_texture": "brown, black, or white, smooth short fur",
+        "typical_contexts_and_backgrounds": [
+            "grassland",
+            "fields",
+            "fence",
+            "outdoor scenes"
+        ],
+        "common_viewpoints": "side view, often standing or walking",
+        "motion_or_pose_cues": "running, standing, or grazing",
+        "distinctive_features_to_disambiguate": [
+            "mane along neck",
+            "long legs",
+            "large body",
+            "smooth coat",
+            "visible hooves"
+        ],
+        "confusable_with": [
+            { "deer": "similar body shape but thicker neck and mane" },
+            { "dog": "four-legged, but horse much larger" }
+        ],
+        "one_line_caption": "A large animal with long legs, a mane, and a tail.",
+        "keywords": [
+            "mane",
+            "legs",
+            "tail",
+            "hooves",
+            "fur",
+            "mammal",
+            "animal",
+            "farm",
+            "running",
+            "brown coat"
+        ]
+    },
+    "ship": {
+        "is_living": false,
+        "typical_scale": "large, often fills most of frame",
+        "typical_shape_and_parts": "Elongated hull, deck, and sometimes visible sails or superstructure.",
+        "typical_colors_and_texture": "white, gray, blue, smooth metal or painted surface",
+        "typical_contexts_and_backgrounds": ["water", "sea", "harbor", "docks"],
+        "common_viewpoints": "side or angled view on water",
+        "motion_or_pose_cues": "floating or moving across water surface",
+        "distinctive_features_to_disambiguate": [
+            "large hull",
+            "water background",
+            "no wheels",
+            "horizontal body orientation",
+            "absence of wings"
+        ],
+        "confusable_with": [
+            { "airplane": "elongated shape, sometimes similar proportions" },
+            { "truck": "rectangular shape may resemble hull at low detail" }
+        ],
+        "one_line_caption": "A large vessel floating or moving across the water.",
+        "keywords": [
+            "hull",
+            "deck",
+            "water",
+            "sea",
+            "vessel",
+            "boat",
+            "ship",
+            "harbor",
+            "smooth",
+            "transport"
+        ]
+    },
+    "truck": {
+        "is_living": false,
+        "typical_scale": "large, fills most of frame",
+        "typical_shape_and_parts": "Boxy front cab and long cargo area with multiple wheels.",
+        "typical_colors_and_texture": "varied solid colors, metallic smooth surface",
+        "typical_contexts_and_backgrounds": [
+            "road",
+            "highway",
+            "industrial areas"
+        ],
+        "common_viewpoints": "side or angled front view",
+        "motion_or_pose_cues": "driving or stationary on road",
+        "distinctive_features_to_disambiguate": [
+            "large cargo section",
+            "multiple large wheels",
+            "elevated height",
+            "rectangular cab",
+            "visible trailer in some cases"
+        ],
+        "confusable_with": [
+            { "automobile": "similar vehicle structure but larger" },
+            { "ship": "elongated body may resemble truck side view" }
+        ],
+        "one_line_caption": "A large road vehicle with a cab and cargo section.",
+        "keywords": [
+            "cargo",
+            "wheels",
+            "cab",
+            "road",
+            "metal",
+            "vehicle",
+            "transport",
+            "truck",
+            "industrial",
+            "freight"
+        ]
+    }
+}
