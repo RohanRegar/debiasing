@@ -1,6 +1,8 @@
 import argparse
 import os
 import sys
+import logging
+from datetime import datetime
 from typing import Tuple, Dict, Any
 
 import numpy as np
@@ -17,6 +19,47 @@ from data.cross_modal_dataset import build_dataloader_from_paths
 from module.cross_modal import CrossModalAutoencoders, JointCrossModalLoss, CrossModalClassifier
 
 
+class DualLogger:
+    """Logger that writes to both console and file simultaneously."""
+    
+    def __init__(self, log_file_path: str):
+        self.log_file_path = log_file_path
+        
+        # Create logger
+        self.logger = logging.getLogger('joint_training')
+        self.logger.setLevel(logging.INFO)
+        
+        # Clear any existing handlers
+        self.logger.handlers.clear()
+        
+        # Create formatter
+        formatter = logging.Formatter('%(asctime)s - %(message)s', 
+                                    datefmt='%Y-%m-%d %H:%M:%S')
+        
+        # Console handler
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setLevel(logging.INFO)
+        console_handler.setFormatter(formatter)
+        self.logger.addHandler(console_handler)
+        
+        # File handler
+        file_handler = logging.FileHandler(log_file_path, mode='w')
+        file_handler.setLevel(logging.INFO)
+        file_handler.setFormatter(formatter)
+        self.logger.addHandler(file_handler)
+        
+        # Prevent propagation to avoid duplicate messages
+        self.logger.propagate = False
+    
+    def info(self, message: str):
+        """Log info message to both console and file."""
+        self.logger.info(message)
+    
+    def print_and_log(self, message: str):
+        """Print to console and log to file (alias for info)."""
+        self.info(message)
+
+
 def get_optimized_hyperparameters(model_tag: str, fd_dim: int, ed_dim: int = 512) -> Dict[str, Any]:
     """Get optimized hyperparameters for each ResNet variant with joint training."""
     
@@ -24,29 +67,43 @@ def get_optimized_hyperparameters(model_tag: str, fd_dim: int, ed_dim: int = 512
         # fd_dim = 64, ed_dim = 512
         return {
             "latent_dim": 128,  # Shared latent dimension
-            "fd_hidden_dims": [128, 128],  # Visual path: 64 -> 128 -> 128 -> 128
+            "fd_hidden_dims": [80, 96, 112],  # Visual path: 64 -> 128 -> 128 -> 128
             "ed_hidden_dims": [384, 256],  # Text path: 512 -> 384 -> 256 -> 128
-            "clf_hidden_dims": [96, 64],  # Classifier: 128 -> 96 -> 64 -> 10
-            "lambda_self": 1.5,  # Self-reconstruction weight
-            "lambda_cross": 0.8,  # Cross-modal reconstruction weight
+            "clf_hidden_dims": [64, 32],  # Classifier: 128 -> 96 -> 64 -> 10
+            "lambda_self": 1.0,  # Self-reconstruction weight
+            "lambda_cross": 1.0,  # Cross-modal reconstruction weight
             "lambda_clf": 2.0,  # Classification loss weight (important for joint training)
-            "epochs": 150,  # Joint training epochs
+            "epochs": 100,  # Joint training epochs
             "lr": 2e-3,  # Learning rate
             "dropout": 0.2,  # Less dropout for smaller model
             "batch_size": 128,  # Smaller batches
             "grad_clip_norm": 2.0,  # Gradient clipping
         }
+        # return {
+        #     "latent_dim": 128,  # Shared latent dimension
+        #     "fd_hidden_dims": [128, 128],  # Visual path: 64 -> 128 -> 128 -> 128
+        #     "ed_hidden_dims": [384, 256],  # Text path: 512 -> 384 -> 256 -> 128
+        #     "clf_hidden_dims": [96, 64],  # Classifier: 128 -> 96 -> 64 -> 10
+        #     "lambda_self": 1.5,  # Self-reconstruction weight
+        #     "lambda_cross": 0.8,  # Cross-modal reconstruction weight
+        #     "lambda_clf": 2.0,  # Classification loss weight (important for joint training)
+        #     "epochs": 150,  # Joint training epochs
+        #     "lr": 2e-3,  # Learning rate
+        #     "dropout": 0.2,  # Less dropout for smaller model
+        #     "batch_size": 128,  # Smaller batches
+        #     "grad_clip_norm": 2.0,  # Gradient clipping
+        # }
     elif model_tag == "ResNet18":
         # fd_dim = 512, ed_dim = 512
         return {
-            "latent_dim": 256,  # Shared latent dimension
-            "fd_hidden_dims": [384, 320],  # Visual path: 512 -> 384 -> 320 -> 256
-            "ed_hidden_dims": [384, 320],  # Text path: 512 -> 384 -> 320 -> 256
-            "clf_hidden_dims": [192, 128, 64],  # Classifier: 256 -> 192 -> 128 -> 64 -> 10
-            "lambda_self": 1.2,
+            "latent_dim": 128,  # Shared latent dimension
+            "fd_hidden_dims": [384, 256],  # Visual path: 512 -> 384 -> 320 -> 256
+            "ed_hidden_dims": [384, 256],  # Text path: 512 -> 384 -> 320 -> 256
+            "clf_hidden_dims": [64, 32],  # Classifier: 256 -> 192 -> 128 -> 64 -> 10
+            "lambda_self": 1.0,
             "lambda_cross": 1.0,
-            "lambda_clf": 1.8,  # Classification loss weight
-            "epochs": 120,
+            "lambda_clf": 2.0,  # Classification loss weight
+            "epochs": 100,
             "lr": 1e-3,
             "dropout": 0.3,
             "batch_size": 64,
@@ -78,6 +135,8 @@ def train_joint_cross_modal(
     dataloader: DataLoader,
     eval_dataloader: DataLoader,
     hyperparams: Dict[str, Any],
+    logger: DualLogger,
+    output_dir: str,
     device: str = "cuda"
 ) -> Tuple[CrossModalAutoencoders, CrossModalClassifier]:
     """Train cross-modal autoencoders and classifier jointly."""
@@ -111,10 +170,10 @@ def train_joint_cross_modal(
     classifier.train()
     epochs = hyperparams["epochs"]
     
-    print(f"Joint training for {epochs} epochs...")
-    print(f"Loss weights - Self: {hyperparams['lambda_self']}, "
-          f"Cross: {hyperparams['lambda_cross']}, "
-          f"Classification: {hyperparams['lambda_clf']}")
+    logger.info(f"Joint training for {epochs} epochs...")
+    logger.info(f"Loss weights - Self: {hyperparams['lambda_self']}, "
+                f"Cross: {hyperparams['lambda_cross']}, "
+                f"Classification: {hyperparams['lambda_clf']}")
     
     best_eval_acc = 0.0
     
@@ -165,12 +224,12 @@ def train_joint_cross_modal(
             # Logging every 50 batches
             if batch_idx % 50 == 0:
                 train_acc = train_correct / max(1, train_total)
-                print(f"Epoch {epoch+1}/{epochs}, Batch {batch_idx}, "
-                      f"Total: {loss_dict['total_loss']:.4f}, "
-                      f"Recon: {loss_dict['recon_loss']:.4f}, "
-                      f"Clf: {loss_dict['clf_loss']:.4f}, "
-                      f"Train Acc: {train_acc:.4f}, "
-                      f"LR: {optimizer.param_groups[0]['lr']:.6f}")
+                logger.info(f"Epoch {epoch+1}/{epochs}, Batch {batch_idx}, "
+                           f"Total: {loss_dict['total_loss']:.4f}, "
+                           f"Recon: {loss_dict['recon_loss']:.4f}, "
+                           f"Clf: {loss_dict['clf_loss']:.4f}, "
+                           f"Train Acc: {train_acc:.4f}, "
+                           f"LR: {optimizer.param_groups[0]['lr']:.6f}")
         
         # Evaluation phase
         autoencoder.eval()
@@ -216,10 +275,10 @@ def train_joint_cross_modal(
         autoencoder.train()
         classifier.train()
         
-        print(f"Epoch {epoch+1}/{epochs} completed:")
-        print(f"  Train - Total: {avg_train_loss:.6f}, Recon: {avg_recon_loss:.6f}, "
-              f"Clf: {avg_clf_loss:.6f}, Acc: {train_acc:.4f}")
-        print(f"  Eval  - Total: {avg_eval_loss:.6f}, Acc: {eval_acc:.4f}")
+        logger.info(f"Epoch {epoch+1}/{epochs} completed:")
+        logger.info(f"  Train - Total: {avg_train_loss:.6f}, Recon: {avg_recon_loss:.6f}, "
+                   f"Clf: {avg_clf_loss:.6f}, Acc: {train_acc:.4f}")
+        logger.info(f"  Eval  - Total: {avg_eval_loss:.6f}, Acc: {eval_acc:.4f}")
         
         # Save best model based on evaluation accuracy
         if eval_acc > best_eval_acc:
@@ -233,8 +292,8 @@ def train_joint_cross_modal(
                 'eval_accuracy': eval_acc,
                 'hyperparameters': hyperparams
             }
-            torch.save(checkpoint, f"{args.output_dir}/joint_best_model.pth")
-            print(f"  New best model saved! Eval Acc: {eval_acc:.4f}")
+            torch.save(checkpoint, f"{output_dir}/joint_best_model.pth")
+            logger.info(f"  New best model saved! Eval Acc: {eval_acc:.4f}")
         
         # Save checkpoint every 20 epochs
         if (epoch + 1) % 20 == 0:
@@ -247,10 +306,10 @@ def train_joint_cross_modal(
                 'eval_accuracy': eval_acc,
                 'hyperparameters': hyperparams
             }
-            os.makedirs(f"{args.output_dir}/joint_ckpts", exist_ok=True)
-            torch.save(checkpoint, f"{args.output_dir}/joint_ckpts/joint_epoch_{epoch+1:03d}.pth")
+            os.makedirs(f"{output_dir}/joint_ckpts", exist_ok=True)
+            torch.save(checkpoint, f"{output_dir}/joint_ckpts/joint_epoch_{epoch+1:03d}.pth")
     
-    print(f"Joint training completed! Best eval accuracy: {best_eval_acc:.4f}")
+    logger.info(f"Joint training completed! Best eval accuracy: {best_eval_acc:.4f}")
     return autoencoder, classifier
 
 
@@ -269,15 +328,33 @@ def main():
     global args
     args = parser.parse_args()
     
+    # Create output directory
+    os.makedirs(args.output_dir, exist_ok=True)
+    
+    # Setup logging
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file = os.path.join(args.output_dir, f"joint_training_log_{timestamp}.txt")
+    logger = DualLogger(log_file)
+    
+    logger.info("="*80)
+    logger.info("JOINT CROSS-MODAL TRAINING SESSION STARTED")
+    logger.info("="*80)
+    logger.info(f"Timestamp: {timestamp}")
+    logger.info(f"Model: {args.model_tag}")
+    logger.info(f"Output directory: {args.output_dir}")
+    logger.info(f"Log file: {log_file}")
+    logger.info("")
+    
     # Load data
+    logger.info("Loading data...")
     fd_train_np = np.load(args.fd_train).astype(np.float32)
     y_train_np = np.load(args.y_train).astype(np.int64)
     fd_eval_np = np.load(args.fd_eval).astype(np.float32)
     y_eval_np = np.load(args.y_eval).astype(np.int64)
     
     fd_dim = fd_train_np.shape[1]
-    print(f"Visual feature dimension: {fd_dim}")
-    print(f"Training samples: {len(fd_train_np)}, Eval samples: {len(fd_eval_np)}")
+    logger.info(f"Visual feature dimension: {fd_dim}")
+    logger.info(f"Training samples: {len(fd_train_np)}, Eval samples: {len(fd_eval_np)}")
     
     # Infer text embedding dimension
     cifar10_names = [
@@ -292,12 +369,10 @@ def main():
     
     # Get optimized hyperparameters for this architecture
     hyperparams = get_optimized_hyperparameters(args.model_tag, fd_dim, ed_dim)
-    print(f"Joint training hyperparameters for {args.model_tag}:")
+    logger.info(f"Joint training hyperparameters for {args.model_tag}:")
     for k, v in hyperparams.items():
-        print(f"  {k}: {v}")
-    
-    # Create output directory
-    os.makedirs(args.output_dir, exist_ok=True)
+        logger.info(f"  {k}: {v}")
+    logger.info("")
     
     # Create dataloaders
     train_dataloader = build_dataloader_from_paths(
@@ -310,9 +385,11 @@ def main():
         batch_size=hyperparams["batch_size"], shuffle=False
     )
     
-    print(f"Text embedding dimension: {ed_dim}")
+    logger.info(f"Text embedding dimension: {ed_dim}")
+    logger.info("")
     
     # Initialize autoencoder with optimized architecture
+    logger.info("Initializing models...")
     autoencoder = CrossModalAutoencoders(
         fd_dim=fd_dim,
         ed_dim=ed_dim,
@@ -330,30 +407,39 @@ def main():
         dropout=hyperparams["dropout"]
     )
     
-    print(f"Model architecture:")
-    print(f"  Autoencoder:")
-    print(f"    fd_dim: {fd_dim} -> latent_dim: {hyperparams['latent_dim']}")
-    print(f"    fd_hidden_dims: {hyperparams['fd_hidden_dims']}")
-    print(f"    ed_dim: {ed_dim} -> latent_dim: {hyperparams['latent_dim']}")
-    print(f"    ed_hidden_dims: {hyperparams['ed_hidden_dims']}")
-    print(f"  Classifier:")
-    print(f"    latent_dim: {hyperparams['latent_dim']} -> num_classes: {args.num_classes}")
-    print(f"    clf_hidden_dims: {hyperparams['clf_hidden_dims']}")
+    logger.info(f"Model architecture:")
+    logger.info(f"  Autoencoder:")
+    logger.info(f"    fd_dim: {fd_dim} -> latent_dim: {hyperparams['latent_dim']}")
+    logger.info(f"    fd_hidden_dims: {hyperparams['fd_hidden_dims']}")
+    logger.info(f"    ed_dim: {ed_dim} -> latent_dim: {hyperparams['latent_dim']}")
+    logger.info(f"    ed_hidden_dims: {hyperparams['ed_hidden_dims']}")
+    logger.info(f"  Classifier:")
+    logger.info(f"    latent_dim: {hyperparams['latent_dim']} -> num_classes: {args.num_classes}")
+    logger.info(f"    clf_hidden_dims: {hyperparams['clf_hidden_dims']}")
+    logger.info("")
     
     # Joint training
+    logger.info("Starting joint training...")
     autoencoder, classifier = train_joint_cross_modal(
         autoencoder, classifier, train_dataloader, eval_dataloader, 
-        hyperparams, args.device
+        hyperparams, logger, args.output_dir, args.device
     )
     
     # Save final models
+    logger.info("")
+    logger.info("Saving final models...")
     final_checkpoint = {
         'autoencoder_state_dict': autoencoder.state_dict(),
         'classifier_state_dict': classifier.state_dict(),
         'hyperparameters': hyperparams
     }
     torch.save(final_checkpoint, f"{args.output_dir}/joint_final_model.pth")
-    print(f"Saved joint final model: {args.output_dir}/joint_final_model.pth")
+    logger.info(f"Saved joint final model: {args.output_dir}/joint_final_model.pth")
+    
+    logger.info("")
+    logger.info("="*80)
+    logger.info("JOINT CROSS-MODAL TRAINING SESSION COMPLETED")
+    logger.info("="*80)
 
 
 if __name__ == "__main__":

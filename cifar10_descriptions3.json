@@ -1,0 +1,102 @@
+{
+    "airplane": {
+        "description": "A large flying machine with wings, engines, and a streamlined metallic body.",
+        "key_features": [
+            "wings",
+            "engines",
+            "tail fin",
+            "metallic surface",
+            "appears in sky or runway"
+        ]
+    },
+    "automobile": {
+        "description": "A four-wheeled vehicle designed for road transport with a compact metal body.",
+        "key_features": [
+            "four wheels",
+            "windows",
+            "headlights",
+            "metal body",
+            "road background"
+        ]
+    },
+    "bird": {
+        "description": "A small feathered animal with wings, a beak, and a tail, often seen flying or perched.",
+        "key_features": [
+            "feathers",
+            "beak",
+            "wings",
+            "tail",
+            "perched or flying pose"
+        ]
+    },
+    "cat": {
+        "description": "A small furry mammal with pointed ears, whiskers, and a long tail.",
+        "key_features": [
+            "fur",
+            "pointed ears",
+            "whiskers",
+            "long tail",
+            "domestic setting"
+        ]
+    },
+    "deer": {
+        "description": "A slender brown mammal with long legs and antlers, found in forests or grasslands.",
+        "key_features": [
+            "antlers",
+            "long legs",
+            "brown fur",
+            "slender body",
+            "forest background"
+        ]
+    },
+    "dog": {
+        "description": "A medium-sized furry mammal with a rounded face, floppy ears, and a tail.",
+        "key_features": [
+            "fur",
+            "floppy ears",
+            "tail",
+            "paws",
+            "domestic or outdoor setting"
+        ]
+    },
+    "frog": {
+        "description": "A small green amphibian with smooth moist skin and long hind legs for jumping.",
+        "key_features": [
+            "green skin",
+            "bulging eyes",
+            "smooth texture",
+            "hind legs",
+            "near water"
+        ]
+    },
+    "horse": {
+        "description": "A large animal with long legs, a mane, and a tail, often seen running in open fields.",
+        "key_features": [
+            "mane",
+            "hooves",
+            "long legs",
+            "tail",
+            "grassland background"
+        ]
+    },
+    "ship": {
+        "description": "A large vessel floating on water with an elongated hull and deck structure.",
+        "key_features": [
+            "hull",
+            "deck",
+            "water background",
+            "no wheels",
+            "metal or painted surface"
+        ]
+    },
+    "truck": {
+        "description": "A large road vehicle with a front cab and extended cargo area for transport.",
+        "key_features": [
+            "cargo section",
+            "large wheels",
+            "rectangular cab",
+            "metal body",
+            "road setting"
+        ]
+    }
+}

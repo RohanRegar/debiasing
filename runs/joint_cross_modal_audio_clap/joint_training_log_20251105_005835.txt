@@ -1,0 +1,1150 @@
+2025-11-05 00:58:35 - ================================================================================
+2025-11-05 00:58:35 - JOINT CROSS-MODAL TRAINING SESSION STARTED
+2025-11-05 00:58:35 - ================================================================================
+2025-11-05 00:58:35 - Timestamp: 20251105_005835
+2025-11-05 00:58:35 - Model: ResNet20
+2025-11-05 00:58:35 - Output directory: runs\joint_cross_modal_audio_clap
+2025-11-05 00:58:35 - Log file: runs\joint_cross_modal_audio_clap\joint_training_log_20251105_005835.txt
+2025-11-05 00:58:35 - 
+2025-11-05 00:58:35 - Loading data...
+2025-11-05 00:58:35 - Visual feature dimension: 64
+2025-11-05 00:58:35 - Training samples: 50000, Eval samples: 10000
+2025-11-05 00:58:35 - Joint training hyperparameters for ResNet20:
+2025-11-05 00:58:35 -   latent_dim: 128
+2025-11-05 00:58:35 -   fd_hidden_dims: [80, 96, 112]
+2025-11-05 00:58:35 -   ed_hidden_dims: [384, 256]
+2025-11-05 00:58:35 -   clf_hidden_dims: [64, 32]
+2025-11-05 00:58:35 -   lambda_self: 1.0
+2025-11-05 00:58:35 -   lambda_cross: 1.0
+2025-11-05 00:58:35 -   lambda_clf: 2.0
+2025-11-05 00:58:35 -   epochs: 100
+2025-11-05 00:58:35 -   lr: 0.002
+2025-11-05 00:58:35 -   dropout: 0.2
+2025-11-05 00:58:35 -   batch_size: 128
+2025-11-05 00:58:35 -   grad_clip_norm: 2.0
+2025-11-05 00:58:35 - 
+2025-11-05 00:58:35 - Text embedding dimension: 512
+2025-11-05 00:58:35 - 
+2025-11-05 00:58:35 - Initializing models...
+2025-11-05 00:58:35 - Model architecture:
+2025-11-05 00:58:35 -   Autoencoder:
+2025-11-05 00:58:35 -     fd_dim: 64 -> latent_dim: 128
+2025-11-05 00:58:35 -     fd_hidden_dims: [80, 96, 112]
+2025-11-05 00:58:35 -     ed_dim: 512 -> latent_dim: 128
+2025-11-05 00:58:35 -     ed_hidden_dims: [384, 256]
+2025-11-05 00:58:35 -   Classifier:
+2025-11-05 00:58:35 -     latent_dim: 128 -> num_classes: 10
+2025-11-05 00:58:35 -     clf_hidden_dims: [64, 32]
+2025-11-05 00:58:35 - 
+2025-11-05 00:58:35 - Starting joint training...
+2025-11-05 00:58:37 - Joint training for 100 epochs...
+2025-11-05 00:58:37 - Loss weights - Self: 1.0, Cross: 1.0, Classification: 2.0
+2025-11-05 00:58:37 - Epoch 1/100, Batch 0, Total: 8.7309, Recon: 4.1373, Clf: 4.5937, Train Acc: 0.1484, LR: 0.002000
+2025-11-05 00:58:38 - Epoch 1/100, Batch 50, Total: 5.1347, Recon: 1.4660, Clf: 3.6687, Train Acc: 0.2224, LR: 0.002000
+2025-11-05 00:58:39 - Epoch 1/100, Batch 100, Total: 3.5119, Recon: 1.3480, Clf: 2.1640, Train Acc: 0.3526, LR: 0.002000
+2025-11-05 00:58:39 - Epoch 1/100, Batch 150, Total: 3.0836, Recon: 1.2818, Clf: 1.8018, Train Acc: 0.4406, LR: 0.002000
+2025-11-05 00:58:40 - Epoch 1/100, Batch 200, Total: 2.8184, Recon: 1.1334, Clf: 1.6849, Train Acc: 0.4987, LR: 0.002000
+2025-11-05 00:58:41 - Epoch 1/100, Batch 250, Total: 2.7493, Recon: 1.0371, Clf: 1.7122, Train Acc: 0.5420, LR: 0.002000
+2025-11-05 00:58:42 - Epoch 1/100, Batch 300, Total: 2.5691, Recon: 1.0266, Clf: 1.5425, Train Acc: 0.5760, LR: 0.002000
+2025-11-05 00:58:43 - Epoch 1/100, Batch 350, Total: 2.9116, Recon: 1.0873, Clf: 1.8243, Train Acc: 0.6009, LR: 0.002000
+2025-11-05 00:58:44 - Epoch 1/100 completed:
+2025-11-05 00:58:44 -   Train - Total: 3.497158, Recon: 1.274584, Clf: 2.222574, Acc: 0.6181
+2025-11-05 00:58:44 -   Eval  - Total: 9.131844, Acc: 0.3312
+2025-11-05 00:58:44 -   New best model saved! Eval Acc: 0.3312
+2025-11-05 00:58:44 - Epoch 2/100, Batch 0, Total: 2.6638, Recon: 0.9430, Clf: 1.7207, Train Acc: 0.7891, LR: 0.002000
+2025-11-05 00:58:45 - Epoch 2/100, Batch 50, Total: 2.6317, Recon: 0.9980, Clf: 1.6338, Train Acc: 0.7802, LR: 0.002000
+2025-11-05 00:58:45 - Epoch 2/100, Batch 100, Total: 2.4765, Recon: 0.9136, Clf: 1.5629, Train Acc: 0.7840, LR: 0.002000
+2025-11-05 00:58:46 - Epoch 2/100, Batch 150, Total: 1.8784, Recon: 0.9123, Clf: 0.9661, Train Acc: 0.7867, LR: 0.002000
+2025-11-05 00:58:47 - Epoch 2/100, Batch 200, Total: 2.2090, Recon: 0.9063, Clf: 1.3026, Train Acc: 0.7893, LR: 0.002000
+2025-11-05 00:58:48 - Epoch 2/100, Batch 250, Total: 2.0863, Recon: 0.9365, Clf: 1.1499, Train Acc: 0.7938, LR: 0.002000
+2025-11-05 00:58:48 - Epoch 2/100, Batch 300, Total: 2.2878, Recon: 0.9222, Clf: 1.3655, Train Acc: 0.7963, LR: 0.002000
+2025-11-05 00:58:49 - Epoch 2/100, Batch 350, Total: 2.0063, Recon: 0.8618, Clf: 1.1444, Train Acc: 0.7985, LR: 0.002000
+2025-11-05 00:58:50 - Epoch 2/100 completed:
+2025-11-05 00:58:50 -   Train - Total: 2.307216, Recon: 0.926646, Clf: 1.380570, Acc: 0.7998
+2025-11-05 00:58:50 -   Eval  - Total: 8.813212, Acc: 0.3093
+2025-11-05 00:58:50 - Epoch 3/100, Batch 0, Total: 1.9870, Recon: 0.8271, Clf: 1.1599, Train Acc: 0.8594, LR: 0.002000
+2025-11-05 00:58:51 - Epoch 3/100, Batch 50, Total: 2.0455, Recon: 0.9000, Clf: 1.1455, Train Acc: 0.8165, LR: 0.002000
+2025-11-05 00:58:52 - Epoch 3/100, Batch 100, Total: 2.3357, Recon: 0.9364, Clf: 1.3992, Train Acc: 0.8169, LR: 0.002000
+2025-11-05 00:58:53 - Epoch 3/100, Batch 150, Total: 2.0633, Recon: 0.9001, Clf: 1.1633, Train Acc: 0.8190, LR: 0.002000
+2025-11-05 00:58:54 - Epoch 3/100, Batch 200, Total: 1.8139, Recon: 0.9291, Clf: 0.8848, Train Acc: 0.8216, LR: 0.002000
+2025-11-05 00:58:55 - Epoch 3/100, Batch 250, Total: 1.9166, Recon: 0.9234, Clf: 0.9932, Train Acc: 0.8226, LR: 0.002000
+2025-11-05 00:58:56 - Epoch 3/100, Batch 300, Total: 1.8780, Recon: 0.9017, Clf: 0.9763, Train Acc: 0.8240, LR: 0.002000
+2025-11-05 00:58:57 - Epoch 3/100, Batch 350, Total: 2.2987, Recon: 0.9159, Clf: 1.3828, Train Acc: 0.8233, LR: 0.002000
+2025-11-05 00:58:58 - Epoch 3/100 completed:
+2025-11-05 00:58:58 -   Train - Total: 2.111789, Recon: 0.899342, Clf: 1.212447, Acc: 0.8243
+2025-11-05 00:58:58 -   Eval  - Total: 9.333898, Acc: 0.3030
+2025-11-05 00:58:58 - Epoch 4/100, Batch 0, Total: 1.7963, Recon: 0.7752, Clf: 1.0211, Train Acc: 0.8516, LR: 0.002000
+2025-11-05 00:58:59 - Epoch 4/100, Batch 50, Total: 2.1178, Recon: 0.8827, Clf: 1.2350, Train Acc: 0.8320, LR: 0.002000
+2025-11-05 00:58:59 - Epoch 4/100, Batch 100, Total: 2.1642, Recon: 0.8830, Clf: 1.2812, Train Acc: 0.8342, LR: 0.002000
+2025-11-05 00:59:00 - Epoch 4/100, Batch 150, Total: 2.0613, Recon: 0.8905, Clf: 1.1708, Train Acc: 0.8341, LR: 0.002000
+2025-11-05 00:59:01 - Epoch 4/100, Batch 200, Total: 1.7678, Recon: 0.8605, Clf: 0.9073, Train Acc: 0.8352, LR: 0.002000
+2025-11-05 00:59:02 - Epoch 4/100, Batch 250, Total: 2.5314, Recon: 1.0047, Clf: 1.5266, Train Acc: 0.8362, LR: 0.002000
+2025-11-05 00:59:02 - Epoch 4/100, Batch 300, Total: 2.3481, Recon: 0.8717, Clf: 1.4764, Train Acc: 0.8358, LR: 0.002000
+2025-11-05 00:59:03 - Epoch 4/100, Batch 350, Total: 2.0629, Recon: 0.9015, Clf: 1.1614, Train Acc: 0.8362, LR: 0.002000
+2025-11-05 00:59:04 - Epoch 4/100 completed:
+2025-11-05 00:59:04 -   Train - Total: 2.009212, Recon: 0.881144, Clf: 1.128067, Acc: 0.8359
+2025-11-05 00:59:04 -   Eval  - Total: 9.486254, Acc: 0.2986
+2025-11-05 00:59:04 - Epoch 5/100, Batch 0, Total: 1.8529, Recon: 0.8936, Clf: 0.9593, Train Acc: 0.8672, LR: 0.002000
+2025-11-05 00:59:05 - Epoch 5/100, Batch 50, Total: 2.2279, Recon: 0.9228, Clf: 1.3051, Train Acc: 0.8438, LR: 0.002000
+2025-11-05 00:59:05 - Epoch 5/100, Batch 100, Total: 1.6691, Recon: 0.8413, Clf: 0.8278, Train Acc: 0.8434, LR: 0.002000
+2025-11-05 00:59:06 - Epoch 5/100, Batch 150, Total: 2.0336, Recon: 0.9430, Clf: 1.0906, Train Acc: 0.8451, LR: 0.002000
+2025-11-05 00:59:07 - Epoch 5/100, Batch 200, Total: 2.1040, Recon: 0.9091, Clf: 1.1949, Train Acc: 0.8446, LR: 0.002000
+2025-11-05 00:59:08 - Epoch 5/100, Batch 250, Total: 1.8990, Recon: 0.8415, Clf: 1.0575, Train Acc: 0.8438, LR: 0.002000
+2025-11-05 00:59:08 - Epoch 5/100, Batch 300, Total: 1.7635, Recon: 0.7996, Clf: 0.9639, Train Acc: 0.8435, LR: 0.002000
+2025-11-05 00:59:09 - Epoch 5/100, Batch 350, Total: 1.7909, Recon: 0.8366, Clf: 0.9544, Train Acc: 0.8431, LR: 0.002000
+2025-11-05 00:59:10 - Epoch 5/100 completed:
+2025-11-05 00:59:10 -   Train - Total: 1.951022, Recon: 0.872994, Clf: 1.078028, Acc: 0.8431
+2025-11-05 00:59:10 -   Eval  - Total: 9.477509, Acc: 0.2935
+2025-11-05 00:59:10 - Epoch 6/100, Batch 0, Total: 1.7560, Recon: 0.9035, Clf: 0.8525, Train Acc: 0.8594, LR: 0.002000
+2025-11-05 00:59:11 - Epoch 6/100, Batch 50, Total: 1.8599, Recon: 0.8677, Clf: 0.9922, Train Acc: 0.8494, LR: 0.002000
+2025-11-05 00:59:12 - Epoch 6/100, Batch 100, Total: 1.6677, Recon: 0.8734, Clf: 0.7942, Train Acc: 0.8482, LR: 0.002000
+2025-11-05 00:59:12 - Epoch 6/100, Batch 150, Total: 1.8467, Recon: 0.8109, Clf: 1.0358, Train Acc: 0.8477, LR: 0.002000
+2025-11-05 00:59:13 - Epoch 6/100, Batch 200, Total: 1.6082, Recon: 0.8147, Clf: 0.7936, Train Acc: 0.8462, LR: 0.002000
+2025-11-05 00:59:14 - Epoch 6/100, Batch 250, Total: 1.8866, Recon: 0.8809, Clf: 1.0057, Train Acc: 0.8455, LR: 0.002000
+2025-11-05 00:59:15 - Epoch 6/100, Batch 300, Total: 1.6697, Recon: 0.8501, Clf: 0.8196, Train Acc: 0.8472, LR: 0.002000
+2025-11-05 00:59:15 - Epoch 6/100, Batch 350, Total: 2.2201, Recon: 0.8514, Clf: 1.3687, Train Acc: 0.8486, LR: 0.002000
+2025-11-05 00:59:16 - Epoch 6/100 completed:
+2025-11-05 00:59:16 -   Train - Total: 1.911799, Recon: 0.866176, Clf: 1.045623, Acc: 0.8485
+2025-11-05 00:59:16 -   Eval  - Total: 10.007504, Acc: 0.3001
+2025-11-05 00:59:16 - Epoch 7/100, Batch 0, Total: 1.8336, Recon: 0.9045, Clf: 0.9291, Train Acc: 0.8672, LR: 0.002000
+2025-11-05 00:59:17 - Epoch 7/100, Batch 50, Total: 1.9322, Recon: 0.8720, Clf: 1.0603, Train Acc: 0.8425, LR: 0.002000
+2025-11-05 00:59:18 - Epoch 7/100, Batch 100, Total: 2.0781, Recon: 0.8896, Clf: 1.1885, Train Acc: 0.8469, LR: 0.002000
+2025-11-05 00:59:19 - Epoch 7/100, Batch 150, Total: 2.0119, Recon: 0.8619, Clf: 1.1500, Train Acc: 0.8458, LR: 0.002000
+2025-11-05 00:59:19 - Epoch 7/100, Batch 200, Total: 2.3491, Recon: 0.8424, Clf: 1.5066, Train Acc: 0.8481, LR: 0.002000
+2025-11-05 00:59:20 - Epoch 7/100, Batch 250, Total: 1.4315, Recon: 0.7673, Clf: 0.6642, Train Acc: 0.8502, LR: 0.002000
+2025-11-05 00:59:21 - Epoch 7/100, Batch 300, Total: 1.6692, Recon: 0.8502, Clf: 0.8190, Train Acc: 0.8513, LR: 0.002000
+2025-11-05 00:59:21 - Epoch 7/100, Batch 350, Total: 1.8988, Recon: 0.8660, Clf: 1.0328, Train Acc: 0.8514, LR: 0.002000
+2025-11-05 00:59:22 - Epoch 7/100 completed:
+2025-11-05 00:59:22 -   Train - Total: 1.882893, Recon: 0.862507, Clf: 1.020386, Acc: 0.8513
+2025-11-05 00:59:22 -   Eval  - Total: 9.554026, Acc: 0.2998
+2025-11-05 00:59:22 - Epoch 8/100, Batch 0, Total: 1.8454, Recon: 0.8736, Clf: 0.9718, Train Acc: 0.8906, LR: 0.002000
+2025-11-05 00:59:23 - Epoch 8/100, Batch 50, Total: 1.7826, Recon: 0.8831, Clf: 0.8996, Train Acc: 0.8519, LR: 0.002000
+2025-11-05 00:59:24 - Epoch 8/100, Batch 100, Total: 1.8522, Recon: 0.8412, Clf: 1.0110, Train Acc: 0.8531, LR: 0.002000
+2025-11-05 00:59:25 - Epoch 8/100, Batch 150, Total: 1.8025, Recon: 0.8484, Clf: 0.9540, Train Acc: 0.8527, LR: 0.002000
+2025-11-05 00:59:25 - Epoch 8/100, Batch 200, Total: 1.6319, Recon: 0.8762, Clf: 0.7557, Train Acc: 0.8522, LR: 0.002000
+2025-11-05 00:59:26 - Epoch 8/100, Batch 250, Total: 1.9552, Recon: 0.9340, Clf: 1.0212, Train Acc: 0.8519, LR: 0.002000
+2025-11-05 00:59:27 - Epoch 8/100, Batch 300, Total: 1.8557, Recon: 0.8076, Clf: 1.0481, Train Acc: 0.8517, LR: 0.002000
+2025-11-05 00:59:27 - Epoch 8/100, Batch 350, Total: 1.9710, Recon: 0.8505, Clf: 1.1205, Train Acc: 0.8524, LR: 0.002000
+2025-11-05 00:59:28 - Epoch 8/100 completed:
+2025-11-05 00:59:28 -   Train - Total: 1.855455, Recon: 0.854853, Clf: 1.000602, Acc: 0.8528
+2025-11-05 00:59:28 -   Eval  - Total: 10.915590, Acc: 0.2860
+2025-11-05 00:59:28 - Epoch 9/100, Batch 0, Total: 1.8292, Recon: 0.9004, Clf: 0.9288, Train Acc: 0.8516, LR: 0.002000
+2025-11-05 00:59:29 - Epoch 9/100, Batch 50, Total: 1.7393, Recon: 0.8667, Clf: 0.8726, Train Acc: 0.8601, LR: 0.002000
+2025-11-05 00:59:30 - Epoch 9/100, Batch 100, Total: 1.6905, Recon: 0.8129, Clf: 0.8776, Train Acc: 0.8552, LR: 0.002000
+2025-11-05 00:59:31 - Epoch 9/100, Batch 150, Total: 2.1951, Recon: 0.8314, Clf: 1.3636, Train Acc: 0.8536, LR: 0.002000
+2025-11-05 00:59:31 - Epoch 9/100, Batch 200, Total: 1.5552, Recon: 0.8406, Clf: 0.7146, Train Acc: 0.8552, LR: 0.002000
+2025-11-05 00:59:32 - Epoch 9/100, Batch 250, Total: 1.7241, Recon: 0.8064, Clf: 0.9177, Train Acc: 0.8573, LR: 0.002000
+2025-11-05 00:59:33 - Epoch 9/100, Batch 300, Total: 1.9289, Recon: 0.8286, Clf: 1.1003, Train Acc: 0.8557, LR: 0.002000
+2025-11-05 00:59:34 - Epoch 9/100, Batch 350, Total: 1.7692, Recon: 0.8108, Clf: 0.9584, Train Acc: 0.8556, LR: 0.002000
+2025-11-05 00:59:35 - Epoch 9/100 completed:
+2025-11-05 00:59:35 -   Train - Total: 1.829751, Recon: 0.853747, Clf: 0.976003, Acc: 0.8559
+2025-11-05 00:59:35 -   Eval  - Total: 9.954980, Acc: 0.2850
+2025-11-05 00:59:35 - Epoch 10/100, Batch 0, Total: 1.6031, Recon: 0.8297, Clf: 0.7733, Train Acc: 0.8906, LR: 0.002000
+2025-11-05 00:59:35 - Epoch 10/100, Batch 50, Total: 1.7980, Recon: 0.8765, Clf: 0.9215, Train Acc: 0.8585, LR: 0.002000
+2025-11-05 00:59:36 - Epoch 10/100, Batch 100, Total: 1.6226, Recon: 0.7903, Clf: 0.8323, Train Acc: 0.8581, LR: 0.002000
+2025-11-05 00:59:37 - Epoch 10/100, Batch 150, Total: 1.7684, Recon: 0.8318, Clf: 0.9366, Train Acc: 0.8551, LR: 0.002000
+2025-11-05 00:59:37 - Epoch 10/100, Batch 200, Total: 1.5322, Recon: 0.7837, Clf: 0.7485, Train Acc: 0.8541, LR: 0.002000
+2025-11-05 00:59:38 - Epoch 10/100, Batch 250, Total: 1.6159, Recon: 0.8441, Clf: 0.7718, Train Acc: 0.8554, LR: 0.002000
+2025-11-05 00:59:39 - Epoch 10/100, Batch 300, Total: 1.7501, Recon: 0.9005, Clf: 0.8496, Train Acc: 0.8550, LR: 0.002000
+2025-11-05 00:59:40 - Epoch 10/100, Batch 350, Total: 1.7389, Recon: 0.8374, Clf: 0.9015, Train Acc: 0.8552, LR: 0.002000
+2025-11-05 00:59:41 - Epoch 10/100 completed:
+2025-11-05 00:59:41 -   Train - Total: 1.820776, Recon: 0.848497, Clf: 0.972278, Acc: 0.8558
+2025-11-05 00:59:41 -   Eval  - Total: 9.932390, Acc: 0.2971
+2025-11-05 00:59:41 - Epoch 11/100, Batch 0, Total: 1.7625, Recon: 0.8366, Clf: 0.9258, Train Acc: 0.8594, LR: 0.002000
+2025-11-05 00:59:41 - Epoch 11/100, Batch 50, Total: 2.0139, Recon: 0.8251, Clf: 1.1888, Train Acc: 0.8615, LR: 0.002000
+2025-11-05 00:59:42 - Epoch 11/100, Batch 100, Total: 1.6480, Recon: 0.9181, Clf: 0.7299, Train Acc: 0.8614, LR: 0.002000
+2025-11-05 00:59:43 - Epoch 11/100, Batch 150, Total: 1.7657, Recon: 0.8856, Clf: 0.8801, Train Acc: 0.8627, LR: 0.002000
+2025-11-05 00:59:44 - Epoch 11/100, Batch 200, Total: 1.9864, Recon: 0.8380, Clf: 1.1484, Train Acc: 0.8638, LR: 0.002000
+2025-11-05 00:59:44 - Epoch 11/100, Batch 250, Total: 1.8718, Recon: 0.9145, Clf: 0.9573, Train Acc: 0.8624, LR: 0.002000
+2025-11-05 00:59:45 - Epoch 11/100, Batch 300, Total: 1.6628, Recon: 0.7924, Clf: 0.8704, Train Acc: 0.8616, LR: 0.002000
+2025-11-05 00:59:46 - Epoch 11/100, Batch 350, Total: 1.8448, Recon: 0.9239, Clf: 0.9209, Train Acc: 0.8612, LR: 0.002000
+2025-11-05 00:59:47 - Epoch 11/100 completed:
+2025-11-05 00:59:47 -   Train - Total: 1.810414, Recon: 0.845473, Clf: 0.964941, Acc: 0.8599
+2025-11-05 00:59:47 -   Eval  - Total: 9.296924, Acc: 0.2850
+2025-11-05 00:59:47 - Epoch 12/100, Batch 0, Total: 1.8910, Recon: 0.9258, Clf: 0.9651, Train Acc: 0.8750, LR: 0.002000
+2025-11-05 00:59:47 - Epoch 12/100, Batch 50, Total: 2.1602, Recon: 0.8673, Clf: 1.2929, Train Acc: 0.8601, LR: 0.002000
+2025-11-05 00:59:48 - Epoch 12/100, Batch 100, Total: 1.7899, Recon: 0.8256, Clf: 0.9643, Train Acc: 0.8617, LR: 0.002000
+2025-11-05 00:59:49 - Epoch 12/100, Batch 150, Total: 2.5796, Recon: 0.8099, Clf: 1.7697, Train Acc: 0.8617, LR: 0.002000
+2025-11-05 00:59:50 - Epoch 12/100, Batch 200, Total: 1.8824, Recon: 0.9449, Clf: 0.9375, Train Acc: 0.8600, LR: 0.002000
+2025-11-05 00:59:50 - Epoch 12/100, Batch 250, Total: 1.9784, Recon: 0.8402, Clf: 1.1382, Train Acc: 0.8603, LR: 0.002000
+2025-11-05 00:59:51 - Epoch 12/100, Batch 300, Total: 2.0294, Recon: 0.9268, Clf: 1.1026, Train Acc: 0.8610, LR: 0.002000
+2025-11-05 00:59:52 - Epoch 12/100, Batch 350, Total: 1.7875, Recon: 0.8136, Clf: 0.9739, Train Acc: 0.8607, LR: 0.002000
+2025-11-05 00:59:53 - Epoch 12/100 completed:
+2025-11-05 00:59:53 -   Train - Total: 1.790832, Recon: 0.839123, Clf: 0.951709, Acc: 0.8604
+2025-11-05 00:59:53 -   Eval  - Total: 10.112619, Acc: 0.2759
+2025-11-05 00:59:53 - Epoch 13/100, Batch 0, Total: 1.8452, Recon: 0.8404, Clf: 1.0049, Train Acc: 0.8359, LR: 0.002000
+2025-11-05 00:59:54 - Epoch 13/100, Batch 50, Total: 1.4085, Recon: 0.7953, Clf: 0.6131, Train Acc: 0.8580, LR: 0.002000
+2025-11-05 00:59:54 - Epoch 13/100, Batch 100, Total: 1.6662, Recon: 0.7961, Clf: 0.8701, Train Acc: 0.8629, LR: 0.002000
+2025-11-05 00:59:55 - Epoch 13/100, Batch 150, Total: 1.9722, Recon: 0.9405, Clf: 1.0317, Train Acc: 0.8628, LR: 0.002000
+2025-11-05 00:59:56 - Epoch 13/100, Batch 200, Total: 1.6496, Recon: 0.7953, Clf: 0.8543, Train Acc: 0.8609, LR: 0.002000
+2025-11-05 00:59:57 - Epoch 13/100, Batch 250, Total: 1.7393, Recon: 0.8325, Clf: 0.9068, Train Acc: 0.8607, LR: 0.002000
+2025-11-05 00:59:57 - Epoch 13/100, Batch 300, Total: 1.7129, Recon: 0.7898, Clf: 0.9231, Train Acc: 0.8609, LR: 0.002000
+2025-11-05 00:59:58 - Epoch 13/100, Batch 350, Total: 2.3477, Recon: 0.8958, Clf: 1.4519, Train Acc: 0.8618, LR: 0.002000
+2025-11-05 00:59:59 - Epoch 13/100 completed:
+2025-11-05 00:59:59 -   Train - Total: 1.773345, Recon: 0.837930, Clf: 0.935414, Acc: 0.8619
+2025-11-05 00:59:59 -   Eval  - Total: 10.771913, Acc: 0.2840
+2025-11-05 00:59:59 - Epoch 14/100, Batch 0, Total: 2.1208, Recon: 0.9359, Clf: 1.1849, Train Acc: 0.8516, LR: 0.001400
+2025-11-05 01:00:00 - Epoch 14/100, Batch 50, Total: 1.4895, Recon: 0.7919, Clf: 0.6976, Train Acc: 0.8663, LR: 0.001400
+2025-11-05 01:00:01 - Epoch 14/100, Batch 100, Total: 2.0117, Recon: 0.7813, Clf: 1.2304, Train Acc: 0.8692, LR: 0.001400
+2025-11-05 01:00:01 - Epoch 14/100, Batch 150, Total: 1.5990, Recon: 0.8203, Clf: 0.7787, Train Acc: 0.8659, LR: 0.001400
+2025-11-05 01:00:02 - Epoch 14/100, Batch 200, Total: 1.4994, Recon: 0.7939, Clf: 0.7055, Train Acc: 0.8661, LR: 0.001400
+2025-11-05 01:00:03 - Epoch 14/100, Batch 250, Total: 1.6779, Recon: 0.8759, Clf: 0.8020, Train Acc: 0.8668, LR: 0.001400
+2025-11-05 01:00:03 - Epoch 14/100, Batch 300, Total: 1.5780, Recon: 0.7601, Clf: 0.8178, Train Acc: 0.8670, LR: 0.001400
+2025-11-05 01:00:04 - Epoch 14/100, Batch 350, Total: 1.6349, Recon: 0.7425, Clf: 0.8924, Train Acc: 0.8672, LR: 0.001400
+2025-11-05 01:00:05 - Epoch 14/100 completed:
+2025-11-05 01:00:05 -   Train - Total: 1.717392, Recon: 0.825301, Clf: 0.892091, Acc: 0.8673
+2025-11-05 01:00:05 -   Eval  - Total: 10.368609, Acc: 0.2852
+2025-11-05 01:00:05 - Epoch 15/100, Batch 0, Total: 1.5640, Recon: 0.7548, Clf: 0.8092, Train Acc: 0.8906, LR: 0.001400
+2025-11-05 01:00:06 - Epoch 15/100, Batch 50, Total: 1.5170, Recon: 0.8067, Clf: 0.7103, Train Acc: 0.8655, LR: 0.001400
+2025-11-05 01:00:07 - Epoch 15/100, Batch 100, Total: 1.5997, Recon: 0.8756, Clf: 0.7241, Train Acc: 0.8752, LR: 0.001400
+2025-11-05 01:00:07 - Epoch 15/100, Batch 150, Total: 1.6040, Recon: 0.7549, Clf: 0.8491, Train Acc: 0.8721, LR: 0.001400
+2025-11-05 01:00:08 - Epoch 15/100, Batch 200, Total: 1.6141, Recon: 0.8060, Clf: 0.8081, Train Acc: 0.8719, LR: 0.001400
+2025-11-05 01:00:09 - Epoch 15/100, Batch 250, Total: 1.6005, Recon: 0.8787, Clf: 0.7218, Train Acc: 0.8715, LR: 0.001400
+2025-11-05 01:00:10 - Epoch 15/100, Batch 300, Total: 1.6806, Recon: 0.8325, Clf: 0.8481, Train Acc: 0.8716, LR: 0.001400
+2025-11-05 01:00:10 - Epoch 15/100, Batch 350, Total: 1.6610, Recon: 0.7982, Clf: 0.8628, Train Acc: 0.8713, LR: 0.001400
+2025-11-05 01:00:11 - Epoch 15/100 completed:
+2025-11-05 01:00:11 -   Train - Total: 1.692267, Recon: 0.822034, Clf: 0.870233, Acc: 0.8717
+2025-11-05 01:00:11 -   Eval  - Total: 10.228731, Acc: 0.2890
+2025-11-05 01:00:11 - Epoch 16/100, Batch 0, Total: 1.8094, Recon: 0.8687, Clf: 0.9408, Train Acc: 0.8594, LR: 0.001400
+2025-11-05 01:00:12 - Epoch 16/100, Batch 50, Total: 1.6805, Recon: 0.9220, Clf: 0.7584, Train Acc: 0.8785, LR: 0.001400
+2025-11-05 01:00:13 - Epoch 16/100, Batch 100, Total: 1.7715, Recon: 0.7438, Clf: 1.0277, Train Acc: 0.8734, LR: 0.001400
+2025-11-05 01:00:13 - Epoch 16/100, Batch 150, Total: 1.6982, Recon: 0.8467, Clf: 0.8515, Train Acc: 0.8723, LR: 0.001400
+2025-11-05 01:00:14 - Epoch 16/100, Batch 200, Total: 1.5452, Recon: 0.7778, Clf: 0.7674, Train Acc: 0.8715, LR: 0.001400
+2025-11-05 01:00:15 - Epoch 16/100, Batch 250, Total: 1.9047, Recon: 0.8527, Clf: 1.0519, Train Acc: 0.8717, LR: 0.001400
+2025-11-05 01:00:16 - Epoch 16/100, Batch 300, Total: 1.3684, Recon: 0.7447, Clf: 0.6237, Train Acc: 0.8721, LR: 0.001400
+2025-11-05 01:00:16 - Epoch 16/100, Batch 350, Total: 1.4250, Recon: 0.8487, Clf: 0.5763, Train Acc: 0.8714, LR: 0.001400
+2025-11-05 01:00:17 - Epoch 16/100 completed:
+2025-11-05 01:00:17 -   Train - Total: 1.685835, Recon: 0.819736, Clf: 0.866099, Acc: 0.8709
+2025-11-05 01:00:17 -   Eval  - Total: 10.303495, Acc: 0.2794
+2025-11-05 01:00:17 - Epoch 17/100, Batch 0, Total: 1.2129, Recon: 0.7456, Clf: 0.4673, Train Acc: 0.9219, LR: 0.001400
+2025-11-05 01:00:18 - Epoch 17/100, Batch 50, Total: 1.6344, Recon: 0.8138, Clf: 0.8205, Train Acc: 0.8631, LR: 0.001400
+2025-11-05 01:00:19 - Epoch 17/100, Batch 100, Total: 1.5758, Recon: 0.7690, Clf: 0.8068, Train Acc: 0.8674, LR: 0.001400
+2025-11-05 01:00:20 - Epoch 17/100, Batch 150, Total: 1.1891, Recon: 0.8103, Clf: 0.3787, Train Acc: 0.8679, LR: 0.001400
+2025-11-05 01:00:20 - Epoch 17/100, Batch 200, Total: 1.7041, Recon: 0.8051, Clf: 0.8990, Train Acc: 0.8680, LR: 0.001400
+2025-11-05 01:00:21 - Epoch 17/100, Batch 250, Total: 1.6896, Recon: 0.8084, Clf: 0.8812, Train Acc: 0.8685, LR: 0.001400
+2025-11-05 01:00:22 - Epoch 17/100, Batch 300, Total: 1.4821, Recon: 0.9139, Clf: 0.5683, Train Acc: 0.8694, LR: 0.001400
+2025-11-05 01:00:22 - Epoch 17/100, Batch 350, Total: 2.0600, Recon: 0.8177, Clf: 1.2423, Train Acc: 0.8689, LR: 0.001400
+2025-11-05 01:00:23 - Epoch 17/100 completed:
+2025-11-05 01:00:23 -   Train - Total: 1.683805, Recon: 0.818576, Clf: 0.865229, Acc: 0.8698
+2025-11-05 01:00:23 -   Eval  - Total: 10.723402, Acc: 0.2817
+2025-11-05 01:00:23 - Epoch 18/100, Batch 0, Total: 1.7001, Recon: 0.8690, Clf: 0.8310, Train Acc: 0.8984, LR: 0.001400
+2025-11-05 01:00:24 - Epoch 18/100, Batch 50, Total: 1.8052, Recon: 0.7848, Clf: 1.0203, Train Acc: 0.8825, LR: 0.001400
+2025-11-05 01:00:25 - Epoch 18/100, Batch 100, Total: 1.7621, Recon: 0.8830, Clf: 0.8791, Train Acc: 0.8769, LR: 0.001400
+2025-11-05 01:00:26 - Epoch 18/100, Batch 150, Total: 1.6159, Recon: 0.7880, Clf: 0.8278, Train Acc: 0.8765, LR: 0.001400
+2025-11-05 01:00:26 - Epoch 18/100, Batch 200, Total: 1.7814, Recon: 0.8642, Clf: 0.9172, Train Acc: 0.8748, LR: 0.001400
+2025-11-05 01:00:27 - Epoch 18/100, Batch 250, Total: 1.5980, Recon: 0.8113, Clf: 0.7867, Train Acc: 0.8758, LR: 0.001400
+2025-11-05 01:00:28 - Epoch 18/100, Batch 300, Total: 2.4621, Recon: 0.9102, Clf: 1.5518, Train Acc: 0.8747, LR: 0.001400
+2025-11-05 01:00:29 - Epoch 18/100, Batch 350, Total: 1.6196, Recon: 0.7775, Clf: 0.8422, Train Acc: 0.8746, LR: 0.001400
+2025-11-05 01:00:29 - Epoch 18/100 completed:
+2025-11-05 01:00:29 -   Train - Total: 1.666156, Recon: 0.818119, Clf: 0.848038, Acc: 0.8741
+2025-11-05 01:00:29 -   Eval  - Total: 10.183946, Acc: 0.2824
+2025-11-05 01:00:30 - Epoch 19/100, Batch 0, Total: 1.6518, Recon: 0.8946, Clf: 0.7572, Train Acc: 0.8828, LR: 0.001400
+2025-11-05 01:00:30 - Epoch 19/100, Batch 50, Total: 1.7738, Recon: 0.8124, Clf: 0.9614, Train Acc: 0.8715, LR: 0.001400
+2025-11-05 01:00:31 - Epoch 19/100, Batch 100, Total: 1.8714, Recon: 0.8432, Clf: 1.0282, Train Acc: 0.8704, LR: 0.001400
+2025-11-05 01:00:32 - Epoch 19/100, Batch 150, Total: 1.5527, Recon: 0.8497, Clf: 0.7030, Train Acc: 0.8677, LR: 0.001400
+2025-11-05 01:00:32 - Epoch 19/100, Batch 200, Total: 1.9699, Recon: 0.8293, Clf: 1.1406, Train Acc: 0.8706, LR: 0.001400
+2025-11-05 01:00:33 - Epoch 19/100, Batch 250, Total: 1.9254, Recon: 0.8437, Clf: 1.0816, Train Acc: 0.8700, LR: 0.001400
+2025-11-05 01:00:34 - Epoch 19/100, Batch 300, Total: 1.8450, Recon: 0.7468, Clf: 1.0982, Train Acc: 0.8698, LR: 0.001400
+2025-11-05 01:00:35 - Epoch 19/100, Batch 350, Total: 1.8625, Recon: 0.8551, Clf: 1.0074, Train Acc: 0.8716, LR: 0.001400
+2025-11-05 01:00:36 - Epoch 19/100 completed:
+2025-11-05 01:00:36 -   Train - Total: 1.680359, Recon: 0.818244, Clf: 0.862115, Acc: 0.8715
+2025-11-05 01:00:36 -   Eval  - Total: 10.656852, Acc: 0.2795
+2025-11-05 01:00:36 - Epoch 20/100, Batch 0, Total: 1.6145, Recon: 0.8057, Clf: 0.8088, Train Acc: 0.8672, LR: 0.001400
+2025-11-05 01:00:36 - Epoch 20/100, Batch 50, Total: 1.6677, Recon: 0.7762, Clf: 0.8914, Train Acc: 0.8762, LR: 0.001400
+2025-11-05 01:00:37 - Epoch 20/100, Batch 100, Total: 1.3923, Recon: 0.7884, Clf: 0.6039, Train Acc: 0.8759, LR: 0.001400
+2025-11-05 01:00:38 - Epoch 20/100, Batch 150, Total: 1.8002, Recon: 0.8616, Clf: 0.9386, Train Acc: 0.8743, LR: 0.001400
+2025-11-05 01:00:39 - Epoch 20/100, Batch 200, Total: 1.8267, Recon: 0.8102, Clf: 1.0165, Train Acc: 0.8725, LR: 0.001400
+2025-11-05 01:00:39 - Epoch 20/100, Batch 250, Total: 1.4697, Recon: 0.7409, Clf: 0.7288, Train Acc: 0.8734, LR: 0.001400
+2025-11-05 01:00:40 - Epoch 20/100, Batch 300, Total: 1.3152, Recon: 0.8250, Clf: 0.4902, Train Acc: 0.8741, LR: 0.001400
+2025-11-05 01:00:41 - Epoch 20/100, Batch 350, Total: 2.0529, Recon: 0.8816, Clf: 1.1713, Train Acc: 0.8742, LR: 0.001400
+2025-11-05 01:00:42 - Epoch 20/100 completed:
+2025-11-05 01:00:42 -   Train - Total: 1.668312, Recon: 0.814763, Clf: 0.853549, Acc: 0.8738
+2025-11-05 01:00:42 -   Eval  - Total: 10.267605, Acc: 0.2863
+2025-11-05 01:00:42 - Epoch 21/100, Batch 0, Total: 1.5858, Recon: 0.7920, Clf: 0.7937, Train Acc: 0.8828, LR: 0.001400
+2025-11-05 01:00:43 - Epoch 21/100, Batch 50, Total: 1.4719, Recon: 0.7913, Clf: 0.6806, Train Acc: 0.8710, LR: 0.001400
+2025-11-05 01:00:43 - Epoch 21/100, Batch 100, Total: 2.1278, Recon: 0.8078, Clf: 1.3199, Train Acc: 0.8714, LR: 0.001400
+2025-11-05 01:00:44 - Epoch 21/100, Batch 150, Total: 1.7587, Recon: 0.8138, Clf: 0.9450, Train Acc: 0.8731, LR: 0.001400
+2025-11-05 01:00:45 - Epoch 21/100, Batch 200, Total: 2.0000, Recon: 0.8713, Clf: 1.1287, Train Acc: 0.8742, LR: 0.001400
+2025-11-05 01:00:46 - Epoch 21/100, Batch 250, Total: 2.0933, Recon: 0.8965, Clf: 1.1969, Train Acc: 0.8742, LR: 0.001400
+2025-11-05 01:00:46 - Epoch 21/100, Batch 300, Total: 1.6265, Recon: 0.7862, Clf: 0.8403, Train Acc: 0.8743, LR: 0.001400
+2025-11-05 01:00:47 - Epoch 21/100, Batch 350, Total: 1.7583, Recon: 0.8009, Clf: 0.9574, Train Acc: 0.8751, LR: 0.001400
+2025-11-05 01:00:48 - Epoch 21/100 completed:
+2025-11-05 01:00:48 -   Train - Total: 1.651912, Recon: 0.813623, Clf: 0.838289, Acc: 0.8747
+2025-11-05 01:00:48 -   Eval  - Total: 10.218401, Acc: 0.2768
+2025-11-05 01:00:48 - Epoch 22/100, Batch 0, Total: 1.8406, Recon: 0.8211, Clf: 1.0195, Train Acc: 0.8516, LR: 0.001400
+2025-11-05 01:00:49 - Epoch 22/100, Batch 50, Total: 1.6253, Recon: 0.8096, Clf: 0.8158, Train Acc: 0.8768, LR: 0.001400
+2025-11-05 01:00:50 - Epoch 22/100, Batch 100, Total: 1.4059, Recon: 0.7625, Clf: 0.6434, Train Acc: 0.8731, LR: 0.001400
+2025-11-05 01:00:50 - Epoch 22/100, Batch 150, Total: 1.2821, Recon: 0.7972, Clf: 0.4849, Train Acc: 0.8749, LR: 0.001400
+2025-11-05 01:00:51 - Epoch 22/100, Batch 200, Total: 1.4880, Recon: 0.7492, Clf: 0.7389, Train Acc: 0.8749, LR: 0.001400
+2025-11-05 01:00:52 - Epoch 22/100, Batch 250, Total: 1.7165, Recon: 0.7766, Clf: 0.9399, Train Acc: 0.8735, LR: 0.001400
+2025-11-05 01:00:52 - Epoch 22/100, Batch 300, Total: 1.5510, Recon: 0.8101, Clf: 0.7410, Train Acc: 0.8738, LR: 0.001400
+2025-11-05 01:00:53 - Epoch 22/100, Batch 350, Total: 1.5889, Recon: 0.8087, Clf: 0.7802, Train Acc: 0.8738, LR: 0.001400
+2025-11-05 01:00:54 - Epoch 22/100 completed:
+2025-11-05 01:00:54 -   Train - Total: 1.647391, Recon: 0.814572, Clf: 0.832819, Acc: 0.8743
+2025-11-05 01:00:54 -   Eval  - Total: 10.701386, Acc: 0.2773
+2025-11-05 01:00:54 - Epoch 23/100, Batch 0, Total: 1.6589, Recon: 0.7432, Clf: 0.9158, Train Acc: 0.8750, LR: 0.001400
+2025-11-05 01:00:55 - Epoch 23/100, Batch 50, Total: 1.7376, Recon: 0.8189, Clf: 0.9187, Train Acc: 0.8802, LR: 0.001400
+2025-11-05 01:00:56 - Epoch 23/100, Batch 100, Total: 1.3643, Recon: 0.7363, Clf: 0.6281, Train Acc: 0.8788, LR: 0.001400
+2025-11-05 01:00:56 - Epoch 23/100, Batch 150, Total: 1.3640, Recon: 0.7603, Clf: 0.6037, Train Acc: 0.8740, LR: 0.001400
+2025-11-05 01:00:57 - Epoch 23/100, Batch 200, Total: 1.5086, Recon: 0.8011, Clf: 0.7074, Train Acc: 0.8747, LR: 0.001400
+2025-11-05 01:00:58 - Epoch 23/100, Batch 250, Total: 1.3846, Recon: 0.7915, Clf: 0.5930, Train Acc: 0.8739, LR: 0.001400
+2025-11-05 01:00:59 - Epoch 23/100, Batch 300, Total: 1.9544, Recon: 0.8378, Clf: 1.1167, Train Acc: 0.8738, LR: 0.001400
+2025-11-05 01:00:59 - Epoch 23/100, Batch 350, Total: 1.8847, Recon: 0.8337, Clf: 1.0510, Train Acc: 0.8730, LR: 0.001400
+2025-11-05 01:01:00 - Epoch 23/100 completed:
+2025-11-05 01:01:00 -   Train - Total: 1.655037, Recon: 0.812070, Clf: 0.842967, Acc: 0.8725
+2025-11-05 01:01:00 -   Eval  - Total: 10.591520, Acc: 0.2872
+2025-11-05 01:01:00 - Epoch 24/100, Batch 0, Total: 1.6923, Recon: 0.8262, Clf: 0.8661, Train Acc: 0.8750, LR: 0.001400
+2025-11-05 01:01:01 - Epoch 24/100, Batch 50, Total: 1.7291, Recon: 0.8304, Clf: 0.8987, Train Acc: 0.8750, LR: 0.001400
+2025-11-05 01:01:02 - Epoch 24/100, Batch 100, Total: 1.8212, Recon: 0.8423, Clf: 0.9789, Train Acc: 0.8725, LR: 0.001400
+2025-11-05 01:01:03 - Epoch 24/100, Batch 150, Total: 1.5755, Recon: 0.7758, Clf: 0.7996, Train Acc: 0.8728, LR: 0.001400
+2025-11-05 01:01:03 - Epoch 24/100, Batch 200, Total: 1.5844, Recon: 0.8585, Clf: 0.7260, Train Acc: 0.8740, LR: 0.001400
+2025-11-05 01:01:04 - Epoch 24/100, Batch 250, Total: 1.6388, Recon: 0.8509, Clf: 0.7878, Train Acc: 0.8736, LR: 0.001400
+2025-11-05 01:01:05 - Epoch 24/100, Batch 300, Total: 1.6019, Recon: 0.8431, Clf: 0.7587, Train Acc: 0.8742, LR: 0.001400
+2025-11-05 01:01:06 - Epoch 24/100, Batch 350, Total: 1.4842, Recon: 0.8207, Clf: 0.6635, Train Acc: 0.8748, LR: 0.001400
+2025-11-05 01:01:06 - Epoch 24/100 completed:
+2025-11-05 01:01:06 -   Train - Total: 1.650737, Recon: 0.813211, Clf: 0.837526, Acc: 0.8741
+2025-11-05 01:01:06 -   Eval  - Total: 9.807936, Acc: 0.2818
+2025-11-05 01:01:06 - Epoch 25/100, Batch 0, Total: 1.6398, Recon: 0.8593, Clf: 0.7806, Train Acc: 0.8828, LR: 0.000980
+2025-11-05 01:01:07 - Epoch 25/100, Batch 50, Total: 1.6250, Recon: 0.8477, Clf: 0.7773, Train Acc: 0.8839, LR: 0.000980
+2025-11-05 01:01:08 - Epoch 25/100, Batch 100, Total: 1.6844, Recon: 0.7520, Clf: 0.9323, Train Acc: 0.8792, LR: 0.000980
+2025-11-05 01:01:09 - Epoch 25/100, Batch 150, Total: 1.3436, Recon: 0.8078, Clf: 0.5358, Train Acc: 0.8768, LR: 0.000980
+2025-11-05 01:01:09 - Epoch 25/100, Batch 200, Total: 1.6000, Recon: 0.7993, Clf: 0.8007, Train Acc: 0.8771, LR: 0.000980
+2025-11-05 01:01:10 - Epoch 25/100, Batch 250, Total: 1.6235, Recon: 0.8072, Clf: 0.8163, Train Acc: 0.8790, LR: 0.000980
+2025-11-05 01:01:11 - Epoch 25/100, Batch 300, Total: 1.3822, Recon: 0.7110, Clf: 0.6713, Train Acc: 0.8790, LR: 0.000980
+2025-11-05 01:01:12 - Epoch 25/100, Batch 350, Total: 1.8226, Recon: 0.7679, Clf: 1.0547, Train Acc: 0.8793, LR: 0.000980
+2025-11-05 01:01:13 - Epoch 25/100 completed:
+2025-11-05 01:01:13 -   Train - Total: 1.608818, Recon: 0.807292, Clf: 0.801526, Acc: 0.8793
+2025-11-05 01:01:13 -   Eval  - Total: 9.997754, Acc: 0.2851
+2025-11-05 01:01:13 - Epoch 26/100, Batch 0, Total: 2.0365, Recon: 0.8193, Clf: 1.2172, Train Acc: 0.8359, LR: 0.000980
+2025-11-05 01:01:13 - Epoch 26/100, Batch 50, Total: 1.5240, Recon: 0.7368, Clf: 0.7872, Train Acc: 0.8785, LR: 0.000980
+2025-11-05 01:01:14 - Epoch 26/100, Batch 100, Total: 1.8716, Recon: 0.7840, Clf: 1.0876, Train Acc: 0.8809, LR: 0.000980
+2025-11-05 01:01:15 - Epoch 26/100, Batch 150, Total: 1.7077, Recon: 0.7591, Clf: 0.9486, Train Acc: 0.8822, LR: 0.000980
+2025-11-05 01:01:16 - Epoch 26/100, Batch 200, Total: 1.2908, Recon: 0.7156, Clf: 0.5751, Train Acc: 0.8809, LR: 0.000980
+2025-11-05 01:01:16 - Epoch 26/100, Batch 250, Total: 1.3508, Recon: 0.7321, Clf: 0.6187, Train Acc: 0.8823, LR: 0.000980
+2025-11-05 01:01:17 - Epoch 26/100, Batch 300, Total: 1.6352, Recon: 0.7366, Clf: 0.8986, Train Acc: 0.8809, LR: 0.000980
+2025-11-05 01:01:18 - Epoch 26/100, Batch 350, Total: 1.5854, Recon: 0.8273, Clf: 0.7582, Train Acc: 0.8809, LR: 0.000980
+2025-11-05 01:01:19 - Epoch 26/100 completed:
+2025-11-05 01:01:19 -   Train - Total: 1.603956, Recon: 0.804659, Clf: 0.799297, Acc: 0.8807
+2025-11-05 01:01:19 -   Eval  - Total: 10.134931, Acc: 0.2814
+2025-11-05 01:01:19 - Epoch 27/100, Batch 0, Total: 1.3168, Recon: 0.7617, Clf: 0.5551, Train Acc: 0.9297, LR: 0.000980
+2025-11-05 01:01:20 - Epoch 27/100, Batch 50, Total: 1.5024, Recon: 0.7924, Clf: 0.7100, Train Acc: 0.8761, LR: 0.000980
+2025-11-05 01:01:20 - Epoch 27/100, Batch 100, Total: 1.5059, Recon: 0.7880, Clf: 0.7179, Train Acc: 0.8789, LR: 0.000980
+2025-11-05 01:01:21 - Epoch 27/100, Batch 150, Total: 1.5441, Recon: 0.8438, Clf: 0.7003, Train Acc: 0.8801, LR: 0.000980
+2025-11-05 01:01:22 - Epoch 27/100, Batch 200, Total: 1.7917, Recon: 0.8243, Clf: 0.9674, Train Acc: 0.8801, LR: 0.000980
+2025-11-05 01:01:22 - Epoch 27/100, Batch 250, Total: 2.0423, Recon: 0.8900, Clf: 1.1524, Train Acc: 0.8799, LR: 0.000980
+2025-11-05 01:01:23 - Epoch 27/100, Batch 300, Total: 1.6592, Recon: 0.7762, Clf: 0.8829, Train Acc: 0.8802, LR: 0.000980
+2025-11-05 01:01:24 - Epoch 27/100, Batch 350, Total: 1.3855, Recon: 0.7558, Clf: 0.6297, Train Acc: 0.8810, LR: 0.000980
+2025-11-05 01:01:25 - Epoch 27/100 completed:
+2025-11-05 01:01:25 -   Train - Total: 1.597877, Recon: 0.803598, Clf: 0.794279, Acc: 0.8808
+2025-11-05 01:01:25 -   Eval  - Total: 10.239086, Acc: 0.2811
+2025-11-05 01:01:25 - Epoch 28/100, Batch 0, Total: 1.4908, Recon: 0.8501, Clf: 0.6407, Train Acc: 0.9141, LR: 0.000980
+2025-11-05 01:01:26 - Epoch 28/100, Batch 50, Total: 1.5561, Recon: 0.8249, Clf: 0.7313, Train Acc: 0.8880, LR: 0.000980
+2025-11-05 01:01:26 - Epoch 28/100, Batch 100, Total: 1.6479, Recon: 0.8007, Clf: 0.8472, Train Acc: 0.8845, LR: 0.000980
+2025-11-05 01:01:27 - Epoch 28/100, Batch 150, Total: 1.4436, Recon: 0.8424, Clf: 0.6012, Train Acc: 0.8833, LR: 0.000980
+2025-11-05 01:01:28 - Epoch 28/100, Batch 200, Total: 1.5970, Recon: 0.7448, Clf: 0.8522, Train Acc: 0.8821, LR: 0.000980
+2025-11-05 01:01:29 - Epoch 28/100, Batch 250, Total: 1.4524, Recon: 0.7695, Clf: 0.6829, Train Acc: 0.8823, LR: 0.000980
+2025-11-05 01:01:29 - Epoch 28/100, Batch 300, Total: 1.7595, Recon: 0.8409, Clf: 0.9185, Train Acc: 0.8816, LR: 0.000980
+2025-11-05 01:01:30 - Epoch 28/100, Batch 350, Total: 1.4327, Recon: 0.7588, Clf: 0.6739, Train Acc: 0.8814, LR: 0.000980
+2025-11-05 01:01:31 - Epoch 28/100 completed:
+2025-11-05 01:01:31 -   Train - Total: 1.591037, Recon: 0.802589, Clf: 0.788448, Acc: 0.8806
+2025-11-05 01:01:31 -   Eval  - Total: 10.215123, Acc: 0.2837
+2025-11-05 01:01:31 - Epoch 29/100, Batch 0, Total: 1.4906, Recon: 0.8109, Clf: 0.6797, Train Acc: 0.8984, LR: 0.000980
+2025-11-05 01:01:32 - Epoch 29/100, Batch 50, Total: 1.5561, Recon: 0.8490, Clf: 0.7070, Train Acc: 0.8819, LR: 0.000980
+2025-11-05 01:01:33 - Epoch 29/100, Batch 100, Total: 1.7687, Recon: 0.8013, Clf: 0.9675, Train Acc: 0.8818, LR: 0.000980
+2025-11-05 01:01:33 - Epoch 29/100, Batch 150, Total: 1.4541, Recon: 0.8084, Clf: 0.6458, Train Acc: 0.8801, LR: 0.000980
+2025-11-05 01:01:34 - Epoch 29/100, Batch 200, Total: 1.7282, Recon: 0.7976, Clf: 0.9306, Train Acc: 0.8797, LR: 0.000980
+2025-11-05 01:01:35 - Epoch 29/100, Batch 250, Total: 1.8745, Recon: 0.8447, Clf: 1.0298, Train Acc: 0.8815, LR: 0.000980
+2025-11-05 01:01:36 - Epoch 29/100, Batch 300, Total: 1.3894, Recon: 0.7848, Clf: 0.6047, Train Acc: 0.8814, LR: 0.000980
+2025-11-05 01:01:36 - Epoch 29/100, Batch 350, Total: 1.5342, Recon: 0.8105, Clf: 0.7237, Train Acc: 0.8813, LR: 0.000980
+2025-11-05 01:01:37 - Epoch 29/100 completed:
+2025-11-05 01:01:37 -   Train - Total: 1.584055, Recon: 0.802504, Clf: 0.781551, Acc: 0.8815
+2025-11-05 01:01:37 -   Eval  - Total: 10.159959, Acc: 0.2834
+2025-11-05 01:01:37 - Epoch 30/100, Batch 0, Total: 1.4714, Recon: 0.7957, Clf: 0.6757, Train Acc: 0.8906, LR: 0.000980
+2025-11-05 01:01:38 - Epoch 30/100, Batch 50, Total: 1.4271, Recon: 0.7811, Clf: 0.6460, Train Acc: 0.8808, LR: 0.000980
+2025-11-05 01:01:39 - Epoch 30/100, Batch 100, Total: 1.6719, Recon: 0.8213, Clf: 0.8506, Train Acc: 0.8828, LR: 0.000980
+2025-11-05 01:01:39 - Epoch 30/100, Batch 150, Total: 1.3798, Recon: 0.7816, Clf: 0.5982, Train Acc: 0.8841, LR: 0.000980
+2025-11-05 01:01:40 - Epoch 30/100, Batch 200, Total: 1.4571, Recon: 0.7791, Clf: 0.6780, Train Acc: 0.8829, LR: 0.000980
+2025-11-05 01:01:41 - Epoch 30/100, Batch 250, Total: 1.7078, Recon: 0.8004, Clf: 0.9074, Train Acc: 0.8823, LR: 0.000980
+2025-11-05 01:01:42 - Epoch 30/100, Batch 300, Total: 1.6506, Recon: 0.7884, Clf: 0.8621, Train Acc: 0.8816, LR: 0.000980
+2025-11-05 01:01:42 - Epoch 30/100, Batch 350, Total: 1.8717, Recon: 0.8422, Clf: 1.0294, Train Acc: 0.8804, LR: 0.000980
+2025-11-05 01:01:43 - Epoch 30/100 completed:
+2025-11-05 01:01:43 -   Train - Total: 1.587021, Recon: 0.799947, Clf: 0.787075, Acc: 0.8808
+2025-11-05 01:01:43 -   Eval  - Total: 10.436437, Acc: 0.2818
+2025-11-05 01:01:43 - Epoch 31/100, Batch 0, Total: 1.7972, Recon: 0.7621, Clf: 1.0351, Train Acc: 0.8438, LR: 0.000980
+2025-11-05 01:01:44 - Epoch 31/100, Batch 50, Total: 1.5852, Recon: 0.7909, Clf: 0.7944, Train Acc: 0.8830, LR: 0.000980
+2025-11-05 01:01:45 - Epoch 31/100, Batch 100, Total: 1.8125, Recon: 0.8792, Clf: 0.9332, Train Acc: 0.8828, LR: 0.000980
+2025-11-05 01:01:45 - Epoch 31/100, Batch 150, Total: 1.5164, Recon: 0.7826, Clf: 0.7338, Train Acc: 0.8821, LR: 0.000980
+2025-11-05 01:01:46 - Epoch 31/100, Batch 200, Total: 1.4129, Recon: 0.8344, Clf: 0.5786, Train Acc: 0.8816, LR: 0.000980
+2025-11-05 01:01:47 - Epoch 31/100, Batch 250, Total: 1.5364, Recon: 0.7207, Clf: 0.8157, Train Acc: 0.8810, LR: 0.000980
+2025-11-05 01:01:48 - Epoch 31/100, Batch 300, Total: 2.0194, Recon: 0.8748, Clf: 1.1446, Train Acc: 0.8809, LR: 0.000980
+2025-11-05 01:01:48 - Epoch 31/100, Batch 350, Total: 1.3652, Recon: 0.7912, Clf: 0.5740, Train Acc: 0.8815, LR: 0.000980
+2025-11-05 01:01:49 - Epoch 31/100 completed:
+2025-11-05 01:01:49 -   Train - Total: 1.579775, Recon: 0.800051, Clf: 0.779723, Acc: 0.8813
+2025-11-05 01:01:49 -   Eval  - Total: 10.413508, Acc: 0.2846
+2025-11-05 01:01:49 - Epoch 32/100, Batch 0, Total: 1.5918, Recon: 0.7496, Clf: 0.8421, Train Acc: 0.8594, LR: 0.000980
+2025-11-05 01:01:50 - Epoch 32/100, Batch 50, Total: 1.4014, Recon: 0.8232, Clf: 0.5782, Train Acc: 0.8850, LR: 0.000980
+2025-11-05 01:01:51 - Epoch 32/100, Batch 100, Total: 1.3729, Recon: 0.7927, Clf: 0.5802, Train Acc: 0.8845, LR: 0.000980
+2025-11-05 01:01:51 - Epoch 32/100, Batch 150, Total: 1.5510, Recon: 0.8513, Clf: 0.6997, Train Acc: 0.8851, LR: 0.000980
+2025-11-05 01:01:52 - Epoch 32/100, Batch 200, Total: 1.4860, Recon: 0.8172, Clf: 0.6688, Train Acc: 0.8842, LR: 0.000980
+2025-11-05 01:01:53 - Epoch 32/100, Batch 250, Total: 1.8277, Recon: 0.8097, Clf: 1.0179, Train Acc: 0.8836, LR: 0.000980
+2025-11-05 01:01:54 - Epoch 32/100, Batch 300, Total: 1.7162, Recon: 0.8283, Clf: 0.8878, Train Acc: 0.8829, LR: 0.000980
+2025-11-05 01:01:54 - Epoch 32/100, Batch 350, Total: 1.4406, Recon: 0.7674, Clf: 0.6732, Train Acc: 0.8823, LR: 0.000980
+2025-11-05 01:01:55 - Epoch 32/100 completed:
+2025-11-05 01:01:55 -   Train - Total: 1.587197, Recon: 0.800289, Clf: 0.786909, Acc: 0.8822
+2025-11-05 01:01:55 -   Eval  - Total: 10.562083, Acc: 0.2784
+2025-11-05 01:01:55 - Epoch 33/100, Batch 0, Total: 1.3377, Recon: 0.7891, Clf: 0.5486, Train Acc: 0.9531, LR: 0.000980
+2025-11-05 01:01:56 - Epoch 33/100, Batch 50, Total: 1.8412, Recon: 0.8778, Clf: 0.9634, Train Acc: 0.8899, LR: 0.000980
+2025-11-05 01:01:57 - Epoch 33/100, Batch 100, Total: 1.8129, Recon: 0.8734, Clf: 0.9395, Train Acc: 0.8862, LR: 0.000980
+2025-11-05 01:01:58 - Epoch 33/100, Batch 150, Total: 1.6756, Recon: 0.7952, Clf: 0.8805, Train Acc: 0.8816, LR: 0.000980
+2025-11-05 01:01:58 - Epoch 33/100, Batch 200, Total: 1.5928, Recon: 0.7753, Clf: 0.8175, Train Acc: 0.8814, LR: 0.000980
+2025-11-05 01:01:59 - Epoch 33/100, Batch 250, Total: 1.5651, Recon: 0.7731, Clf: 0.7920, Train Acc: 0.8832, LR: 0.000980
+2025-11-05 01:02:00 - Epoch 33/100, Batch 300, Total: 1.3134, Recon: 0.7244, Clf: 0.5890, Train Acc: 0.8834, LR: 0.000980
+2025-11-05 01:02:00 - Epoch 33/100, Batch 350, Total: 1.3734, Recon: 0.7973, Clf: 0.5761, Train Acc: 0.8828, LR: 0.000980
+2025-11-05 01:02:01 - Epoch 33/100 completed:
+2025-11-05 01:02:01 -   Train - Total: 1.574878, Recon: 0.798022, Clf: 0.776856, Acc: 0.8828
+2025-11-05 01:02:01 -   Eval  - Total: 10.778260, Acc: 0.2803
+2025-11-05 01:02:02 - Epoch 34/100, Batch 0, Total: 1.5866, Recon: 0.7837, Clf: 0.8029, Train Acc: 0.8906, LR: 0.000980
+2025-11-05 01:02:02 - Epoch 34/100, Batch 50, Total: 1.4620, Recon: 0.7904, Clf: 0.6716, Train Acc: 0.8836, LR: 0.000980
+2025-11-05 01:02:03 - Epoch 34/100, Batch 100, Total: 1.6481, Recon: 0.8445, Clf: 0.8036, Train Acc: 0.8834, LR: 0.000980
+2025-11-05 01:02:04 - Epoch 34/100, Batch 150, Total: 1.5654, Recon: 0.7523, Clf: 0.8131, Train Acc: 0.8822, LR: 0.000980
+2025-11-05 01:02:04 - Epoch 34/100, Batch 200, Total: 1.4935, Recon: 0.7878, Clf: 0.7057, Train Acc: 0.8832, LR: 0.000980
+2025-11-05 01:02:05 - Epoch 34/100, Batch 250, Total: 1.5590, Recon: 0.8143, Clf: 0.7447, Train Acc: 0.8833, LR: 0.000980
+2025-11-05 01:02:06 - Epoch 34/100, Batch 300, Total: 1.4157, Recon: 0.8295, Clf: 0.5862, Train Acc: 0.8829, LR: 0.000980
+2025-11-05 01:02:07 - Epoch 34/100, Batch 350, Total: 1.5700, Recon: 0.8813, Clf: 0.6888, Train Acc: 0.8821, LR: 0.000980
+2025-11-05 01:02:08 - Epoch 34/100 completed:
+2025-11-05 01:02:08 -   Train - Total: 1.585559, Recon: 0.798925, Clf: 0.786635, Acc: 0.8820
+2025-11-05 01:02:08 -   Eval  - Total: 10.106549, Acc: 0.2809
+2025-11-05 01:02:08 - Epoch 35/100, Batch 0, Total: 1.5397, Recon: 0.7647, Clf: 0.7751, Train Acc: 0.8594, LR: 0.000980
+2025-11-05 01:02:08 - Epoch 35/100, Batch 50, Total: 1.4012, Recon: 0.7421, Clf: 0.6591, Train Acc: 0.8797, LR: 0.000980
+2025-11-05 01:02:09 - Epoch 35/100, Batch 100, Total: 1.5992, Recon: 0.7879, Clf: 0.8113, Train Acc: 0.8807, LR: 0.000980
+2025-11-05 01:02:10 - Epoch 35/100, Batch 150, Total: 1.4242, Recon: 0.7795, Clf: 0.6446, Train Acc: 0.8819, LR: 0.000980
+2025-11-05 01:02:10 - Epoch 35/100, Batch 200, Total: 1.1689, Recon: 0.7745, Clf: 0.3944, Train Acc: 0.8837, LR: 0.000980
+2025-11-05 01:02:11 - Epoch 35/100, Batch 250, Total: 1.4903, Recon: 0.7609, Clf: 0.7294, Train Acc: 0.8831, LR: 0.000980
+2025-11-05 01:02:12 - Epoch 35/100, Batch 300, Total: 1.2833, Recon: 0.8790, Clf: 0.4043, Train Acc: 0.8830, LR: 0.000980
+2025-11-05 01:02:13 - Epoch 35/100, Batch 350, Total: 1.5178, Recon: 0.7925, Clf: 0.7253, Train Acc: 0.8834, LR: 0.000980
+2025-11-05 01:02:14 - Epoch 35/100 completed:
+2025-11-05 01:02:14 -   Train - Total: 1.571957, Recon: 0.796833, Clf: 0.775124, Acc: 0.8834
+2025-11-05 01:02:14 -   Eval  - Total: 10.007619, Acc: 0.2844
+2025-11-05 01:02:14 - Epoch 36/100, Batch 0, Total: 1.5442, Recon: 0.9179, Clf: 0.6262, Train Acc: 0.8750, LR: 0.000686
+2025-11-05 01:02:14 - Epoch 36/100, Batch 50, Total: 1.3218, Recon: 0.7520, Clf: 0.5699, Train Acc: 0.8894, LR: 0.000686
+2025-11-05 01:02:15 - Epoch 36/100, Batch 100, Total: 1.5003, Recon: 0.8350, Clf: 0.6653, Train Acc: 0.8836, LR: 0.000686
+2025-11-05 01:02:16 - Epoch 36/100, Batch 150, Total: 1.6123, Recon: 0.8300, Clf: 0.7823, Train Acc: 0.8830, LR: 0.000686
+2025-11-05 01:02:17 - Epoch 36/100, Batch 200, Total: 1.6824, Recon: 0.7714, Clf: 0.9110, Train Acc: 0.8827, LR: 0.000686
+2025-11-05 01:02:17 - Epoch 36/100, Batch 250, Total: 1.4375, Recon: 0.7691, Clf: 0.6684, Train Acc: 0.8831, LR: 0.000686
+2025-11-05 01:02:18 - Epoch 36/100, Batch 300, Total: 1.6737, Recon: 0.7937, Clf: 0.8800, Train Acc: 0.8830, LR: 0.000686
+2025-11-05 01:02:19 - Epoch 36/100, Batch 350, Total: 1.3868, Recon: 0.7750, Clf: 0.6118, Train Acc: 0.8839, LR: 0.000686
+2025-11-05 01:02:20 - Epoch 36/100 completed:
+2025-11-05 01:02:20 -   Train - Total: 1.555777, Recon: 0.795278, Clf: 0.760500, Acc: 0.8848
+2025-11-05 01:02:20 -   Eval  - Total: 10.485681, Acc: 0.2817
+2025-11-05 01:02:20 - Epoch 37/100, Batch 0, Total: 1.4962, Recon: 0.8508, Clf: 0.6453, Train Acc: 0.8906, LR: 0.000686
+2025-11-05 01:02:21 - Epoch 37/100, Batch 50, Total: 1.5755, Recon: 0.7935, Clf: 0.7820, Train Acc: 0.8897, LR: 0.000686
+2025-11-05 01:02:21 - Epoch 37/100, Batch 100, Total: 1.6943, Recon: 0.7967, Clf: 0.8977, Train Acc: 0.8892, LR: 0.000686
+2025-11-05 01:02:22 - Epoch 37/100, Batch 150, Total: 1.5472, Recon: 0.7568, Clf: 0.7904, Train Acc: 0.8862, LR: 0.000686
+2025-11-05 01:02:23 - Epoch 37/100, Batch 200, Total: 1.3821, Recon: 0.7791, Clf: 0.6030, Train Acc: 0.8872, LR: 0.000686
+2025-11-05 01:02:23 - Epoch 37/100, Batch 250, Total: 1.9160, Recon: 0.8540, Clf: 1.0620, Train Acc: 0.8865, LR: 0.000686
+2025-11-05 01:02:24 - Epoch 37/100, Batch 300, Total: 1.7423, Recon: 0.7992, Clf: 0.9431, Train Acc: 0.8865, LR: 0.000686
+2025-11-05 01:02:25 - Epoch 37/100, Batch 350, Total: 1.4854, Recon: 0.7988, Clf: 0.6865, Train Acc: 0.8861, LR: 0.000686
+2025-11-05 01:02:26 - Epoch 37/100 completed:
+2025-11-05 01:02:26 -   Train - Total: 1.544848, Recon: 0.794006, Clf: 0.750842, Acc: 0.8856
+2025-11-05 01:02:26 -   Eval  - Total: 10.614869, Acc: 0.2799
+2025-11-05 01:02:26 - Epoch 38/100, Batch 0, Total: 1.4618, Recon: 0.7340, Clf: 0.7277, Train Acc: 0.8750, LR: 0.000686
+2025-11-05 01:02:27 - Epoch 38/100, Batch 50, Total: 1.5853, Recon: 0.7698, Clf: 0.8155, Train Acc: 0.8879, LR: 0.000686
+2025-11-05 01:02:27 - Epoch 38/100, Batch 100, Total: 1.8279, Recon: 0.8735, Clf: 0.9544, Train Acc: 0.8897, LR: 0.000686
+2025-11-05 01:02:28 - Epoch 38/100, Batch 150, Total: 1.4913, Recon: 0.8294, Clf: 0.6620, Train Acc: 0.8906, LR: 0.000686
+2025-11-05 01:02:29 - Epoch 38/100, Batch 200, Total: 1.2646, Recon: 0.7373, Clf: 0.5273, Train Acc: 0.8907, LR: 0.000686
+2025-11-05 01:02:29 - Epoch 38/100, Batch 250, Total: 1.4796, Recon: 0.8727, Clf: 0.6068, Train Acc: 0.8893, LR: 0.000686
+2025-11-05 01:02:30 - Epoch 38/100, Batch 300, Total: 1.4875, Recon: 0.7471, Clf: 0.7404, Train Acc: 0.8887, LR: 0.000686
+2025-11-05 01:02:31 - Epoch 38/100, Batch 350, Total: 1.7352, Recon: 0.7844, Clf: 0.9509, Train Acc: 0.8879, LR: 0.000686
+2025-11-05 01:02:32 - Epoch 38/100 completed:
+2025-11-05 01:02:32 -   Train - Total: 1.533278, Recon: 0.793301, Clf: 0.739977, Acc: 0.8885
+2025-11-05 01:02:32 -   Eval  - Total: 10.387271, Acc: 0.2826
+2025-11-05 01:02:32 - Epoch 39/100, Batch 0, Total: 1.6420, Recon: 0.7731, Clf: 0.8689, Train Acc: 0.8828, LR: 0.000686
+2025-11-05 01:02:33 - Epoch 39/100, Batch 50, Total: 1.7076, Recon: 0.7774, Clf: 0.9302, Train Acc: 0.8868, LR: 0.000686
+2025-11-05 01:02:33 - Epoch 39/100, Batch 100, Total: 1.6424, Recon: 0.8923, Clf: 0.7500, Train Acc: 0.8856, LR: 0.000686
+2025-11-05 01:02:34 - Epoch 39/100, Batch 150, Total: 1.5331, Recon: 0.7914, Clf: 0.7417, Train Acc: 0.8869, LR: 0.000686
+2025-11-05 01:02:35 - Epoch 39/100, Batch 200, Total: 1.5705, Recon: 0.7954, Clf: 0.7751, Train Acc: 0.8863, LR: 0.000686
+2025-11-05 01:02:35 - Epoch 39/100, Batch 250, Total: 1.6623, Recon: 0.8108, Clf: 0.8515, Train Acc: 0.8857, LR: 0.000686
+2025-11-05 01:02:36 - Epoch 39/100, Batch 300, Total: 1.4788, Recon: 0.7856, Clf: 0.6933, Train Acc: 0.8848, LR: 0.000686
+2025-11-05 01:02:37 - Epoch 39/100, Batch 350, Total: 1.5126, Recon: 0.7644, Clf: 0.7482, Train Acc: 0.8860, LR: 0.000686
+2025-11-05 01:02:38 - Epoch 39/100 completed:
+2025-11-05 01:02:38 -   Train - Total: 1.546411, Recon: 0.794467, Clf: 0.751944, Acc: 0.8863
+2025-11-05 01:02:38 -   Eval  - Total: 10.585969, Acc: 0.2780
+2025-11-05 01:02:38 - Epoch 40/100, Batch 0, Total: 1.7700, Recon: 0.7753, Clf: 0.9947, Train Acc: 0.8672, LR: 0.000686
+2025-11-05 01:02:39 - Epoch 40/100, Batch 50, Total: 1.6400, Recon: 0.7904, Clf: 0.8496, Train Acc: 0.8909, LR: 0.000686
+2025-11-05 01:02:39 - Epoch 40/100, Batch 100, Total: 1.4996, Recon: 0.7618, Clf: 0.7378, Train Acc: 0.8898, LR: 0.000686
+2025-11-05 01:02:40 - Epoch 40/100, Batch 150, Total: 1.6199, Recon: 0.7954, Clf: 0.8245, Train Acc: 0.8895, LR: 0.000686
+2025-11-05 01:02:41 - Epoch 40/100, Batch 200, Total: 1.4173, Recon: 0.8232, Clf: 0.5940, Train Acc: 0.8890, LR: 0.000686
+2025-11-05 01:02:42 - Epoch 40/100, Batch 250, Total: 1.9135, Recon: 0.8444, Clf: 1.0691, Train Acc: 0.8894, LR: 0.000686
+2025-11-05 01:02:42 - Epoch 40/100, Batch 300, Total: 1.7572, Recon: 0.7766, Clf: 0.9806, Train Acc: 0.8897, LR: 0.000686
+2025-11-05 01:02:43 - Epoch 40/100, Batch 350, Total: 1.6143, Recon: 0.7688, Clf: 0.8454, Train Acc: 0.8885, LR: 0.000686
+2025-11-05 01:02:44 - Epoch 40/100 completed:
+2025-11-05 01:02:44 -   Train - Total: 1.535831, Recon: 0.793381, Clf: 0.742449, Acc: 0.8890
+2025-11-05 01:02:44 -   Eval  - Total: 10.827005, Acc: 0.2764
+2025-11-05 01:02:44 - Epoch 41/100, Batch 0, Total: 1.6173, Recon: 0.8687, Clf: 0.7486, Train Acc: 0.8516, LR: 0.000686
+2025-11-05 01:02:45 - Epoch 41/100, Batch 50, Total: 1.4995, Recon: 0.7863, Clf: 0.7132, Train Acc: 0.8905, LR: 0.000686
+2025-11-05 01:02:46 - Epoch 41/100, Batch 100, Total: 1.5464, Recon: 0.8780, Clf: 0.6684, Train Acc: 0.8889, LR: 0.000686
+2025-11-05 01:02:46 - Epoch 41/100, Batch 150, Total: 1.8006, Recon: 0.8554, Clf: 0.9452, Train Acc: 0.8882, LR: 0.000686
+2025-11-05 01:02:47 - Epoch 41/100, Batch 200, Total: 1.6118, Recon: 0.8360, Clf: 0.7757, Train Acc: 0.8891, LR: 0.000686
+2025-11-05 01:02:48 - Epoch 41/100, Batch 250, Total: 1.5621, Recon: 0.7184, Clf: 0.8437, Train Acc: 0.8896, LR: 0.000686
+2025-11-05 01:02:48 - Epoch 41/100, Batch 300, Total: 1.5120, Recon: 0.8197, Clf: 0.6923, Train Acc: 0.8889, LR: 0.000686
+2025-11-05 01:02:49 - Epoch 41/100, Batch 350, Total: 1.7164, Recon: 0.8553, Clf: 0.8610, Train Acc: 0.8884, LR: 0.000686
+2025-11-05 01:02:50 - Epoch 41/100 completed:
+2025-11-05 01:02:50 -   Train - Total: 1.532913, Recon: 0.791744, Clf: 0.741169, Acc: 0.8875
+2025-11-05 01:02:50 -   Eval  - Total: 10.675948, Acc: 0.2755
+2025-11-05 01:02:50 - Epoch 42/100, Batch 0, Total: 1.3644, Recon: 0.7487, Clf: 0.6156, Train Acc: 0.8828, LR: 0.000686
+2025-11-05 01:02:51 - Epoch 42/100, Batch 50, Total: 1.5922, Recon: 0.7724, Clf: 0.8198, Train Acc: 0.8874, LR: 0.000686
+2025-11-05 01:02:52 - Epoch 42/100, Batch 100, Total: 1.5021, Recon: 0.8080, Clf: 0.6940, Train Acc: 0.8895, LR: 0.000686
+2025-11-05 01:02:52 - Epoch 42/100, Batch 150, Total: 1.6489, Recon: 0.8547, Clf: 0.7942, Train Acc: 0.8910, LR: 0.000686
+2025-11-05 01:02:53 - Epoch 42/100, Batch 200, Total: 1.7301, Recon: 0.8556, Clf: 0.8745, Train Acc: 0.8895, LR: 0.000686
+2025-11-05 01:02:54 - Epoch 42/100, Batch 250, Total: 1.4342, Recon: 0.7910, Clf: 0.6432, Train Acc: 0.8879, LR: 0.000686
+2025-11-05 01:02:54 - Epoch 42/100, Batch 300, Total: 1.5526, Recon: 0.8361, Clf: 0.7165, Train Acc: 0.8884, LR: 0.000686
+2025-11-05 01:02:55 - Epoch 42/100, Batch 350, Total: 1.6992, Recon: 0.7541, Clf: 0.9451, Train Acc: 0.8877, LR: 0.000686
+2025-11-05 01:02:56 - Epoch 42/100 completed:
+2025-11-05 01:02:56 -   Train - Total: 1.532000, Recon: 0.792319, Clf: 0.739681, Acc: 0.8883
+2025-11-05 01:02:56 -   Eval  - Total: 11.064170, Acc: 0.2778
+2025-11-05 01:02:56 - Epoch 43/100, Batch 0, Total: 1.4870, Recon: 0.7779, Clf: 0.7092, Train Acc: 0.9219, LR: 0.000686
+2025-11-05 01:02:57 - Epoch 43/100, Batch 50, Total: 1.3764, Recon: 0.7126, Clf: 0.6638, Train Acc: 0.8863, LR: 0.000686
+2025-11-05 01:02:58 - Epoch 43/100, Batch 100, Total: 1.4971, Recon: 0.7673, Clf: 0.7299, Train Acc: 0.8910, LR: 0.000686
+2025-11-05 01:02:58 - Epoch 43/100, Batch 150, Total: 1.6034, Recon: 0.8047, Clf: 0.7987, Train Acc: 0.8904, LR: 0.000686
+2025-11-05 01:02:59 - Epoch 43/100, Batch 200, Total: 1.5800, Recon: 0.8041, Clf: 0.7759, Train Acc: 0.8907, LR: 0.000686
+2025-11-05 01:03:00 - Epoch 43/100, Batch 250, Total: 1.3143, Recon: 0.8000, Clf: 0.5143, Train Acc: 0.8903, LR: 0.000686
+2025-11-05 01:03:01 - Epoch 43/100, Batch 300, Total: 1.5343, Recon: 0.8118, Clf: 0.7225, Train Acc: 0.8897, LR: 0.000686
+2025-11-05 01:03:01 - Epoch 43/100, Batch 350, Total: 1.7698, Recon: 0.8107, Clf: 0.9591, Train Acc: 0.8884, LR: 0.000686
+2025-11-05 01:03:02 - Epoch 43/100 completed:
+2025-11-05 01:03:02 -   Train - Total: 1.523480, Recon: 0.790869, Clf: 0.732611, Acc: 0.8879
+2025-11-05 01:03:02 -   Eval  - Total: 10.559473, Acc: 0.2822
+2025-11-05 01:03:02 - Epoch 44/100, Batch 0, Total: 1.7419, Recon: 0.7869, Clf: 0.9550, Train Acc: 0.8828, LR: 0.000686
+2025-11-05 01:03:03 - Epoch 44/100, Batch 50, Total: 1.4752, Recon: 0.7192, Clf: 0.7560, Train Acc: 0.8922, LR: 0.000686
+2025-11-05 01:03:04 - Epoch 44/100, Batch 100, Total: 1.5592, Recon: 0.7625, Clf: 0.7968, Train Acc: 0.8871, LR: 0.000686
+2025-11-05 01:03:04 - Epoch 44/100, Batch 150, Total: 1.4141, Recon: 0.7424, Clf: 0.6718, Train Acc: 0.8865, LR: 0.000686
+2025-11-05 01:03:05 - Epoch 44/100, Batch 200, Total: 1.3117, Recon: 0.7259, Clf: 0.5858, Train Acc: 0.8871, LR: 0.000686
+2025-11-05 01:03:06 - Epoch 44/100, Batch 250, Total: 1.1347, Recon: 0.7402, Clf: 0.3945, Train Acc: 0.8868, LR: 0.000686
+2025-11-05 01:03:07 - Epoch 44/100, Batch 300, Total: 1.6121, Recon: 0.8106, Clf: 0.8015, Train Acc: 0.8867, LR: 0.000686
+2025-11-05 01:03:07 - Epoch 44/100, Batch 350, Total: 1.5920, Recon: 0.8022, Clf: 0.7897, Train Acc: 0.8864, LR: 0.000686
+2025-11-05 01:03:08 - Epoch 44/100 completed:
+2025-11-05 01:03:08 -   Train - Total: 1.536908, Recon: 0.791823, Clf: 0.745085, Acc: 0.8865
+2025-11-05 01:03:08 -   Eval  - Total: 10.901811, Acc: 0.2734
+2025-11-05 01:03:08 - Epoch 45/100, Batch 0, Total: 1.3282, Recon: 0.7143, Clf: 0.6138, Train Acc: 0.8906, LR: 0.000686
+2025-11-05 01:03:09 - Epoch 45/100, Batch 50, Total: 1.5668, Recon: 0.8633, Clf: 0.7035, Train Acc: 0.8937, LR: 0.000686
+2025-11-05 01:03:10 - Epoch 45/100, Batch 100, Total: 1.4152, Recon: 0.7493, Clf: 0.6659, Train Acc: 0.8920, LR: 0.000686
+2025-11-05 01:03:11 - Epoch 45/100, Batch 150, Total: 1.3725, Recon: 0.7545, Clf: 0.6180, Train Acc: 0.8910, LR: 0.000686
+2025-11-05 01:03:11 - Epoch 45/100, Batch 200, Total: 1.4139, Recon: 0.7792, Clf: 0.6347, Train Acc: 0.8893, LR: 0.000686
+2025-11-05 01:03:12 - Epoch 45/100, Batch 250, Total: 1.4841, Recon: 0.7587, Clf: 0.7253, Train Acc: 0.8882, LR: 0.000686
+2025-11-05 01:03:13 - Epoch 45/100, Batch 300, Total: 1.3873, Recon: 0.7589, Clf: 0.6284, Train Acc: 0.8888, LR: 0.000686
+2025-11-05 01:03:14 - Epoch 45/100, Batch 350, Total: 1.3285, Recon: 0.7853, Clf: 0.5432, Train Acc: 0.8884, LR: 0.000686
+2025-11-05 01:03:15 - Epoch 45/100 completed:
+2025-11-05 01:03:15 -   Train - Total: 1.527895, Recon: 0.791175, Clf: 0.736721, Acc: 0.8890
+2025-11-05 01:03:15 -   Eval  - Total: 10.824146, Acc: 0.2787
+2025-11-05 01:03:15 - Epoch 46/100, Batch 0, Total: 1.4691, Recon: 0.7786, Clf: 0.6905, Train Acc: 0.8828, LR: 0.000686
+2025-11-05 01:03:15 - Epoch 46/100, Batch 50, Total: 1.5557, Recon: 0.7806, Clf: 0.7751, Train Acc: 0.8845, LR: 0.000686
+2025-11-05 01:03:16 - Epoch 46/100, Batch 100, Total: 1.7783, Recon: 0.8659, Clf: 0.9124, Train Acc: 0.8909, LR: 0.000686
+2025-11-05 01:03:17 - Epoch 46/100, Batch 150, Total: 1.5192, Recon: 0.7252, Clf: 0.7940, Train Acc: 0.8897, LR: 0.000686
+2025-11-05 01:03:17 - Epoch 46/100, Batch 200, Total: 1.5984, Recon: 0.7878, Clf: 0.8107, Train Acc: 0.8905, LR: 0.000686
+2025-11-05 01:03:18 - Epoch 46/100, Batch 250, Total: 1.2984, Recon: 0.8084, Clf: 0.4900, Train Acc: 0.8906, LR: 0.000686
+2025-11-05 01:03:19 - Epoch 46/100, Batch 300, Total: 1.4565, Recon: 0.8080, Clf: 0.6485, Train Acc: 0.8898, LR: 0.000686
+2025-11-05 01:03:19 - Epoch 46/100, Batch 350, Total: 2.0515, Recon: 0.8031, Clf: 1.2484, Train Acc: 0.8891, LR: 0.000686
+2025-11-05 01:03:20 - Epoch 46/100 completed:
+2025-11-05 01:03:20 -   Train - Total: 1.528691, Recon: 0.790384, Clf: 0.738307, Acc: 0.8880
+2025-11-05 01:03:20 -   Eval  - Total: 10.522562, Acc: 0.2748
+2025-11-05 01:03:20 - Epoch 47/100, Batch 0, Total: 1.3052, Recon: 0.7503, Clf: 0.5549, Train Acc: 0.9141, LR: 0.000480
+2025-11-05 01:03:21 - Epoch 47/100, Batch 50, Total: 1.7195, Recon: 0.8473, Clf: 0.8723, Train Acc: 0.8917, LR: 0.000480
+2025-11-05 01:03:22 - Epoch 47/100, Batch 100, Total: 1.6057, Recon: 0.7913, Clf: 0.8144, Train Acc: 0.8895, LR: 0.000480
+2025-11-05 01:03:22 - Epoch 47/100, Batch 150, Total: 1.6496, Recon: 0.7420, Clf: 0.9075, Train Acc: 0.8889, LR: 0.000480
+2025-11-05 01:03:23 - Epoch 47/100, Batch 200, Total: 1.7363, Recon: 0.8650, Clf: 0.8713, Train Acc: 0.8895, LR: 0.000480
+2025-11-05 01:03:24 - Epoch 47/100, Batch 250, Total: 1.5828, Recon: 0.8406, Clf: 0.7422, Train Acc: 0.8891, LR: 0.000480
+2025-11-05 01:03:25 - Epoch 47/100, Batch 300, Total: 1.7834, Recon: 0.8095, Clf: 0.9739, Train Acc: 0.8899, LR: 0.000480
+2025-11-05 01:03:25 - Epoch 47/100, Batch 350, Total: 1.4330, Recon: 0.7695, Clf: 0.6635, Train Acc: 0.8903, LR: 0.000480
+2025-11-05 01:03:26 - Epoch 47/100 completed:
+2025-11-05 01:03:26 -   Train - Total: 1.511156, Recon: 0.789729, Clf: 0.721427, Acc: 0.8901
+2025-11-05 01:03:26 -   Eval  - Total: 10.725387, Acc: 0.2783
+2025-11-05 01:03:26 - Epoch 48/100, Batch 0, Total: 1.4216, Recon: 0.8162, Clf: 0.6054, Train Acc: 0.8984, LR: 0.000480
+2025-11-05 01:03:27 - Epoch 48/100, Batch 50, Total: 1.3806, Recon: 0.7559, Clf: 0.6247, Train Acc: 0.8892, LR: 0.000480
+2025-11-05 01:03:28 - Epoch 48/100, Batch 100, Total: 1.3477, Recon: 0.7989, Clf: 0.5487, Train Acc: 0.8908, LR: 0.000480
+2025-11-05 01:03:28 - Epoch 48/100, Batch 150, Total: 1.3453, Recon: 0.7324, Clf: 0.6129, Train Acc: 0.8917, LR: 0.000480
+2025-11-05 01:03:29 - Epoch 48/100, Batch 200, Total: 1.2548, Recon: 0.7339, Clf: 0.5209, Train Acc: 0.8912, LR: 0.000480
+2025-11-05 01:03:30 - Epoch 48/100, Batch 250, Total: 1.4024, Recon: 0.7887, Clf: 0.6138, Train Acc: 0.8920, LR: 0.000480
+2025-11-05 01:03:30 - Epoch 48/100, Batch 300, Total: 1.5069, Recon: 0.7746, Clf: 0.7323, Train Acc: 0.8914, LR: 0.000480
+2025-11-05 01:03:31 - Epoch 48/100, Batch 350, Total: 1.6762, Recon: 0.7116, Clf: 0.9646, Train Acc: 0.8909, LR: 0.000480
+2025-11-05 01:03:32 - Epoch 48/100 completed:
+2025-11-05 01:03:32 -   Train - Total: 1.495842, Recon: 0.787531, Clf: 0.708311, Acc: 0.8913
+2025-11-05 01:03:32 -   Eval  - Total: 10.853800, Acc: 0.2703
+2025-11-05 01:03:32 - Epoch 49/100, Batch 0, Total: 1.4197, Recon: 0.8265, Clf: 0.5932, Train Acc: 0.9297, LR: 0.000480
+2025-11-05 01:03:33 - Epoch 49/100, Batch 50, Total: 1.4408, Recon: 0.7091, Clf: 0.7317, Train Acc: 0.8931, LR: 0.000480
+2025-11-05 01:03:34 - Epoch 49/100, Batch 100, Total: 2.0244, Recon: 0.7936, Clf: 1.2308, Train Acc: 0.8893, LR: 0.000480
+2025-11-05 01:03:34 - Epoch 49/100, Batch 150, Total: 1.2372, Recon: 0.7280, Clf: 0.5092, Train Acc: 0.8903, LR: 0.000480
+2025-11-05 01:03:35 - Epoch 49/100, Batch 200, Total: 1.5917, Recon: 0.8789, Clf: 0.7128, Train Acc: 0.8905, LR: 0.000480
+2025-11-05 01:03:36 - Epoch 49/100, Batch 250, Total: 1.1339, Recon: 0.7674, Clf: 0.3666, Train Acc: 0.8899, LR: 0.000480
+2025-11-05 01:03:36 - Epoch 49/100, Batch 300, Total: 1.3573, Recon: 0.7117, Clf: 0.6457, Train Acc: 0.8897, LR: 0.000480
+2025-11-05 01:03:37 - Epoch 49/100, Batch 350, Total: 1.5561, Recon: 0.7178, Clf: 0.8384, Train Acc: 0.8905, LR: 0.000480
+2025-11-05 01:03:38 - Epoch 49/100 completed:
+2025-11-05 01:03:38 -   Train - Total: 1.505110, Recon: 0.787120, Clf: 0.717990, Acc: 0.8908
+2025-11-05 01:03:38 -   Eval  - Total: 10.812763, Acc: 0.2799
+2025-11-05 01:03:38 - Epoch 50/100, Batch 0, Total: 1.7312, Recon: 0.7560, Clf: 0.9752, Train Acc: 0.8516, LR: 0.000480
+2025-11-05 01:03:39 - Epoch 50/100, Batch 50, Total: 1.7341, Recon: 0.7634, Clf: 0.9707, Train Acc: 0.8920, LR: 0.000480
+2025-11-05 01:03:40 - Epoch 50/100, Batch 100, Total: 1.3914, Recon: 0.7972, Clf: 0.5942, Train Acc: 0.8923, LR: 0.000480
+2025-11-05 01:03:40 - Epoch 50/100, Batch 150, Total: 1.4752, Recon: 0.8014, Clf: 0.6738, Train Acc: 0.8913, LR: 0.000480
+2025-11-05 01:03:41 - Epoch 50/100, Batch 200, Total: 1.3493, Recon: 0.7502, Clf: 0.5991, Train Acc: 0.8910, LR: 0.000480
+2025-11-05 01:03:42 - Epoch 50/100, Batch 250, Total: 1.2608, Recon: 0.7417, Clf: 0.5192, Train Acc: 0.8919, LR: 0.000480
+2025-11-05 01:03:42 - Epoch 50/100, Batch 300, Total: 1.8390, Recon: 0.8114, Clf: 1.0276, Train Acc: 0.8924, LR: 0.000480
+2025-11-05 01:03:43 - Epoch 50/100, Batch 350, Total: 1.4752, Recon: 0.7338, Clf: 0.7413, Train Acc: 0.8917, LR: 0.000480
+2025-11-05 01:03:44 - Epoch 50/100 completed:
+2025-11-05 01:03:44 -   Train - Total: 1.499098, Recon: 0.787776, Clf: 0.711322, Acc: 0.8917
+2025-11-05 01:03:44 -   Eval  - Total: 10.814005, Acc: 0.2787
+2025-11-05 01:03:44 - Epoch 51/100, Batch 0, Total: 1.3369, Recon: 0.8064, Clf: 0.5306, Train Acc: 0.9062, LR: 0.000480
+2025-11-05 01:03:45 - Epoch 51/100, Batch 50, Total: 1.4445, Recon: 0.7944, Clf: 0.6500, Train Acc: 0.8974, LR: 0.000480
+2025-11-05 01:03:45 - Epoch 51/100, Batch 100, Total: 1.5256, Recon: 0.8400, Clf: 0.6856, Train Acc: 0.8958, LR: 0.000480
+2025-11-05 01:03:46 - Epoch 51/100, Batch 150, Total: 1.4085, Recon: 0.7747, Clf: 0.6338, Train Acc: 0.8924, LR: 0.000480
+2025-11-05 01:03:47 - Epoch 51/100, Batch 200, Total: 1.5675, Recon: 0.8080, Clf: 0.7595, Train Acc: 0.8921, LR: 0.000480
+2025-11-05 01:03:48 - Epoch 51/100, Batch 250, Total: 1.6432, Recon: 0.7973, Clf: 0.8458, Train Acc: 0.8915, LR: 0.000480
+2025-11-05 01:03:48 - Epoch 51/100, Batch 300, Total: 1.3940, Recon: 0.7550, Clf: 0.6390, Train Acc: 0.8908, LR: 0.000480
+2025-11-05 01:03:49 - Epoch 51/100, Batch 350, Total: 1.6224, Recon: 0.8308, Clf: 0.7916, Train Acc: 0.8908, LR: 0.000480
+2025-11-05 01:03:50 - Epoch 51/100 completed:
+2025-11-05 01:03:50 -   Train - Total: 1.492863, Recon: 0.788179, Clf: 0.704684, Acc: 0.8915
+2025-11-05 01:03:50 -   Eval  - Total: 10.879149, Acc: 0.2784
+2025-11-05 01:03:50 - Epoch 52/100, Batch 0, Total: 1.7546, Recon: 0.8563, Clf: 0.8983, Train Acc: 0.8203, LR: 0.000480
+2025-11-05 01:03:51 - Epoch 52/100, Batch 50, Total: 2.0279, Recon: 0.7960, Clf: 1.2318, Train Acc: 0.8915, LR: 0.000480
+2025-11-05 01:03:52 - Epoch 52/100, Batch 100, Total: 1.4256, Recon: 0.7958, Clf: 0.6298, Train Acc: 0.8923, LR: 0.000480
+2025-11-05 01:03:52 - Epoch 52/100, Batch 150, Total: 1.2998, Recon: 0.7959, Clf: 0.5040, Train Acc: 0.8920, LR: 0.000480
+2025-11-05 01:03:53 - Epoch 52/100, Batch 200, Total: 1.6260, Recon: 0.7418, Clf: 0.8842, Train Acc: 0.8924, LR: 0.000480
+2025-11-05 01:03:54 - Epoch 52/100, Batch 250, Total: 1.3554, Recon: 0.7491, Clf: 0.6063, Train Acc: 0.8918, LR: 0.000480
+2025-11-05 01:03:54 - Epoch 52/100, Batch 300, Total: 1.5105, Recon: 0.8305, Clf: 0.6799, Train Acc: 0.8913, LR: 0.000480
+2025-11-05 01:03:55 - Epoch 52/100, Batch 350, Total: 1.6940, Recon: 0.8086, Clf: 0.8853, Train Acc: 0.8909, LR: 0.000480
+2025-11-05 01:03:56 - Epoch 52/100 completed:
+2025-11-05 01:03:56 -   Train - Total: 1.499233, Recon: 0.787587, Clf: 0.711647, Acc: 0.8913
+2025-11-05 01:03:56 -   Eval  - Total: 10.556927, Acc: 0.2766
+2025-11-05 01:03:56 - Epoch 53/100, Batch 0, Total: 1.9716, Recon: 0.8130, Clf: 1.1586, Train Acc: 0.8125, LR: 0.000480
+2025-11-05 01:03:57 - Epoch 53/100, Batch 50, Total: 1.7233, Recon: 0.7921, Clf: 0.9312, Train Acc: 0.8879, LR: 0.000480
+2025-11-05 01:03:57 - Epoch 53/100, Batch 100, Total: 1.7805, Recon: 0.8178, Clf: 0.9627, Train Acc: 0.8899, LR: 0.000480
+2025-11-05 01:03:58 - Epoch 53/100, Batch 150, Total: 1.6147, Recon: 0.7853, Clf: 0.8294, Train Acc: 0.8895, LR: 0.000480
+2025-11-05 01:03:59 - Epoch 53/100, Batch 200, Total: 1.6533, Recon: 0.8413, Clf: 0.8119, Train Acc: 0.8905, LR: 0.000480
+2025-11-05 01:04:00 - Epoch 53/100, Batch 250, Total: 1.2768, Recon: 0.7321, Clf: 0.5448, Train Acc: 0.8903, LR: 0.000480
+2025-11-05 01:04:00 - Epoch 53/100, Batch 300, Total: 1.5208, Recon: 0.8302, Clf: 0.6906, Train Acc: 0.8901, LR: 0.000480
+2025-11-05 01:04:01 - Epoch 53/100, Batch 350, Total: 1.7368, Recon: 0.7696, Clf: 0.9671, Train Acc: 0.8901, LR: 0.000480
+2025-11-05 01:04:02 - Epoch 53/100 completed:
+2025-11-05 01:04:02 -   Train - Total: 1.499031, Recon: 0.786722, Clf: 0.712309, Acc: 0.8904
+2025-11-05 01:04:02 -   Eval  - Total: 11.023037, Acc: 0.2789
+2025-11-05 01:04:02 - Epoch 54/100, Batch 0, Total: 1.5492, Recon: 0.7557, Clf: 0.7935, Train Acc: 0.8906, LR: 0.000480
+2025-11-05 01:04:03 - Epoch 54/100, Batch 50, Total: 1.8612, Recon: 0.8567, Clf: 1.0045, Train Acc: 0.8931, LR: 0.000480
+2025-11-05 01:04:03 - Epoch 54/100, Batch 100, Total: 1.4245, Recon: 0.8082, Clf: 0.6163, Train Acc: 0.8893, LR: 0.000480
+2025-11-05 01:04:04 - Epoch 54/100, Batch 150, Total: 1.2121, Recon: 0.7973, Clf: 0.4148, Train Acc: 0.8908, LR: 0.000480
+2025-11-05 01:04:05 - Epoch 54/100, Batch 200, Total: 1.4822, Recon: 0.8248, Clf: 0.6574, Train Acc: 0.8917, LR: 0.000480
+2025-11-05 01:04:05 - Epoch 54/100, Batch 250, Total: 1.4902, Recon: 0.7987, Clf: 0.6916, Train Acc: 0.8911, LR: 0.000480
+2025-11-05 01:04:06 - Epoch 54/100, Batch 300, Total: 1.7139, Recon: 0.8269, Clf: 0.8870, Train Acc: 0.8912, LR: 0.000480
+2025-11-05 01:04:07 - Epoch 54/100, Batch 350, Total: 1.4973, Recon: 0.8057, Clf: 0.6916, Train Acc: 0.8915, LR: 0.000480
+2025-11-05 01:04:08 - Epoch 54/100 completed:
+2025-11-05 01:04:08 -   Train - Total: 1.493886, Recon: 0.786373, Clf: 0.707513, Acc: 0.8915
+2025-11-05 01:04:08 -   Eval  - Total: 10.699205, Acc: 0.2726
+2025-11-05 01:04:08 - Epoch 55/100, Batch 0, Total: 1.8908, Recon: 0.7695, Clf: 1.1213, Train Acc: 0.8047, LR: 0.000480
+2025-11-05 01:04:09 - Epoch 55/100, Batch 50, Total: 1.6212, Recon: 0.8419, Clf: 0.7793, Train Acc: 0.8845, LR: 0.000480
+2025-11-05 01:04:09 - Epoch 55/100, Batch 100, Total: 1.3368, Recon: 0.7446, Clf: 0.5922, Train Acc: 0.8877, LR: 0.000480
+2025-11-05 01:04:10 - Epoch 55/100, Batch 150, Total: 1.4236, Recon: 0.7941, Clf: 0.6295, Train Acc: 0.8900, LR: 0.000480
+2025-11-05 01:04:11 - Epoch 55/100, Batch 200, Total: 1.3692, Recon: 0.7450, Clf: 0.6242, Train Acc: 0.8903, LR: 0.000480
+2025-11-05 01:04:11 - Epoch 55/100, Batch 250, Total: 1.1567, Recon: 0.7015, Clf: 0.4552, Train Acc: 0.8915, LR: 0.000480
+2025-11-05 01:04:12 - Epoch 55/100, Batch 300, Total: 1.4156, Recon: 0.7970, Clf: 0.6187, Train Acc: 0.8925, LR: 0.000480
+2025-11-05 01:04:13 - Epoch 55/100, Batch 350, Total: 1.6408, Recon: 0.8390, Clf: 0.8018, Train Acc: 0.8930, LR: 0.000480
+2025-11-05 01:04:14 - Epoch 55/100 completed:
+2025-11-05 01:04:14 -   Train - Total: 1.494044, Recon: 0.787494, Clf: 0.706550, Acc: 0.8927
+2025-11-05 01:04:14 -   Eval  - Total: 10.778522, Acc: 0.2758
+2025-11-05 01:04:14 - Epoch 56/100, Batch 0, Total: 1.4672, Recon: 0.7931, Clf: 0.6741, Train Acc: 0.8750, LR: 0.000480
+2025-11-05 01:04:14 - Epoch 56/100, Batch 50, Total: 1.3678, Recon: 0.7628, Clf: 0.6050, Train Acc: 0.8912, LR: 0.000480
+2025-11-05 01:04:15 - Epoch 56/100, Batch 100, Total: 1.2906, Recon: 0.7687, Clf: 0.5218, Train Acc: 0.8903, LR: 0.000480
+2025-11-05 01:04:16 - Epoch 56/100, Batch 150, Total: 1.4310, Recon: 0.7921, Clf: 0.6389, Train Acc: 0.8899, LR: 0.000480
+2025-11-05 01:04:17 - Epoch 56/100, Batch 200, Total: 1.4430, Recon: 0.7714, Clf: 0.6717, Train Acc: 0.8910, LR: 0.000480
+2025-11-05 01:04:17 - Epoch 56/100, Batch 250, Total: 1.9069, Recon: 0.7852, Clf: 1.1217, Train Acc: 0.8908, LR: 0.000480
+2025-11-05 01:04:18 - Epoch 56/100, Batch 300, Total: 1.4917, Recon: 0.9271, Clf: 0.5646, Train Acc: 0.8910, LR: 0.000480
+2025-11-05 01:04:19 - Epoch 56/100, Batch 350, Total: 1.2979, Recon: 0.7891, Clf: 0.5087, Train Acc: 0.8918, LR: 0.000480
+2025-11-05 01:04:20 - Epoch 56/100 completed:
+2025-11-05 01:04:20 -   Train - Total: 1.486156, Recon: 0.785815, Clf: 0.700341, Acc: 0.8915
+2025-11-05 01:04:20 -   Eval  - Total: 11.084086, Acc: 0.2765
+2025-11-05 01:04:20 - Epoch 57/100, Batch 0, Total: 1.4844, Recon: 0.8326, Clf: 0.6518, Train Acc: 0.8828, LR: 0.000480
+2025-11-05 01:04:20 - Epoch 57/100, Batch 50, Total: 1.1861, Recon: 0.7332, Clf: 0.4528, Train Acc: 0.8949, LR: 0.000480
+2025-11-05 01:04:21 - Epoch 57/100, Batch 100, Total: 1.4023, Recon: 0.7591, Clf: 0.6432, Train Acc: 0.8960, LR: 0.000480
+2025-11-05 01:04:22 - Epoch 57/100, Batch 150, Total: 1.4175, Recon: 0.7931, Clf: 0.6245, Train Acc: 0.8937, LR: 0.000480
+2025-11-05 01:04:22 - Epoch 57/100, Batch 200, Total: 1.3099, Recon: 0.7265, Clf: 0.5834, Train Acc: 0.8929, LR: 0.000480
+2025-11-05 01:04:23 - Epoch 57/100, Batch 250, Total: 1.2073, Recon: 0.6912, Clf: 0.5161, Train Acc: 0.8937, LR: 0.000480
+2025-11-05 01:04:24 - Epoch 57/100, Batch 300, Total: 1.5322, Recon: 0.8499, Clf: 0.6823, Train Acc: 0.8941, LR: 0.000480
+2025-11-05 01:04:24 - Epoch 57/100, Batch 350, Total: 1.3828, Recon: 0.7247, Clf: 0.6581, Train Acc: 0.8934, LR: 0.000480
+2025-11-05 01:04:25 - Epoch 57/100 completed:
+2025-11-05 01:04:25 -   Train - Total: 1.488340, Recon: 0.785288, Clf: 0.703052, Acc: 0.8925
+2025-11-05 01:04:25 -   Eval  - Total: 10.805178, Acc: 0.2693
+2025-11-05 01:04:25 - Epoch 58/100, Batch 0, Total: 1.3488, Recon: 0.7316, Clf: 0.6172, Train Acc: 0.9062, LR: 0.000336
+2025-11-05 01:04:26 - Epoch 58/100, Batch 50, Total: 1.4698, Recon: 0.7511, Clf: 0.7187, Train Acc: 0.8882, LR: 0.000336
+2025-11-05 01:04:27 - Epoch 58/100, Batch 100, Total: 1.3419, Recon: 0.7463, Clf: 0.5955, Train Acc: 0.8934, LR: 0.000336
+2025-11-05 01:04:28 - Epoch 58/100, Batch 150, Total: 1.4436, Recon: 0.7546, Clf: 0.6890, Train Acc: 0.8941, LR: 0.000336
+2025-11-05 01:04:28 - Epoch 58/100, Batch 200, Total: 1.6727, Recon: 0.7799, Clf: 0.8928, Train Acc: 0.8938, LR: 0.000336
+2025-11-05 01:04:29 - Epoch 58/100, Batch 250, Total: 1.5296, Recon: 0.8383, Clf: 0.6913, Train Acc: 0.8939, LR: 0.000336
+2025-11-05 01:04:30 - Epoch 58/100, Batch 300, Total: 1.1370, Recon: 0.7425, Clf: 0.3945, Train Acc: 0.8935, LR: 0.000336
+2025-11-05 01:04:30 - Epoch 58/100, Batch 350, Total: 1.4345, Recon: 0.8142, Clf: 0.6203, Train Acc: 0.8936, LR: 0.000336
+2025-11-05 01:04:31 - Epoch 58/100 completed:
+2025-11-05 01:04:31 -   Train - Total: 1.478798, Recon: 0.783586, Clf: 0.695212, Acc: 0.8932
+2025-11-05 01:04:31 -   Eval  - Total: 10.790404, Acc: 0.2775
+2025-11-05 01:04:31 - Epoch 59/100, Batch 0, Total: 1.4729, Recon: 0.8661, Clf: 0.6068, Train Acc: 0.8906, LR: 0.000336
+2025-11-05 01:04:32 - Epoch 59/100, Batch 50, Total: 1.4386, Recon: 0.7803, Clf: 0.6583, Train Acc: 0.8892, LR: 0.000336
+2025-11-05 01:04:33 - Epoch 59/100, Batch 100, Total: 1.2141, Recon: 0.7721, Clf: 0.4420, Train Acc: 0.8943, LR: 0.000336
+2025-11-05 01:04:33 - Epoch 59/100, Batch 150, Total: 1.6467, Recon: 0.8050, Clf: 0.8417, Train Acc: 0.8937, LR: 0.000336
+2025-11-05 01:04:34 - Epoch 59/100, Batch 200, Total: 1.5751, Recon: 0.8174, Clf: 0.7576, Train Acc: 0.8926, LR: 0.000336
+2025-11-05 01:04:35 - Epoch 59/100, Batch 250, Total: 1.3337, Recon: 0.7631, Clf: 0.5706, Train Acc: 0.8930, LR: 0.000336
+2025-11-05 01:04:35 - Epoch 59/100, Batch 300, Total: 1.4019, Recon: 0.8273, Clf: 0.5746, Train Acc: 0.8928, LR: 0.000336
+2025-11-05 01:04:36 - Epoch 59/100, Batch 350, Total: 1.4466, Recon: 0.7264, Clf: 0.7203, Train Acc: 0.8933, LR: 0.000336
+2025-11-05 01:04:37 - Epoch 59/100 completed:
+2025-11-05 01:04:37 -   Train - Total: 1.471083, Recon: 0.784178, Clf: 0.686905, Acc: 0.8931
+2025-11-05 01:04:37 -   Eval  - Total: 10.843602, Acc: 0.2741
+2025-11-05 01:04:37 - Epoch 60/100, Batch 0, Total: 1.3313, Recon: 0.7740, Clf: 0.5573, Train Acc: 0.9297, LR: 0.000336
+2025-11-05 01:04:38 - Epoch 60/100, Batch 50, Total: 1.3402, Recon: 0.7394, Clf: 0.6008, Train Acc: 0.8981, LR: 0.000336
+2025-11-05 01:04:39 - Epoch 60/100, Batch 100, Total: 1.1360, Recon: 0.7030, Clf: 0.4331, Train Acc: 0.8993, LR: 0.000336
+2025-11-05 01:04:39 - Epoch 60/100, Batch 150, Total: 1.4069, Recon: 0.7783, Clf: 0.6286, Train Acc: 0.8974, LR: 0.000336
+2025-11-05 01:04:40 - Epoch 60/100, Batch 200, Total: 1.5139, Recon: 0.7767, Clf: 0.7373, Train Acc: 0.8969, LR: 0.000336
+2025-11-05 01:04:41 - Epoch 60/100, Batch 250, Total: 1.7175, Recon: 0.8200, Clf: 0.8975, Train Acc: 0.8963, LR: 0.000336
+2025-11-05 01:04:41 - Epoch 60/100, Batch 300, Total: 1.6938, Recon: 0.7869, Clf: 0.9069, Train Acc: 0.8956, LR: 0.000336
+2025-11-05 01:04:42 - Epoch 60/100, Batch 350, Total: 1.3024, Recon: 0.7668, Clf: 0.5357, Train Acc: 0.8957, LR: 0.000336
+2025-11-05 01:04:43 - Epoch 60/100 completed:
+2025-11-05 01:04:43 -   Train - Total: 1.471039, Recon: 0.783888, Clf: 0.687151, Acc: 0.8949
+2025-11-05 01:04:43 -   Eval  - Total: 10.897686, Acc: 0.2755
+2025-11-05 01:04:43 - Epoch 61/100, Batch 0, Total: 1.6333, Recon: 0.8518, Clf: 0.7815, Train Acc: 0.8672, LR: 0.000336
+2025-11-05 01:04:44 - Epoch 61/100, Batch 50, Total: 1.1975, Recon: 0.7698, Clf: 0.4277, Train Acc: 0.8960, LR: 0.000336
+2025-11-05 01:04:44 - Epoch 61/100, Batch 100, Total: 1.3812, Recon: 0.7613, Clf: 0.6199, Train Acc: 0.8963, LR: 0.000336
+2025-11-05 01:04:45 - Epoch 61/100, Batch 150, Total: 1.3456, Recon: 0.7494, Clf: 0.5962, Train Acc: 0.8978, LR: 0.000336
+2025-11-05 01:04:46 - Epoch 61/100, Batch 200, Total: 1.2467, Recon: 0.7988, Clf: 0.4479, Train Acc: 0.8963, LR: 0.000336
+2025-11-05 01:04:47 - Epoch 61/100, Batch 250, Total: 1.2285, Recon: 0.7473, Clf: 0.4812, Train Acc: 0.8950, LR: 0.000336
+2025-11-05 01:04:47 - Epoch 61/100, Batch 300, Total: 1.8174, Recon: 0.7572, Clf: 1.0602, Train Acc: 0.8951, LR: 0.000336
+2025-11-05 01:04:48 - Epoch 61/100, Batch 350, Total: 1.5630, Recon: 0.7536, Clf: 0.8093, Train Acc: 0.8955, LR: 0.000336
+2025-11-05 01:04:49 - Epoch 61/100 completed:
+2025-11-05 01:04:49 -   Train - Total: 1.473507, Recon: 0.782578, Clf: 0.690929, Acc: 0.8954
+2025-11-05 01:04:49 -   Eval  - Total: 10.789150, Acc: 0.2795
+2025-11-05 01:04:49 - Epoch 62/100, Batch 0, Total: 1.4929, Recon: 0.7563, Clf: 0.7366, Train Acc: 0.8984, LR: 0.000336
+2025-11-05 01:04:50 - Epoch 62/100, Batch 50, Total: 1.6469, Recon: 0.8300, Clf: 0.8169, Train Acc: 0.8874, LR: 0.000336
+2025-11-05 01:04:50 - Epoch 62/100, Batch 100, Total: 1.4961, Recon: 0.7678, Clf: 0.7282, Train Acc: 0.8918, LR: 0.000336
+2025-11-05 01:04:51 - Epoch 62/100, Batch 150, Total: 1.3222, Recon: 0.7667, Clf: 0.5554, Train Acc: 0.8933, LR: 0.000336
+2025-11-05 01:04:52 - Epoch 62/100, Batch 200, Total: 1.3580, Recon: 0.7453, Clf: 0.6127, Train Acc: 0.8953, LR: 0.000336
+2025-11-05 01:04:52 - Epoch 62/100, Batch 250, Total: 1.1811, Recon: 0.7617, Clf: 0.4195, Train Acc: 0.8942, LR: 0.000336
+2025-11-05 01:04:53 - Epoch 62/100, Batch 300, Total: 1.3823, Recon: 0.7214, Clf: 0.6608, Train Acc: 0.8949, LR: 0.000336
+2025-11-05 01:04:54 - Epoch 62/100, Batch 350, Total: 1.5337, Recon: 0.8221, Clf: 0.7117, Train Acc: 0.8947, LR: 0.000336
+2025-11-05 01:04:55 - Epoch 62/100 completed:
+2025-11-05 01:04:55 -   Train - Total: 1.472686, Recon: 0.782050, Clf: 0.690636, Acc: 0.8944
+2025-11-05 01:04:55 -   Eval  - Total: 10.690955, Acc: 0.2780
+2025-11-05 01:04:55 - Epoch 63/100, Batch 0, Total: 1.3185, Recon: 0.7370, Clf: 0.5815, Train Acc: 0.8906, LR: 0.000336
+2025-11-05 01:04:55 - Epoch 63/100, Batch 50, Total: 1.4174, Recon: 0.7521, Clf: 0.6652, Train Acc: 0.8968, LR: 0.000336
+2025-11-05 01:04:56 - Epoch 63/100, Batch 100, Total: 1.5475, Recon: 0.7623, Clf: 0.7852, Train Acc: 0.8983, LR: 0.000336
+2025-11-05 01:04:57 - Epoch 63/100, Batch 150, Total: 1.6021, Recon: 0.8384, Clf: 0.7637, Train Acc: 0.8948, LR: 0.000336
+2025-11-05 01:04:58 - Epoch 63/100, Batch 200, Total: 1.4043, Recon: 0.8461, Clf: 0.5582, Train Acc: 0.8949, LR: 0.000336
+2025-11-05 01:04:58 - Epoch 63/100, Batch 250, Total: 1.2913, Recon: 0.6999, Clf: 0.5914, Train Acc: 0.8943, LR: 0.000336
+2025-11-05 01:04:59 - Epoch 63/100, Batch 300, Total: 1.6534, Recon: 0.7941, Clf: 0.8593, Train Acc: 0.8942, LR: 0.000336
+2025-11-05 01:05:00 - Epoch 63/100, Batch 350, Total: 1.2670, Recon: 0.7766, Clf: 0.4905, Train Acc: 0.8951, LR: 0.000336
+2025-11-05 01:05:01 - Epoch 63/100 completed:
+2025-11-05 01:05:01 -   Train - Total: 1.464820, Recon: 0.783500, Clf: 0.681320, Acc: 0.8953
+2025-11-05 01:05:01 -   Eval  - Total: 11.158040, Acc: 0.2747
+2025-11-05 01:05:01 - Epoch 64/100, Batch 0, Total: 1.2876, Recon: 0.8668, Clf: 0.4208, Train Acc: 0.9297, LR: 0.000336
+2025-11-05 01:05:01 - Epoch 64/100, Batch 50, Total: 1.3219, Recon: 0.7305, Clf: 0.5914, Train Acc: 0.9017, LR: 0.000336
+2025-11-05 01:05:02 - Epoch 64/100, Batch 100, Total: 1.7120, Recon: 0.8401, Clf: 0.8719, Train Acc: 0.9000, LR: 0.000336
+2025-11-05 01:05:03 - Epoch 64/100, Batch 150, Total: 1.4059, Recon: 0.7776, Clf: 0.6283, Train Acc: 0.8990, LR: 0.000336
+2025-11-05 01:05:03 - Epoch 64/100, Batch 200, Total: 1.2425, Recon: 0.7642, Clf: 0.4783, Train Acc: 0.8964, LR: 0.000336
+2025-11-05 01:05:04 - Epoch 64/100, Batch 250, Total: 1.4747, Recon: 0.8280, Clf: 0.6467, Train Acc: 0.8961, LR: 0.000336
+2025-11-05 01:05:05 - Epoch 64/100, Batch 300, Total: 1.5749, Recon: 0.8137, Clf: 0.7613, Train Acc: 0.8964, LR: 0.000336
+2025-11-05 01:05:06 - Epoch 64/100, Batch 350, Total: 1.5435, Recon: 0.7921, Clf: 0.7514, Train Acc: 0.8954, LR: 0.000336
+2025-11-05 01:05:07 - Epoch 64/100 completed:
+2025-11-05 01:05:07 -   Train - Total: 1.470607, Recon: 0.782507, Clf: 0.688100, Acc: 0.8947
+2025-11-05 01:05:07 -   Eval  - Total: 10.635747, Acc: 0.2747
+2025-11-05 01:05:07 - Epoch 65/100, Batch 0, Total: 1.4955, Recon: 0.8290, Clf: 0.6665, Train Acc: 0.9062, LR: 0.000336
+2025-11-05 01:05:07 - Epoch 65/100, Batch 50, Total: 1.7042, Recon: 0.7900, Clf: 0.9142, Train Acc: 0.9015, LR: 0.000336
+2025-11-05 01:05:08 - Epoch 65/100, Batch 100, Total: 1.5853, Recon: 0.8058, Clf: 0.7795, Train Acc: 0.8960, LR: 0.000336
+2025-11-05 01:05:09 - Epoch 65/100, Batch 150, Total: 1.3180, Recon: 0.7943, Clf: 0.5237, Train Acc: 0.8948, LR: 0.000336
+2025-11-05 01:05:09 - Epoch 65/100, Batch 200, Total: 1.5515, Recon: 0.7216, Clf: 0.8299, Train Acc: 0.8949, LR: 0.000336
+2025-11-05 01:05:10 - Epoch 65/100, Batch 250, Total: 1.4630, Recon: 0.8294, Clf: 0.6336, Train Acc: 0.8950, LR: 0.000336
+2025-11-05 01:05:11 - Epoch 65/100, Batch 300, Total: 1.6194, Recon: 0.8234, Clf: 0.7960, Train Acc: 0.8949, LR: 0.000336
+2025-11-05 01:05:11 - Epoch 65/100, Batch 350, Total: 1.4015, Recon: 0.8093, Clf: 0.5922, Train Acc: 0.8941, LR: 0.000336
+2025-11-05 01:05:12 - Epoch 65/100 completed:
+2025-11-05 01:05:12 -   Train - Total: 1.468112, Recon: 0.782679, Clf: 0.685433, Acc: 0.8949
+2025-11-05 01:05:12 -   Eval  - Total: 11.087893, Acc: 0.2747
+2025-11-05 01:05:12 - Epoch 66/100, Batch 0, Total: 1.7574, Recon: 0.7303, Clf: 1.0270, Train Acc: 0.8359, LR: 0.000336
+2025-11-05 01:05:13 - Epoch 66/100, Batch 50, Total: 2.0269, Recon: 0.7928, Clf: 1.2341, Train Acc: 0.8908, LR: 0.000336
+2025-11-05 01:05:14 - Epoch 66/100, Batch 100, Total: 1.5700, Recon: 0.8103, Clf: 0.7597, Train Acc: 0.8929, LR: 0.000336
+2025-11-05 01:05:15 - Epoch 66/100, Batch 150, Total: 1.4664, Recon: 0.8051, Clf: 0.6613, Train Acc: 0.8955, LR: 0.000336
+2025-11-05 01:05:15 - Epoch 66/100, Batch 200, Total: 1.4672, Recon: 0.7531, Clf: 0.7141, Train Acc: 0.8949, LR: 0.000336
+2025-11-05 01:05:16 - Epoch 66/100, Batch 250, Total: 1.9202, Recon: 0.8026, Clf: 1.1176, Train Acc: 0.8953, LR: 0.000336
+2025-11-05 01:05:17 - Epoch 66/100, Batch 300, Total: 1.5097, Recon: 0.7577, Clf: 0.7520, Train Acc: 0.8958, LR: 0.000336
+2025-11-05 01:05:17 - Epoch 66/100, Batch 350, Total: 1.5123, Recon: 0.7756, Clf: 0.7367, Train Acc: 0.8958, LR: 0.000336
+2025-11-05 01:05:18 - Epoch 66/100 completed:
+2025-11-05 01:05:18 -   Train - Total: 1.464316, Recon: 0.781939, Clf: 0.682377, Acc: 0.8953
+2025-11-05 01:05:18 -   Eval  - Total: 11.024042, Acc: 0.2745
+2025-11-05 01:05:18 - Epoch 67/100, Batch 0, Total: 1.3245, Recon: 0.7757, Clf: 0.5488, Train Acc: 0.9062, LR: 0.000336
+2025-11-05 01:05:19 - Epoch 67/100, Batch 50, Total: 1.5662, Recon: 0.7488, Clf: 0.8174, Train Acc: 0.8948, LR: 0.000336
+2025-11-05 01:05:20 - Epoch 67/100, Batch 100, Total: 1.2865, Recon: 0.7625, Clf: 0.5240, Train Acc: 0.8961, LR: 0.000336
+2025-11-05 01:05:20 - Epoch 67/100, Batch 150, Total: 1.5699, Recon: 0.7975, Clf: 0.7724, Train Acc: 0.8966, LR: 0.000336
+2025-11-05 01:05:21 - Epoch 67/100, Batch 200, Total: 1.2500, Recon: 0.7514, Clf: 0.4986, Train Acc: 0.8938, LR: 0.000336
+2025-11-05 01:05:22 - Epoch 67/100, Batch 250, Total: 1.4670, Recon: 0.7929, Clf: 0.6740, Train Acc: 0.8929, LR: 0.000336
+2025-11-05 01:05:22 - Epoch 67/100, Batch 300, Total: 1.7909, Recon: 0.7982, Clf: 0.9927, Train Acc: 0.8941, LR: 0.000336
+2025-11-05 01:05:23 - Epoch 67/100, Batch 350, Total: 1.6280, Recon: 0.8294, Clf: 0.7986, Train Acc: 0.8939, LR: 0.000336
+2025-11-05 01:05:24 - Epoch 67/100 completed:
+2025-11-05 01:05:24 -   Train - Total: 1.465716, Recon: 0.781990, Clf: 0.683725, Acc: 0.8936
+2025-11-05 01:05:24 -   Eval  - Total: 11.070174, Acc: 0.2726
+2025-11-05 01:05:24 - Epoch 68/100, Batch 0, Total: 1.5663, Recon: 0.7410, Clf: 0.8253, Train Acc: 0.8516, LR: 0.000336
+2025-11-05 01:05:25 - Epoch 68/100, Batch 50, Total: 1.5098, Recon: 0.7798, Clf: 0.7301, Train Acc: 0.8929, LR: 0.000336
+2025-11-05 01:05:26 - Epoch 68/100, Batch 100, Total: 1.1677, Recon: 0.7243, Clf: 0.4433, Train Acc: 0.8977, LR: 0.000336
+2025-11-05 01:05:26 - Epoch 68/100, Batch 150, Total: 1.5285, Recon: 0.7836, Clf: 0.7449, Train Acc: 0.8975, LR: 0.000336
+2025-11-05 01:05:27 - Epoch 68/100, Batch 200, Total: 1.4055, Recon: 0.7687, Clf: 0.6368, Train Acc: 0.8966, LR: 0.000336
+2025-11-05 01:05:28 - Epoch 68/100, Batch 250, Total: 1.4755, Recon: 0.7511, Clf: 0.7245, Train Acc: 0.8964, LR: 0.000336
+2025-11-05 01:05:29 - Epoch 68/100, Batch 300, Total: 1.4944, Recon: 0.7241, Clf: 0.7703, Train Acc: 0.8960, LR: 0.000336
+2025-11-05 01:05:30 - Epoch 68/100, Batch 350, Total: 1.3932, Recon: 0.7986, Clf: 0.5946, Train Acc: 0.8959, LR: 0.000336
+2025-11-05 01:05:31 - Epoch 68/100 completed:
+2025-11-05 01:05:31 -   Train - Total: 1.460453, Recon: 0.780912, Clf: 0.679541, Acc: 0.8956
+2025-11-05 01:05:31 -   Eval  - Total: 10.833261, Acc: 0.2763
+2025-11-05 01:05:31 - Epoch 69/100, Batch 0, Total: 1.4949, Recon: 0.7564, Clf: 0.7385, Train Acc: 0.8906, LR: 0.000235
+2025-11-05 01:05:31 - Epoch 69/100, Batch 50, Total: 1.3876, Recon: 0.7645, Clf: 0.6231, Train Acc: 0.8938, LR: 0.000235
+2025-11-05 01:05:32 - Epoch 69/100, Batch 100, Total: 1.3025, Recon: 0.7564, Clf: 0.5461, Train Acc: 0.8912, LR: 0.000235
+2025-11-05 01:05:33 - Epoch 69/100, Batch 150, Total: 1.7255, Recon: 0.8000, Clf: 0.9256, Train Acc: 0.8926, LR: 0.000235
+2025-11-05 01:05:33 - Epoch 69/100, Batch 200, Total: 1.5968, Recon: 0.8290, Clf: 0.7678, Train Acc: 0.8935, LR: 0.000235
+2025-11-05 01:05:34 - Epoch 69/100, Batch 250, Total: 1.6623, Recon: 0.8019, Clf: 0.8604, Train Acc: 0.8948, LR: 0.000235
+2025-11-05 01:05:35 - Epoch 69/100, Batch 300, Total: 1.3854, Recon: 0.7172, Clf: 0.6681, Train Acc: 0.8959, LR: 0.000235
+2025-11-05 01:05:36 - Epoch 69/100, Batch 350, Total: 1.6112, Recon: 0.7698, Clf: 0.8413, Train Acc: 0.8952, LR: 0.000235
+2025-11-05 01:05:37 - Epoch 69/100 completed:
+2025-11-05 01:05:37 -   Train - Total: 1.459285, Recon: 0.780494, Clf: 0.678791, Acc: 0.8955
+2025-11-05 01:05:37 -   Eval  - Total: 11.244086, Acc: 0.2729
+2025-11-05 01:05:37 - Epoch 70/100, Batch 0, Total: 1.6601, Recon: 0.8143, Clf: 0.8459, Train Acc: 0.8906, LR: 0.000235
+2025-11-05 01:05:37 - Epoch 70/100, Batch 50, Total: 1.6980, Recon: 0.7592, Clf: 0.9388, Train Acc: 0.8972, LR: 0.000235
+2025-11-05 01:05:38 - Epoch 70/100, Batch 100, Total: 1.3885, Recon: 0.7437, Clf: 0.6448, Train Acc: 0.9015, LR: 0.000235
+2025-11-05 01:05:39 - Epoch 70/100, Batch 150, Total: 1.4892, Recon: 0.7692, Clf: 0.7200, Train Acc: 0.8992, LR: 0.000235
+2025-11-05 01:05:39 - Epoch 70/100, Batch 200, Total: 1.3944, Recon: 0.8418, Clf: 0.5525, Train Acc: 0.8993, LR: 0.000235
+2025-11-05 01:05:40 - Epoch 70/100, Batch 250, Total: 1.4808, Recon: 0.8055, Clf: 0.6753, Train Acc: 0.8981, LR: 0.000235
+2025-11-05 01:05:41 - Epoch 70/100, Batch 300, Total: 1.3871, Recon: 0.8318, Clf: 0.5553, Train Acc: 0.8973, LR: 0.000235
+2025-11-05 01:05:42 - Epoch 70/100, Batch 350, Total: 1.2616, Recon: 0.7301, Clf: 0.5315, Train Acc: 0.8974, LR: 0.000235
+2025-11-05 01:05:43 - Epoch 70/100 completed:
+2025-11-05 01:05:43 -   Train - Total: 1.449309, Recon: 0.779699, Clf: 0.669610, Acc: 0.8971
+2025-11-05 01:05:43 -   Eval  - Total: 11.113613, Acc: 0.2705
+2025-11-05 01:05:43 - Epoch 71/100, Batch 0, Total: 1.3131, Recon: 0.7202, Clf: 0.5929, Train Acc: 0.8828, LR: 0.000235
+2025-11-05 01:05:43 - Epoch 71/100, Batch 50, Total: 1.3204, Recon: 0.8029, Clf: 0.5175, Train Acc: 0.8986, LR: 0.000235
+2025-11-05 01:05:44 - Epoch 71/100, Batch 100, Total: 1.5210, Recon: 0.7834, Clf: 0.7376, Train Acc: 0.9029, LR: 0.000235
+2025-11-05 01:05:45 - Epoch 71/100, Batch 150, Total: 1.3171, Recon: 0.7771, Clf: 0.5400, Train Acc: 0.8990, LR: 0.000235
+2025-11-05 01:05:45 - Epoch 71/100, Batch 200, Total: 1.6109, Recon: 0.8154, Clf: 0.7954, Train Acc: 0.9006, LR: 0.000235
+2025-11-05 01:05:46 - Epoch 71/100, Batch 250, Total: 1.4880, Recon: 0.8132, Clf: 0.6749, Train Acc: 0.9004, LR: 0.000235
+2025-11-05 01:05:47 - Epoch 71/100, Batch 300, Total: 1.3966, Recon: 0.7471, Clf: 0.6495, Train Acc: 0.8997, LR: 0.000235
+2025-11-05 01:05:48 - Epoch 71/100, Batch 350, Total: 1.6163, Recon: 0.8247, Clf: 0.7916, Train Acc: 0.8989, LR: 0.000235
+2025-11-05 01:05:49 - Epoch 71/100 completed:
+2025-11-05 01:05:49 -   Train - Total: 1.449622, Recon: 0.780447, Clf: 0.669175, Acc: 0.8979
+2025-11-05 01:05:49 -   Eval  - Total: 11.045693, Acc: 0.2731
+2025-11-05 01:05:49 - Epoch 72/100, Batch 0, Total: 1.3348, Recon: 0.7189, Clf: 0.6159, Train Acc: 0.8984, LR: 0.000235
+2025-11-05 01:05:49 - Epoch 72/100, Batch 50, Total: 1.3518, Recon: 0.7558, Clf: 0.5959, Train Acc: 0.8945, LR: 0.000235
+2025-11-05 01:05:50 - Epoch 72/100, Batch 100, Total: 1.4531, Recon: 0.7605, Clf: 0.6926, Train Acc: 0.8983, LR: 0.000235
+2025-11-05 01:05:51 - Epoch 72/100, Batch 150, Total: 1.2629, Recon: 0.7701, Clf: 0.4928, Train Acc: 0.8973, LR: 0.000235
+2025-11-05 01:05:51 - Epoch 72/100, Batch 200, Total: 1.4870, Recon: 0.8049, Clf: 0.6821, Train Acc: 0.8970, LR: 0.000235
+2025-11-05 01:05:52 - Epoch 72/100, Batch 250, Total: 1.8328, Recon: 0.8354, Clf: 0.9974, Train Acc: 0.8966, LR: 0.000235
+2025-11-05 01:05:53 - Epoch 72/100, Batch 300, Total: 1.3674, Recon: 0.7125, Clf: 0.6549, Train Acc: 0.8962, LR: 0.000235
+2025-11-05 01:05:54 - Epoch 72/100, Batch 350, Total: 1.3901, Recon: 0.7597, Clf: 0.6304, Train Acc: 0.8965, LR: 0.000235
+2025-11-05 01:05:55 - Epoch 72/100 completed:
+2025-11-05 01:05:55 -   Train - Total: 1.454576, Recon: 0.779796, Clf: 0.674780, Acc: 0.8958
+2025-11-05 01:05:55 -   Eval  - Total: 11.077180, Acc: 0.2748
+2025-11-05 01:05:55 - Epoch 73/100, Batch 0, Total: 1.3458, Recon: 0.7032, Clf: 0.6426, Train Acc: 0.9219, LR: 0.000235
+2025-11-05 01:05:55 - Epoch 73/100, Batch 50, Total: 1.2741, Recon: 0.7863, Clf: 0.4878, Train Acc: 0.8972, LR: 0.000235
+2025-11-05 01:05:56 - Epoch 73/100, Batch 100, Total: 1.4177, Recon: 0.7697, Clf: 0.6479, Train Acc: 0.8977, LR: 0.000235
+2025-11-05 01:05:57 - Epoch 73/100, Batch 150, Total: 1.5950, Recon: 0.7598, Clf: 0.8352, Train Acc: 0.8962, LR: 0.000235
+2025-11-05 01:05:58 - Epoch 73/100, Batch 200, Total: 1.4040, Recon: 0.7856, Clf: 0.6183, Train Acc: 0.8959, LR: 0.000235
+2025-11-05 01:05:58 - Epoch 73/100, Batch 250, Total: 1.4337, Recon: 0.8212, Clf: 0.6125, Train Acc: 0.8973, LR: 0.000235
+2025-11-05 01:05:59 - Epoch 73/100, Batch 300, Total: 1.1536, Recon: 0.7443, Clf: 0.4093, Train Acc: 0.8977, LR: 0.000235
+2025-11-05 01:06:00 - Epoch 73/100, Batch 350, Total: 1.4496, Recon: 0.8069, Clf: 0.6427, Train Acc: 0.8977, LR: 0.000235
+2025-11-05 01:06:01 - Epoch 73/100 completed:
+2025-11-05 01:06:01 -   Train - Total: 1.456310, Recon: 0.779511, Clf: 0.676799, Acc: 0.8977
+2025-11-05 01:06:01 -   Eval  - Total: 10.993133, Acc: 0.2757
+2025-11-05 01:06:01 - Epoch 74/100, Batch 0, Total: 1.1573, Recon: 0.7416, Clf: 0.4156, Train Acc: 0.9375, LR: 0.000235
+2025-11-05 01:06:01 - Epoch 74/100, Batch 50, Total: 1.4060, Recon: 0.7935, Clf: 0.6125, Train Acc: 0.8949, LR: 0.000235
+2025-11-05 01:06:02 - Epoch 74/100, Batch 100, Total: 1.4018, Recon: 0.7718, Clf: 0.6300, Train Acc: 0.8950, LR: 0.000235
+2025-11-05 01:06:03 - Epoch 74/100, Batch 150, Total: 1.4200, Recon: 0.8120, Clf: 0.6080, Train Acc: 0.8962, LR: 0.000235
+2025-11-05 01:06:04 - Epoch 74/100, Batch 200, Total: 1.7090, Recon: 0.8759, Clf: 0.8331, Train Acc: 0.8944, LR: 0.000235
+2025-11-05 01:06:04 - Epoch 74/100, Batch 250, Total: 1.5803, Recon: 0.7392, Clf: 0.8411, Train Acc: 0.8940, LR: 0.000235
+2025-11-05 01:06:05 - Epoch 74/100, Batch 300, Total: 1.3756, Recon: 0.8103, Clf: 0.5653, Train Acc: 0.8948, LR: 0.000235
+2025-11-05 01:06:06 - Epoch 74/100, Batch 350, Total: 1.5059, Recon: 0.7500, Clf: 0.7559, Train Acc: 0.8943, LR: 0.000235
+2025-11-05 01:06:07 - Epoch 74/100 completed:
+2025-11-05 01:06:07 -   Train - Total: 1.454109, Recon: 0.780742, Clf: 0.673366, Acc: 0.8951
+2025-11-05 01:06:07 -   Eval  - Total: 11.112704, Acc: 0.2760
+2025-11-05 01:06:07 - Epoch 75/100, Batch 0, Total: 1.6614, Recon: 0.8066, Clf: 0.8548, Train Acc: 0.8594, LR: 0.000235
+2025-11-05 01:06:07 - Epoch 75/100, Batch 50, Total: 1.5111, Recon: 0.8306, Clf: 0.6805, Train Acc: 0.8964, LR: 0.000235
+2025-11-05 01:06:08 - Epoch 75/100, Batch 100, Total: 1.3733, Recon: 0.7708, Clf: 0.6025, Train Acc: 0.8950, LR: 0.000235
+2025-11-05 01:06:09 - Epoch 75/100, Batch 150, Total: 1.4868, Recon: 0.8033, Clf: 0.6836, Train Acc: 0.8945, LR: 0.000235
+2025-11-05 01:06:09 - Epoch 75/100, Batch 200, Total: 1.6096, Recon: 0.7620, Clf: 0.8476, Train Acc: 0.8937, LR: 0.000235
+2025-11-05 01:06:10 - Epoch 75/100, Batch 250, Total: 1.6710, Recon: 0.8091, Clf: 0.8619, Train Acc: 0.8941, LR: 0.000235
+2025-11-05 01:06:11 - Epoch 75/100, Batch 300, Total: 1.3248, Recon: 0.7559, Clf: 0.5689, Train Acc: 0.8956, LR: 0.000235
+2025-11-05 01:06:11 - Epoch 75/100, Batch 350, Total: 1.3574, Recon: 0.7298, Clf: 0.6275, Train Acc: 0.8955, LR: 0.000235
+2025-11-05 01:06:12 - Epoch 75/100 completed:
+2025-11-05 01:06:12 -   Train - Total: 1.453480, Recon: 0.780636, Clf: 0.672845, Acc: 0.8962
+2025-11-05 01:06:12 -   Eval  - Total: 11.169141, Acc: 0.2712
+2025-11-05 01:06:12 - Epoch 76/100, Batch 0, Total: 1.4075, Recon: 0.7486, Clf: 0.6589, Train Acc: 0.9141, LR: 0.000235
+2025-11-05 01:06:13 - Epoch 76/100, Batch 50, Total: 1.3583, Recon: 0.7658, Clf: 0.5925, Train Acc: 0.8997, LR: 0.000235
+2025-11-05 01:06:14 - Epoch 76/100, Batch 100, Total: 1.4061, Recon: 0.8051, Clf: 0.6009, Train Acc: 0.8965, LR: 0.000235
+2025-11-05 01:06:15 - Epoch 76/100, Batch 150, Total: 1.4036, Recon: 0.7882, Clf: 0.6153, Train Acc: 0.8953, LR: 0.000235
+2025-11-05 01:06:15 - Epoch 76/100, Batch 200, Total: 1.2939, Recon: 0.7305, Clf: 0.5634, Train Acc: 0.8960, LR: 0.000235
+2025-11-05 01:06:16 - Epoch 76/100, Batch 250, Total: 1.5996, Recon: 0.7484, Clf: 0.8511, Train Acc: 0.8961, LR: 0.000235
+2025-11-05 01:06:17 - Epoch 76/100, Batch 300, Total: 1.6649, Recon: 0.7687, Clf: 0.8962, Train Acc: 0.8967, LR: 0.000235
+2025-11-05 01:06:17 - Epoch 76/100, Batch 350, Total: 1.6477, Recon: 0.7619, Clf: 0.8858, Train Acc: 0.8967, LR: 0.000235
+2025-11-05 01:06:18 - Epoch 76/100 completed:
+2025-11-05 01:06:18 -   Train - Total: 1.449594, Recon: 0.780200, Clf: 0.669394, Acc: 0.8965
+2025-11-05 01:06:18 -   Eval  - Total: 10.926641, Acc: 0.2766
+2025-11-05 01:06:18 - Epoch 77/100, Batch 0, Total: 1.3724, Recon: 0.7739, Clf: 0.5985, Train Acc: 0.8750, LR: 0.000235
+2025-11-05 01:06:19 - Epoch 77/100, Batch 50, Total: 1.5990, Recon: 0.7275, Clf: 0.8715, Train Acc: 0.8963, LR: 0.000235
+2025-11-05 01:06:20 - Epoch 77/100, Batch 100, Total: 1.7161, Recon: 0.8086, Clf: 0.9075, Train Acc: 0.8953, LR: 0.000235
+2025-11-05 01:06:20 - Epoch 77/100, Batch 150, Total: 1.5813, Recon: 0.7776, Clf: 0.8037, Train Acc: 0.8962, LR: 0.000235
+2025-11-05 01:06:21 - Epoch 77/100, Batch 200, Total: 1.5905, Recon: 0.7892, Clf: 0.8013, Train Acc: 0.8956, LR: 0.000235
+2025-11-05 01:06:22 - Epoch 77/100, Batch 250, Total: 1.5552, Recon: 0.8318, Clf: 0.7234, Train Acc: 0.8955, LR: 0.000235
+2025-11-05 01:06:22 - Epoch 77/100, Batch 300, Total: 1.4133, Recon: 0.7811, Clf: 0.6322, Train Acc: 0.8962, LR: 0.000235
+2025-11-05 01:06:23 - Epoch 77/100, Batch 350, Total: 1.3083, Recon: 0.6888, Clf: 0.6195, Train Acc: 0.8972, LR: 0.000235
+2025-11-05 01:06:24 - Epoch 77/100 completed:
+2025-11-05 01:06:24 -   Train - Total: 1.448323, Recon: 0.779025, Clf: 0.669298, Acc: 0.8974
+2025-11-05 01:06:24 -   Eval  - Total: 11.129544, Acc: 0.2777
+2025-11-05 01:06:24 - Epoch 78/100, Batch 0, Total: 1.5029, Recon: 0.8060, Clf: 0.6970, Train Acc: 0.8672, LR: 0.000235
+2025-11-05 01:06:25 - Epoch 78/100, Batch 50, Total: 1.2818, Recon: 0.7785, Clf: 0.5033, Train Acc: 0.8958, LR: 0.000235
+2025-11-05 01:06:25 - Epoch 78/100, Batch 100, Total: 1.3438, Recon: 0.7400, Clf: 0.6038, Train Acc: 0.8974, LR: 0.000235
+2025-11-05 01:06:26 - Epoch 78/100, Batch 150, Total: 1.3769, Recon: 0.7576, Clf: 0.6193, Train Acc: 0.8978, LR: 0.000235
+2025-11-05 01:06:27 - Epoch 78/100, Batch 200, Total: 1.5290, Recon: 0.7857, Clf: 0.7434, Train Acc: 0.8978, LR: 0.000235
+2025-11-05 01:06:28 - Epoch 78/100, Batch 250, Total: 1.2629, Recon: 0.8012, Clf: 0.4617, Train Acc: 0.8976, LR: 0.000235
+2025-11-05 01:06:28 - Epoch 78/100, Batch 300, Total: 1.9152, Recon: 0.8438, Clf: 1.0714, Train Acc: 0.8966, LR: 0.000235
+2025-11-05 01:06:29 - Epoch 78/100, Batch 350, Total: 1.5833, Recon: 0.9048, Clf: 0.6785, Train Acc: 0.8970, LR: 0.000235
+2025-11-05 01:06:30 - Epoch 78/100 completed:
+2025-11-05 01:06:30 -   Train - Total: 1.448543, Recon: 0.780244, Clf: 0.668298, Acc: 0.8975
+2025-11-05 01:06:30 -   Eval  - Total: 11.002479, Acc: 0.2735
+2025-11-05 01:06:30 - Epoch 79/100, Batch 0, Total: 1.4106, Recon: 0.7822, Clf: 0.6284, Train Acc: 0.8750, LR: 0.000235
+2025-11-05 01:06:31 - Epoch 79/100, Batch 50, Total: 1.4490, Recon: 0.7926, Clf: 0.6563, Train Acc: 0.9017, LR: 0.000235
+2025-11-05 01:06:32 - Epoch 79/100, Batch 100, Total: 1.4465, Recon: 0.7681, Clf: 0.6784, Train Acc: 0.8969, LR: 0.000235
+2025-11-05 01:06:32 - Epoch 79/100, Batch 150, Total: 1.2081, Recon: 0.7341, Clf: 0.4741, Train Acc: 0.8962, LR: 0.000235
+2025-11-05 01:06:33 - Epoch 79/100, Batch 200, Total: 1.5293, Recon: 0.7640, Clf: 0.7654, Train Acc: 0.8958, LR: 0.000235
+2025-11-05 01:06:34 - Epoch 79/100, Batch 250, Total: 1.4419, Recon: 0.7783, Clf: 0.6636, Train Acc: 0.8960, LR: 0.000235
+2025-11-05 01:06:34 - Epoch 79/100, Batch 300, Total: 1.7403, Recon: 0.7939, Clf: 0.9464, Train Acc: 0.8947, LR: 0.000235
+2025-11-05 01:06:35 - Epoch 79/100, Batch 350, Total: 1.2367, Recon: 0.7202, Clf: 0.5165, Train Acc: 0.8956, LR: 0.000235
+2025-11-05 01:06:36 - Epoch 79/100 completed:
+2025-11-05 01:06:36 -   Train - Total: 1.449343, Recon: 0.780429, Clf: 0.668914, Acc: 0.8963
+2025-11-05 01:06:36 -   Eval  - Total: 11.180523, Acc: 0.2748
+2025-11-05 01:06:36 - Epoch 80/100, Batch 0, Total: 1.2729, Recon: 0.8081, Clf: 0.4649, Train Acc: 0.9219, LR: 0.000165
+2025-11-05 01:06:37 - Epoch 80/100, Batch 50, Total: 1.5896, Recon: 0.7218, Clf: 0.8678, Train Acc: 0.8934, LR: 0.000165
+2025-11-05 01:06:37 - Epoch 80/100, Batch 100, Total: 1.3847, Recon: 0.7853, Clf: 0.5994, Train Acc: 0.8968, LR: 0.000165
+2025-11-05 01:06:38 - Epoch 80/100, Batch 150, Total: 1.5675, Recon: 0.7530, Clf: 0.8145, Train Acc: 0.8966, LR: 0.000165
+2025-11-05 01:06:39 - Epoch 80/100, Batch 200, Total: 1.3680, Recon: 0.7587, Clf: 0.6093, Train Acc: 0.8963, LR: 0.000165
+2025-11-05 01:06:40 - Epoch 80/100, Batch 250, Total: 1.2843, Recon: 0.7434, Clf: 0.5410, Train Acc: 0.8975, LR: 0.000165
+2025-11-05 01:06:40 - Epoch 80/100, Batch 300, Total: 1.3225, Recon: 0.7711, Clf: 0.5513, Train Acc: 0.8975, LR: 0.000165
+2025-11-05 01:06:41 - Epoch 80/100, Batch 350, Total: 1.1861, Recon: 0.7579, Clf: 0.4282, Train Acc: 0.8977, LR: 0.000165
+2025-11-05 01:06:42 - Epoch 80/100 completed:
+2025-11-05 01:06:42 -   Train - Total: 1.444931, Recon: 0.778749, Clf: 0.666182, Acc: 0.8976
+2025-11-05 01:06:42 -   Eval  - Total: 11.056892, Acc: 0.2767
+2025-11-05 01:06:42 - Epoch 81/100, Batch 0, Total: 1.3872, Recon: 0.7829, Clf: 0.6044, Train Acc: 0.9219, LR: 0.000165
+2025-11-05 01:06:43 - Epoch 81/100, Batch 50, Total: 1.5508, Recon: 0.7946, Clf: 0.7562, Train Acc: 0.8997, LR: 0.000165
+2025-11-05 01:06:43 - Epoch 81/100, Batch 100, Total: 1.3090, Recon: 0.7623, Clf: 0.5467, Train Acc: 0.8974, LR: 0.000165
+2025-11-05 01:06:44 - Epoch 81/100, Batch 150, Total: 1.6217, Recon: 0.7384, Clf: 0.8833, Train Acc: 0.8979, LR: 0.000165
+2025-11-05 01:06:45 - Epoch 81/100, Batch 200, Total: 1.6331, Recon: 0.8116, Clf: 0.8215, Train Acc: 0.8968, LR: 0.000165
+2025-11-05 01:06:45 - Epoch 81/100, Batch 250, Total: 1.1794, Recon: 0.8247, Clf: 0.3547, Train Acc: 0.8984, LR: 0.000165
+2025-11-05 01:06:46 - Epoch 81/100, Batch 300, Total: 1.3459, Recon: 0.7409, Clf: 0.6051, Train Acc: 0.8980, LR: 0.000165
+2025-11-05 01:06:47 - Epoch 81/100, Batch 350, Total: 1.5113, Recon: 0.7705, Clf: 0.7408, Train Acc: 0.8983, LR: 0.000165
+2025-11-05 01:06:48 - Epoch 81/100 completed:
+2025-11-05 01:06:48 -   Train - Total: 1.437269, Recon: 0.778384, Clf: 0.658885, Acc: 0.8982
+2025-11-05 01:06:48 -   Eval  - Total: 11.175094, Acc: 0.2759
+2025-11-05 01:06:48 - Epoch 82/100, Batch 0, Total: 1.2975, Recon: 0.7429, Clf: 0.5545, Train Acc: 0.9062, LR: 0.000165
+2025-11-05 01:06:48 - Epoch 82/100, Batch 50, Total: 1.3721, Recon: 0.7758, Clf: 0.5963, Train Acc: 0.9023, LR: 0.000165
+2025-11-05 01:06:49 - Epoch 82/100, Batch 100, Total: 1.3887, Recon: 0.7879, Clf: 0.6009, Train Acc: 0.9001, LR: 0.000165
+2025-11-05 01:06:50 - Epoch 82/100, Batch 150, Total: 1.4417, Recon: 0.8112, Clf: 0.6305, Train Acc: 0.8990, LR: 0.000165
+2025-11-05 01:06:50 - Epoch 82/100, Batch 200, Total: 1.4402, Recon: 0.7920, Clf: 0.6483, Train Acc: 0.8986, LR: 0.000165
+2025-11-05 01:06:51 - Epoch 82/100, Batch 250, Total: 1.3719, Recon: 0.8054, Clf: 0.5664, Train Acc: 0.8990, LR: 0.000165
+2025-11-05 01:06:52 - Epoch 82/100, Batch 300, Total: 1.8048, Recon: 0.7692, Clf: 1.0356, Train Acc: 0.8987, LR: 0.000165
+2025-11-05 01:06:52 - Epoch 82/100, Batch 350, Total: 1.3931, Recon: 0.8048, Clf: 0.5883, Train Acc: 0.8989, LR: 0.000165
+2025-11-05 01:06:53 - Epoch 82/100 completed:
+2025-11-05 01:06:53 -   Train - Total: 1.438837, Recon: 0.778176, Clf: 0.660661, Acc: 0.8988
+2025-11-05 01:06:53 -   Eval  - Total: 11.088546, Acc: 0.2740
+2025-11-05 01:06:53 - Epoch 83/100, Batch 0, Total: 1.4073, Recon: 0.7531, Clf: 0.6542, Train Acc: 0.9297, LR: 0.000165
+2025-11-05 01:06:54 - Epoch 83/100, Batch 50, Total: 1.5364, Recon: 0.8356, Clf: 0.7008, Train Acc: 0.9003, LR: 0.000165
+2025-11-05 01:06:55 - Epoch 83/100, Batch 100, Total: 1.2195, Recon: 0.7115, Clf: 0.5080, Train Acc: 0.8974, LR: 0.000165
+2025-11-05 01:06:55 - Epoch 83/100, Batch 150, Total: 1.3001, Recon: 0.7383, Clf: 0.5618, Train Acc: 0.8994, LR: 0.000165
+2025-11-05 01:06:56 - Epoch 83/100, Batch 200, Total: 1.6920, Recon: 0.7890, Clf: 0.9030, Train Acc: 0.9003, LR: 0.000165
+2025-11-05 01:06:57 - Epoch 83/100, Batch 250, Total: 1.3158, Recon: 0.7836, Clf: 0.5322, Train Acc: 0.9011, LR: 0.000165
+2025-11-05 01:06:57 - Epoch 83/100, Batch 300, Total: 1.5269, Recon: 0.7822, Clf: 0.7447, Train Acc: 0.8994, LR: 0.000165
+2025-11-05 01:06:58 - Epoch 83/100, Batch 350, Total: 1.2524, Recon: 0.7082, Clf: 0.5443, Train Acc: 0.8994, LR: 0.000165
+2025-11-05 01:06:59 - Epoch 83/100 completed:
+2025-11-05 01:06:59 -   Train - Total: 1.439916, Recon: 0.778843, Clf: 0.661074, Acc: 0.8992
+2025-11-05 01:06:59 -   Eval  - Total: 11.101399, Acc: 0.2751
+2025-11-05 01:06:59 - Epoch 84/100, Batch 0, Total: 1.4301, Recon: 0.8574, Clf: 0.5727, Train Acc: 0.9297, LR: 0.000165
+2025-11-05 01:07:00 - Epoch 84/100, Batch 50, Total: 1.4846, Recon: 0.8136, Clf: 0.6710, Train Acc: 0.9018, LR: 0.000165
+2025-11-05 01:07:01 - Epoch 84/100, Batch 100, Total: 1.3345, Recon: 0.7651, Clf: 0.5694, Train Acc: 0.9036, LR: 0.000165
+2025-11-05 01:07:01 - Epoch 84/100, Batch 150, Total: 1.6976, Recon: 0.7921, Clf: 0.9055, Train Acc: 0.9001, LR: 0.000165
+2025-11-05 01:07:02 - Epoch 84/100, Batch 200, Total: 1.4197, Recon: 0.7653, Clf: 0.6544, Train Acc: 0.8997, LR: 0.000165
+2025-11-05 01:07:03 - Epoch 84/100, Batch 250, Total: 1.5934, Recon: 0.8254, Clf: 0.7680, Train Acc: 0.8988, LR: 0.000165
+2025-11-05 01:07:03 - Epoch 84/100, Batch 300, Total: 1.4168, Recon: 0.7240, Clf: 0.6928, Train Acc: 0.8988, LR: 0.000165
+2025-11-05 01:07:04 - Epoch 84/100, Batch 350, Total: 1.2761, Recon: 0.7525, Clf: 0.5237, Train Acc: 0.8986, LR: 0.000165
+2025-11-05 01:07:05 - Epoch 84/100 completed:
+2025-11-05 01:07:05 -   Train - Total: 1.441007, Recon: 0.777790, Clf: 0.663217, Acc: 0.8988
+2025-11-05 01:07:05 -   Eval  - Total: 10.963220, Acc: 0.2766
+2025-11-05 01:07:05 - Epoch 85/100, Batch 0, Total: 1.4641, Recon: 0.7536, Clf: 0.7105, Train Acc: 0.8672, LR: 0.000165
+2025-11-05 01:07:06 - Epoch 85/100, Batch 50, Total: 1.5070, Recon: 0.8588, Clf: 0.6482, Train Acc: 0.9004, LR: 0.000165
+2025-11-05 01:07:06 - Epoch 85/100, Batch 100, Total: 1.8743, Recon: 0.8140, Clf: 1.0603, Train Acc: 0.8996, LR: 0.000165
+2025-11-05 01:07:07 - Epoch 85/100, Batch 150, Total: 1.4778, Recon: 0.7661, Clf: 0.7117, Train Acc: 0.9010, LR: 0.000165
+2025-11-05 01:07:08 - Epoch 85/100, Batch 200, Total: 1.6025, Recon: 0.7998, Clf: 0.8027, Train Acc: 0.9004, LR: 0.000165
+2025-11-05 01:07:08 - Epoch 85/100, Batch 250, Total: 1.3661, Recon: 0.8012, Clf: 0.5649, Train Acc: 0.8995, LR: 0.000165
+2025-11-05 01:07:09 - Epoch 85/100, Batch 300, Total: 1.1577, Recon: 0.7121, Clf: 0.4456, Train Acc: 0.8989, LR: 0.000165
+2025-11-05 01:07:10 - Epoch 85/100, Batch 350, Total: 1.2758, Recon: 0.7816, Clf: 0.4942, Train Acc: 0.8992, LR: 0.000165
+2025-11-05 01:07:11 - Epoch 85/100 completed:
+2025-11-05 01:07:11 -   Train - Total: 1.434233, Recon: 0.778264, Clf: 0.655969, Acc: 0.8990
+2025-11-05 01:07:11 -   Eval  - Total: 11.103393, Acc: 0.2760
+2025-11-05 01:07:11 - Epoch 86/100, Batch 0, Total: 1.4469, Recon: 0.7594, Clf: 0.6875, Train Acc: 0.8984, LR: 0.000165
+2025-11-05 01:07:11 - Epoch 86/100, Batch 50, Total: 1.3024, Recon: 0.7617, Clf: 0.5407, Train Acc: 0.9015, LR: 0.000165
+2025-11-05 01:07:12 - Epoch 86/100, Batch 100, Total: 1.6241, Recon: 0.7902, Clf: 0.8339, Train Acc: 0.9005, LR: 0.000165
+2025-11-05 01:07:13 - Epoch 86/100, Batch 150, Total: 1.0939, Recon: 0.6885, Clf: 0.4053, Train Acc: 0.8994, LR: 0.000165
+2025-11-05 01:07:13 - Epoch 86/100, Batch 200, Total: 1.2838, Recon: 0.7637, Clf: 0.5201, Train Acc: 0.8984, LR: 0.000165
+2025-11-05 01:07:14 - Epoch 86/100, Batch 250, Total: 1.6285, Recon: 0.7903, Clf: 0.8381, Train Acc: 0.8974, LR: 0.000165
+2025-11-05 01:07:15 - Epoch 86/100, Batch 300, Total: 1.5086, Recon: 0.8291, Clf: 0.6795, Train Acc: 0.8972, LR: 0.000165
+2025-11-05 01:07:16 - Epoch 86/100, Batch 350, Total: 1.5785, Recon: 0.7549, Clf: 0.8236, Train Acc: 0.8977, LR: 0.000165
+2025-11-05 01:07:17 - Epoch 86/100 completed:
+2025-11-05 01:07:17 -   Train - Total: 1.442025, Recon: 0.778417, Clf: 0.663608, Acc: 0.8986
+2025-11-05 01:07:17 -   Eval  - Total: 11.036258, Acc: 0.2753
+2025-11-05 01:07:17 - Epoch 87/100, Batch 0, Total: 1.3458, Recon: 0.7567, Clf: 0.5890, Train Acc: 0.9219, LR: 0.000165
+2025-11-05 01:07:17 - Epoch 87/100, Batch 50, Total: 1.4751, Recon: 0.8047, Clf: 0.6704, Train Acc: 0.8995, LR: 0.000165
+2025-11-05 01:07:18 - Epoch 87/100, Batch 100, Total: 1.6272, Recon: 0.8592, Clf: 0.7680, Train Acc: 0.8993, LR: 0.000165
+2025-11-05 01:07:19 - Epoch 87/100, Batch 150, Total: 1.4426, Recon: 0.7339, Clf: 0.7087, Train Acc: 0.8982, LR: 0.000165
+2025-11-05 01:07:19 - Epoch 87/100, Batch 200, Total: 1.6138, Recon: 0.7575, Clf: 0.8563, Train Acc: 0.8989, LR: 0.000165
+2025-11-05 01:07:20 - Epoch 87/100, Batch 250, Total: 1.3555, Recon: 0.7663, Clf: 0.5892, Train Acc: 0.8974, LR: 0.000165
+2025-11-05 01:07:21 - Epoch 87/100, Batch 300, Total: 1.4587, Recon: 0.7459, Clf: 0.7128, Train Acc: 0.8974, LR: 0.000165
+2025-11-05 01:07:21 - Epoch 87/100, Batch 350, Total: 1.3071, Recon: 0.7691, Clf: 0.5379, Train Acc: 0.8982, LR: 0.000165
+2025-11-05 01:07:22 - Epoch 87/100 completed:
+2025-11-05 01:07:22 -   Train - Total: 1.436360, Recon: 0.778967, Clf: 0.657392, Acc: 0.8990
+2025-11-05 01:07:22 -   Eval  - Total: 11.132196, Acc: 0.2741
+2025-11-05 01:07:22 - Epoch 88/100, Batch 0, Total: 1.4814, Recon: 0.7879, Clf: 0.6935, Train Acc: 0.8984, LR: 0.000165
+2025-11-05 01:07:23 - Epoch 88/100, Batch 50, Total: 1.3850, Recon: 0.7719, Clf: 0.6131, Train Acc: 0.8960, LR: 0.000165
+2025-11-05 01:07:24 - Epoch 88/100, Batch 100, Total: 1.4487, Recon: 0.7521, Clf: 0.6966, Train Acc: 0.8978, LR: 0.000165
+2025-11-05 01:07:24 - Epoch 88/100, Batch 150, Total: 1.1961, Recon: 0.7000, Clf: 0.4962, Train Acc: 0.8973, LR: 0.000165
+2025-11-05 01:07:25 - Epoch 88/100, Batch 200, Total: 1.3066, Recon: 0.7178, Clf: 0.5888, Train Acc: 0.8957, LR: 0.000165
+2025-11-05 01:07:26 - Epoch 88/100, Batch 250, Total: 1.3584, Recon: 0.7996, Clf: 0.5589, Train Acc: 0.8965, LR: 0.000165
+2025-11-05 01:07:26 - Epoch 88/100, Batch 300, Total: 1.1846, Recon: 0.7486, Clf: 0.4360, Train Acc: 0.8972, LR: 0.000165
+2025-11-05 01:07:27 - Epoch 88/100, Batch 350, Total: 1.4528, Recon: 0.7930, Clf: 0.6598, Train Acc: 0.8975, LR: 0.000165
+2025-11-05 01:07:28 - Epoch 88/100 completed:
+2025-11-05 01:07:28 -   Train - Total: 1.437028, Recon: 0.778721, Clf: 0.658307, Acc: 0.8975
+2025-11-05 01:07:28 -   Eval  - Total: 11.094604, Acc: 0.2714
+2025-11-05 01:07:28 - Epoch 89/100, Batch 0, Total: 1.3763, Recon: 0.7966, Clf: 0.5797, Train Acc: 0.8906, LR: 0.000165
+2025-11-05 01:07:29 - Epoch 89/100, Batch 50, Total: 1.2573, Recon: 0.7788, Clf: 0.4784, Train Acc: 0.8964, LR: 0.000165
+2025-11-05 01:07:30 - Epoch 89/100, Batch 100, Total: 1.2645, Recon: 0.7587, Clf: 0.5059, Train Acc: 0.8982, LR: 0.000165
+2025-11-05 01:07:30 - Epoch 89/100, Batch 150, Total: 1.6975, Recon: 0.8088, Clf: 0.8886, Train Acc: 0.8989, LR: 0.000165
+2025-11-05 01:07:31 - Epoch 89/100, Batch 200, Total: 1.3281, Recon: 0.7116, Clf: 0.6166, Train Acc: 0.8993, LR: 0.000165
+2025-11-05 01:07:32 - Epoch 89/100, Batch 250, Total: 1.1603, Recon: 0.7197, Clf: 0.4405, Train Acc: 0.8995, LR: 0.000165
+2025-11-05 01:07:32 - Epoch 89/100, Batch 300, Total: 1.5465, Recon: 0.7910, Clf: 0.7555, Train Acc: 0.8986, LR: 0.000165
+2025-11-05 01:07:33 - Epoch 89/100, Batch 350, Total: 1.1567, Recon: 0.7295, Clf: 0.4272, Train Acc: 0.8989, LR: 0.000165
+2025-11-05 01:07:34 - Epoch 89/100 completed:
+2025-11-05 01:07:34 -   Train - Total: 1.430269, Recon: 0.776905, Clf: 0.653364, Acc: 0.8991
+2025-11-05 01:07:34 -   Eval  - Total: 11.101656, Acc: 0.2749
+2025-11-05 01:07:34 - Epoch 90/100, Batch 0, Total: 1.3487, Recon: 0.7867, Clf: 0.5621, Train Acc: 0.9062, LR: 0.000165
+2025-11-05 01:07:35 - Epoch 90/100, Batch 50, Total: 1.4070, Recon: 0.8023, Clf: 0.6047, Train Acc: 0.8958, LR: 0.000165
+2025-11-05 01:07:35 - Epoch 90/100, Batch 100, Total: 1.1713, Recon: 0.7757, Clf: 0.3956, Train Acc: 0.8965, LR: 0.000165
+2025-11-05 01:07:36 - Epoch 90/100, Batch 150, Total: 1.2851, Recon: 0.6945, Clf: 0.5905, Train Acc: 0.8969, LR: 0.000165
+2025-11-05 01:07:37 - Epoch 90/100, Batch 200, Total: 1.2708, Recon: 0.7555, Clf: 0.5153, Train Acc: 0.8978, LR: 0.000165
+2025-11-05 01:07:37 - Epoch 90/100, Batch 250, Total: 1.2195, Recon: 0.7893, Clf: 0.4301, Train Acc: 0.8982, LR: 0.000165
+2025-11-05 01:07:38 - Epoch 90/100, Batch 300, Total: 1.6328, Recon: 0.7993, Clf: 0.8334, Train Acc: 0.8995, LR: 0.000165
+2025-11-05 01:07:39 - Epoch 90/100, Batch 350, Total: 1.6204, Recon: 0.8318, Clf: 0.7887, Train Acc: 0.9001, LR: 0.000165
+2025-11-05 01:07:40 - Epoch 90/100 completed:
+2025-11-05 01:07:40 -   Train - Total: 1.432127, Recon: 0.777720, Clf: 0.654407, Acc: 0.8996
+2025-11-05 01:07:40 -   Eval  - Total: 11.091325, Acc: 0.2735
+2025-11-05 01:07:40 - Epoch 91/100, Batch 0, Total: 1.3089, Recon: 0.7950, Clf: 0.5138, Train Acc: 0.9375, LR: 0.000115
+2025-11-05 01:07:40 - Epoch 91/100, Batch 50, Total: 1.1901, Recon: 0.7596, Clf: 0.4305, Train Acc: 0.9098, LR: 0.000115
+2025-11-05 01:07:41 - Epoch 91/100, Batch 100, Total: 1.2571, Recon: 0.7866, Clf: 0.4705, Train Acc: 0.9051, LR: 0.000115
+2025-11-05 01:07:42 - Epoch 91/100, Batch 150, Total: 1.6538, Recon: 0.7883, Clf: 0.8655, Train Acc: 0.9029, LR: 0.000115
+2025-11-05 01:07:42 - Epoch 91/100, Batch 200, Total: 1.2977, Recon: 0.7721, Clf: 0.5256, Train Acc: 0.9012, LR: 0.000115
+2025-11-05 01:07:43 - Epoch 91/100, Batch 250, Total: 1.5526, Recon: 0.7999, Clf: 0.7527, Train Acc: 0.9016, LR: 0.000115
+2025-11-05 01:07:44 - Epoch 91/100, Batch 300, Total: 1.5478, Recon: 0.7774, Clf: 0.7704, Train Acc: 0.9003, LR: 0.000115
+2025-11-05 01:07:45 - Epoch 91/100, Batch 350, Total: 1.7072, Recon: 0.7651, Clf: 0.9422, Train Acc: 0.9007, LR: 0.000115
+2025-11-05 01:07:45 - Epoch 91/100 completed:
+2025-11-05 01:07:45 -   Train - Total: 1.425081, Recon: 0.777996, Clf: 0.647084, Acc: 0.9003
+2025-11-05 01:07:45 -   Eval  - Total: 10.989511, Acc: 0.2759
+2025-11-05 01:07:45 - Epoch 92/100, Batch 0, Total: 1.3864, Recon: 0.7195, Clf: 0.6669, Train Acc: 0.8984, LR: 0.000115
+2025-11-05 01:07:46 - Epoch 92/100, Batch 50, Total: 1.3824, Recon: 0.8160, Clf: 0.5663, Train Acc: 0.8975, LR: 0.000115
+2025-11-05 01:07:47 - Epoch 92/100, Batch 100, Total: 1.2495, Recon: 0.8161, Clf: 0.4334, Train Acc: 0.8996, LR: 0.000115
+2025-11-05 01:07:48 - Epoch 92/100, Batch 150, Total: 1.3175, Recon: 0.7604, Clf: 0.5571, Train Acc: 0.8996, LR: 0.000115
+2025-11-05 01:07:48 - Epoch 92/100, Batch 200, Total: 1.4053, Recon: 0.7947, Clf: 0.6105, Train Acc: 0.8992, LR: 0.000115
+2025-11-05 01:07:49 - Epoch 92/100, Batch 250, Total: 1.4413, Recon: 0.7984, Clf: 0.6429, Train Acc: 0.8986, LR: 0.000115
+2025-11-05 01:07:50 - Epoch 92/100, Batch 300, Total: 1.3322, Recon: 0.7423, Clf: 0.5900, Train Acc: 0.8983, LR: 0.000115
+2025-11-05 01:07:50 - Epoch 92/100, Batch 350, Total: 1.5211, Recon: 0.7450, Clf: 0.7762, Train Acc: 0.8988, LR: 0.000115
+2025-11-05 01:07:51 - Epoch 92/100 completed:
+2025-11-05 01:07:51 -   Train - Total: 1.431467, Recon: 0.777770, Clf: 0.653697, Acc: 0.8985
+2025-11-05 01:07:51 -   Eval  - Total: 11.062769, Acc: 0.2756
+2025-11-05 01:07:51 - Epoch 93/100, Batch 0, Total: 1.5043, Recon: 0.7219, Clf: 0.7824, Train Acc: 0.8984, LR: 0.000115
+2025-11-05 01:07:52 - Epoch 93/100, Batch 50, Total: 1.3625, Recon: 0.7492, Clf: 0.6133, Train Acc: 0.8963, LR: 0.000115
+2025-11-05 01:07:53 - Epoch 93/100, Batch 100, Total: 1.3400, Recon: 0.8175, Clf: 0.5225, Train Acc: 0.8984, LR: 0.000115
+2025-11-05 01:07:53 - Epoch 93/100, Batch 150, Total: 1.5941, Recon: 0.8109, Clf: 0.7831, Train Acc: 0.8974, LR: 0.000115
+2025-11-05 01:07:54 - Epoch 93/100, Batch 200, Total: 1.5508, Recon: 0.7498, Clf: 0.8010, Train Acc: 0.8992, LR: 0.000115
+2025-11-05 01:07:55 - Epoch 93/100, Batch 250, Total: 1.6092, Recon: 0.7654, Clf: 0.8438, Train Acc: 0.8999, LR: 0.000115
+2025-11-05 01:07:55 - Epoch 93/100, Batch 300, Total: 1.6443, Recon: 0.8501, Clf: 0.7943, Train Acc: 0.8996, LR: 0.000115
+2025-11-05 01:07:56 - Epoch 93/100, Batch 350, Total: 1.4548, Recon: 0.8432, Clf: 0.6115, Train Acc: 0.8999, LR: 0.000115
+2025-11-05 01:07:57 - Epoch 93/100 completed:
+2025-11-05 01:07:57 -   Train - Total: 1.438848, Recon: 0.777827, Clf: 0.661021, Acc: 0.8992
+2025-11-05 01:07:57 -   Eval  - Total: 11.017092, Acc: 0.2772
+2025-11-05 01:07:57 - Epoch 94/100, Batch 0, Total: 1.4382, Recon: 0.7529, Clf: 0.6853, Train Acc: 0.9062, LR: 0.000115
+2025-11-05 01:07:58 - Epoch 94/100, Batch 50, Total: 1.4932, Recon: 0.8345, Clf: 0.6587, Train Acc: 0.9018, LR: 0.000115
+2025-11-05 01:07:58 - Epoch 94/100, Batch 100, Total: 1.3210, Recon: 0.7839, Clf: 0.5371, Train Acc: 0.9016, LR: 0.000115
+2025-11-05 01:07:59 - Epoch 94/100, Batch 150, Total: 1.6571, Recon: 0.8087, Clf: 0.8484, Train Acc: 0.9009, LR: 0.000115
+2025-11-05 01:08:00 - Epoch 94/100, Batch 200, Total: 1.3911, Recon: 0.7858, Clf: 0.6053, Train Acc: 0.9001, LR: 0.000115
+2025-11-05 01:08:00 - Epoch 94/100, Batch 250, Total: 1.5067, Recon: 0.7947, Clf: 0.7120, Train Acc: 0.8995, LR: 0.000115
+2025-11-05 01:08:01 - Epoch 94/100, Batch 300, Total: 1.3853, Recon: 0.7510, Clf: 0.6343, Train Acc: 0.9000, LR: 0.000115
+2025-11-05 01:08:02 - Epoch 94/100, Batch 350, Total: 1.3615, Recon: 0.7747, Clf: 0.5868, Train Acc: 0.8998, LR: 0.000115
+2025-11-05 01:08:03 - Epoch 94/100 completed:
+2025-11-05 01:08:03 -   Train - Total: 1.431743, Recon: 0.777050, Clf: 0.654694, Acc: 0.8994
+2025-11-05 01:08:03 -   Eval  - Total: 11.075453, Acc: 0.2745
+2025-11-05 01:08:03 - Epoch 95/100, Batch 0, Total: 1.4230, Recon: 0.7159, Clf: 0.7071, Train Acc: 0.8828, LR: 0.000115
+2025-11-05 01:08:03 - Epoch 95/100, Batch 50, Total: 1.6171, Recon: 0.7854, Clf: 0.8317, Train Acc: 0.8989, LR: 0.000115
+2025-11-05 01:08:04 - Epoch 95/100, Batch 100, Total: 1.4108, Recon: 0.7616, Clf: 0.6492, Train Acc: 0.9000, LR: 0.000115
+2025-11-05 01:08:05 - Epoch 95/100, Batch 150, Total: 1.5183, Recon: 0.8857, Clf: 0.6327, Train Acc: 0.8985, LR: 0.000115
+2025-11-05 01:08:05 - Epoch 95/100, Batch 200, Total: 1.4331, Recon: 0.8053, Clf: 0.6277, Train Acc: 0.8996, LR: 0.000115
+2025-11-05 01:08:06 - Epoch 95/100, Batch 250, Total: 1.4952, Recon: 0.8108, Clf: 0.6844, Train Acc: 0.8998, LR: 0.000115
+2025-11-05 01:08:07 - Epoch 95/100, Batch 300, Total: 1.1637, Recon: 0.7889, Clf: 0.3749, Train Acc: 0.9003, LR: 0.000115
+2025-11-05 01:08:08 - Epoch 95/100, Batch 350, Total: 1.6503, Recon: 0.7764, Clf: 0.8740, Train Acc: 0.8987, LR: 0.000115
+2025-11-05 01:08:08 - Epoch 95/100 completed:
+2025-11-05 01:08:08 -   Train - Total: 1.433459, Recon: 0.776184, Clf: 0.657275, Acc: 0.8989
+2025-11-05 01:08:08 -   Eval  - Total: 11.059041, Acc: 0.2758
+2025-11-05 01:08:08 - Epoch 96/100, Batch 0, Total: 1.4456, Recon: 0.7961, Clf: 0.6496, Train Acc: 0.9062, LR: 0.000115
+2025-11-05 01:08:09 - Epoch 96/100, Batch 50, Total: 1.8468, Recon: 0.8076, Clf: 1.0392, Train Acc: 0.8981, LR: 0.000115
+2025-11-05 01:08:10 - Epoch 96/100, Batch 100, Total: 1.2327, Recon: 0.7754, Clf: 0.4573, Train Acc: 0.8999, LR: 0.000115
+2025-11-05 01:08:11 - Epoch 96/100, Batch 150, Total: 1.2155, Recon: 0.7334, Clf: 0.4821, Train Acc: 0.9011, LR: 0.000115
+2025-11-05 01:08:11 - Epoch 96/100, Batch 200, Total: 1.5145, Recon: 0.8332, Clf: 0.6813, Train Acc: 0.9003, LR: 0.000115
+2025-11-05 01:08:12 - Epoch 96/100, Batch 250, Total: 1.3164, Recon: 0.7445, Clf: 0.5719, Train Acc: 0.9003, LR: 0.000115
+2025-11-05 01:08:13 - Epoch 96/100, Batch 300, Total: 1.1805, Recon: 0.7793, Clf: 0.4012, Train Acc: 0.9006, LR: 0.000115
+2025-11-05 01:08:13 - Epoch 96/100, Batch 350, Total: 1.6979, Recon: 0.7763, Clf: 0.9216, Train Acc: 0.9012, LR: 0.000115
+2025-11-05 01:08:14 - Epoch 96/100 completed:
+2025-11-05 01:08:14 -   Train - Total: 1.421836, Recon: 0.776649, Clf: 0.645186, Acc: 0.9007
+2025-11-05 01:08:14 -   Eval  - Total: 11.178364, Acc: 0.2747
+2025-11-05 01:08:14 - Epoch 97/100, Batch 0, Total: 1.5880, Recon: 0.7938, Clf: 0.7943, Train Acc: 0.8672, LR: 0.000115
+2025-11-05 01:08:15 - Epoch 97/100, Batch 50, Total: 1.7470, Recon: 0.8447, Clf: 0.9023, Train Acc: 0.9061, LR: 0.000115
+2025-11-05 01:08:16 - Epoch 97/100, Batch 100, Total: 1.2821, Recon: 0.7891, Clf: 0.4930, Train Acc: 0.9030, LR: 0.000115
+2025-11-05 01:08:16 - Epoch 97/100, Batch 150, Total: 1.2524, Recon: 0.7595, Clf: 0.4929, Train Acc: 0.9021, LR: 0.000115
+2025-11-05 01:08:17 - Epoch 97/100, Batch 200, Total: 1.3741, Recon: 0.7368, Clf: 0.6373, Train Acc: 0.9002, LR: 0.000115
+2025-11-05 01:08:18 - Epoch 97/100, Batch 250, Total: 1.5704, Recon: 0.7947, Clf: 0.7757, Train Acc: 0.9004, LR: 0.000115
+2025-11-05 01:08:19 - Epoch 97/100, Batch 300, Total: 1.4166, Recon: 0.7227, Clf: 0.6939, Train Acc: 0.9006, LR: 0.000115
+2025-11-05 01:08:19 - Epoch 97/100, Batch 350, Total: 1.4572, Recon: 0.8400, Clf: 0.6172, Train Acc: 0.9006, LR: 0.000115
+2025-11-05 01:08:20 - Epoch 97/100 completed:
+2025-11-05 01:08:20 -   Train - Total: 1.428711, Recon: 0.777000, Clf: 0.651710, Acc: 0.8998
+2025-11-05 01:08:20 -   Eval  - Total: 11.117180, Acc: 0.2747
+2025-11-05 01:08:20 - Epoch 98/100, Batch 0, Total: 1.5553, Recon: 0.7604, Clf: 0.7949, Train Acc: 0.9062, LR: 0.000115
+2025-11-05 01:08:21 - Epoch 98/100, Batch 50, Total: 1.4081, Recon: 0.7940, Clf: 0.6141, Train Acc: 0.9018, LR: 0.000115
+2025-11-05 01:08:22 - Epoch 98/100, Batch 100, Total: 1.2504, Recon: 0.8023, Clf: 0.4481, Train Acc: 0.8968, LR: 0.000115
+2025-11-05 01:08:22 - Epoch 98/100, Batch 150, Total: 1.6246, Recon: 0.7609, Clf: 0.8637, Train Acc: 0.8961, LR: 0.000115
+2025-11-05 01:08:23 - Epoch 98/100, Batch 200, Total: 1.5952, Recon: 0.7728, Clf: 0.8224, Train Acc: 0.8987, LR: 0.000115
+2025-11-05 01:08:24 - Epoch 98/100, Batch 250, Total: 1.1983, Recon: 0.7309, Clf: 0.4674, Train Acc: 0.9001, LR: 0.000115
+2025-11-05 01:08:24 - Epoch 98/100, Batch 300, Total: 1.4586, Recon: 0.7431, Clf: 0.7154, Train Acc: 0.8994, LR: 0.000115
+2025-11-05 01:08:25 - Epoch 98/100, Batch 350, Total: 1.5372, Recon: 0.8131, Clf: 0.7242, Train Acc: 0.8989, LR: 0.000115
+2025-11-05 01:08:26 - Epoch 98/100 completed:
+2025-11-05 01:08:26 -   Train - Total: 1.431820, Recon: 0.777456, Clf: 0.654363, Acc: 0.8993
+2025-11-05 01:08:26 -   Eval  - Total: 11.048799, Acc: 0.2747
+2025-11-05 01:08:26 - Epoch 99/100, Batch 0, Total: 1.4026, Recon: 0.7809, Clf: 0.6218, Train Acc: 0.8906, LR: 0.000115
+2025-11-05 01:08:27 - Epoch 99/100, Batch 50, Total: 1.4575, Recon: 0.7464, Clf: 0.7111, Train Acc: 0.9000, LR: 0.000115
+2025-11-05 01:08:27 - Epoch 99/100, Batch 100, Total: 1.6056, Recon: 0.7155, Clf: 0.8901, Train Acc: 0.8990, LR: 0.000115
+2025-11-05 01:08:28 - Epoch 99/100, Batch 150, Total: 1.2527, Recon: 0.7636, Clf: 0.4891, Train Acc: 0.9010, LR: 0.000115
+2025-11-05 01:08:29 - Epoch 99/100, Batch 200, Total: 1.4591, Recon: 0.8021, Clf: 0.6570, Train Acc: 0.8995, LR: 0.000115
+2025-11-05 01:08:29 - Epoch 99/100, Batch 250, Total: 1.6048, Recon: 0.7393, Clf: 0.8655, Train Acc: 0.8995, LR: 0.000115
+2025-11-05 01:08:30 - Epoch 99/100, Batch 300, Total: 1.5893, Recon: 0.8555, Clf: 0.7339, Train Acc: 0.8987, LR: 0.000115
+2025-11-05 01:08:31 - Epoch 99/100, Batch 350, Total: 1.3853, Recon: 0.7643, Clf: 0.6209, Train Acc: 0.8998, LR: 0.000115
+2025-11-05 01:08:32 - Epoch 99/100 completed:
+2025-11-05 01:08:32 -   Train - Total: 1.427353, Recon: 0.776986, Clf: 0.650366, Acc: 0.8999
+2025-11-05 01:08:32 -   Eval  - Total: 11.090137, Acc: 0.2737
+2025-11-05 01:08:32 - Epoch 100/100, Batch 0, Total: 1.3645, Recon: 0.7597, Clf: 0.6048, Train Acc: 0.8906, LR: 0.000115
+2025-11-05 01:08:32 - Epoch 100/100, Batch 50, Total: 1.2840, Recon: 0.7498, Clf: 0.5342, Train Acc: 0.9009, LR: 0.000115
+2025-11-05 01:08:33 - Epoch 100/100, Batch 100, Total: 1.6570, Recon: 0.7755, Clf: 0.8815, Train Acc: 0.9025, LR: 0.000115
+2025-11-05 01:08:34 - Epoch 100/100, Batch 150, Total: 1.2322, Recon: 0.7769, Clf: 0.4553, Train Acc: 0.9009, LR: 0.000115
+2025-11-05 01:08:34 - Epoch 100/100, Batch 200, Total: 1.5872, Recon: 0.8093, Clf: 0.7779, Train Acc: 0.9000, LR: 0.000115
+2025-11-05 01:08:35 - Epoch 100/100, Batch 250, Total: 1.3203, Recon: 0.8240, Clf: 0.4963, Train Acc: 0.8992, LR: 0.000115
+2025-11-05 01:08:36 - Epoch 100/100, Batch 300, Total: 1.5187, Recon: 0.7786, Clf: 0.7401, Train Acc: 0.8974, LR: 0.000115
+2025-11-05 01:08:36 - Epoch 100/100, Batch 350, Total: 1.3630, Recon: 0.7809, Clf: 0.5822, Train Acc: 0.8981, LR: 0.000115
+2025-11-05 01:08:37 - Epoch 100/100 completed:
+2025-11-05 01:08:37 -   Train - Total: 1.429570, Recon: 0.777247, Clf: 0.652324, Acc: 0.8984
+2025-11-05 01:08:37 -   Eval  - Total: 11.061832, Acc: 0.2744
+2025-11-05 01:08:37 - Joint training completed! Best eval accuracy: 0.3312
+2025-11-05 01:08:37 - 
+2025-11-05 01:08:37 - Saving final models...
+2025-11-05 01:08:37 - Saved joint final model: runs\joint_cross_modal_audio_clap/joint_final_model.pth
+2025-11-05 01:08:37 - 
+2025-11-05 01:08:37 - ================================================================================
+2025-11-05 01:08:37 - JOINT CROSS-MODAL TRAINING SESSION COMPLETED
+2025-11-05 01:08:37 - ================================================================================
